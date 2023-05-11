@@ -130,9 +130,22 @@ h3, .u-h3{
     position: relative;
 }
 
-li.HorizontalList__Item.child--link.spicy-mango a:before {
+.main--menu li.HorizontalList__Item.child--link.spicy-mango a:hover {
+    background-color: #F9BD68;
+}
+
+.main--menu li.HorizontalList__Item.child--link.spicy-mango a:before {
     background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1765.png?v=1683791335);
 }
+
+.main--menu li.HorizontalList__Item.child--link.aloe-mint a:hover {
+    background-color: #DAECD0;
+}
+
+.main--menu li.HorizontalList__Item.child--link.aloe-mint a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1767.png?v=1683791491);
+}
+
 
 .main--menu .list-menu-dropdown {
     position: absolute;
