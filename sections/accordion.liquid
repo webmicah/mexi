@@ -204,6 +204,7 @@
   {% if section.settings.tpl == '2' and section.settings.featured_img != blank %}
     <script>
       const acc_featured_img = document.querySelector('.acc_featured_img');
+      const acc_link = document.querySelector('.accordion--link');
       const acc_body = document.querySelector('.accordion--body');
       const acc_hbtn = document.querySelectorAll('.accordion-card--btn');
       function accFimg(e) {
@@ -211,8 +212,10 @@
           btn.classList.remove('selected');
         });
         let featured_img_url = e.getAttribute('data-featured-img');
+        let featured_link = e.getAttribute('data-links');
         let body_text = e.getAttribute('data-body');
         acc_featured_img.setAttribute('src',featured_img_url);
+        acc_link.setAttribute('src',featured_link);
         acc_body.innerText = body_text;
         e.classList.add('selected');
       }
