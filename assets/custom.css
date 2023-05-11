@@ -110,7 +110,8 @@ h3, .u-h3{
 .main--menu li.child--link a {
     text-transform: capitalize;
     color: #000!important;
-    padding: 10px 10px 10px 5px;
+    padding: 5px 5px 5px 5px;
+    display: inline-block;
 }
 
 .main--menu li.child--link a:before {
@@ -146,11 +147,60 @@ h3, .u-h3{
     background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1767.png?v=1683791491);
 }
 
+.main--menu li.HorizontalList__Item.child--link.guava-spice a:hover {
+    background-color: #F8BAB2;
+}
+
+.main--menu li.HorizontalList__Item.child--link.guava-spice a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1769.png?v=1683792083);
+}
+
+.main--menu li.HorizontalList__Item.child--link.tamarindo a:hover {
+    background-color: #FFBF49;
+}
+
+.main--menu li.HorizontalList__Item.child--link.tamarindo a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1771.png?v=1683792139);
+}
+
+.main--menu li.HorizontalList__Item.child--link.tart-cherry-cola a:hover {
+    background-color: #FA8D93;
+}
+
+.main--menu li.HorizontalList__Item.child--link.tart-cherry-cola a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1771.png?v=1683792139);
+}
+
+.main--menu li.HorizontalList__Item.child--link.rosewater-lemonade a:hover {
+    background-color: #F8D2D1;
+}
+
+.main--menu li.HorizontalList__Item.child--link.rosewater-lemonade a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1768.png?v=1683792319);
+}
+
+.main--menu li.HorizontalList__Item.child--link.prickly-pear-iced-tea a:hover {
+    background-color: #EAFABC;
+}
+
+.main--menu li.HorizontalList__Item.child--link.prickly-pear-iced-tea a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1770.png?v=1683792380);
+}
+
+.main--menu li.HorizontalList__Item.child--link.pomegranate-yerba-mate a:hover {
+    background-color: #DB9ACE;
+}
+
+.main--menu li.HorizontalList__Item.child--link.pomegranate-yerba-mate a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1772.png?v=1683792443);
+}
+
+
 
 .main--menu .list-menu-dropdown {
     position: absolute;
-    max-width: 350px;
-    width: 350px;
+    max-width: 400px;
+    width: 400px;
     padding: 10px 10px 10px 10px;
     border-radius: 0px 10px 10px 10px;
     background: #FFFFFF;
