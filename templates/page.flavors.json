@@ -179,7 +179,7 @@
       "settings": {
         "sectionID": "shop",
         "title": "",
-        "layout_mode": "carousel",
+        "layout_mode": "grid",
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
         "grid_items_count": 8,
