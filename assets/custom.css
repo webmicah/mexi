@@ -207,6 +207,14 @@ h3, .u-h3{
     display: none;
 }
 
+.main--menu li.HorizontalList__Item.with--child.actives .list-menu-dropdown {
+    display: block;
+}
+
+.main--menu li.HorizontalList__Item.with--child.actives {
+    border-radius: 10px 10px 0px 0px;
+}
+
 .main--menu ul li.main--links > a {
     padding: 10px 20px;
 }
