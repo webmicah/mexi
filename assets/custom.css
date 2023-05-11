@@ -327,6 +327,21 @@ h3, .u-h3{
   transform: none;
 }
 
+
+/*----------------Homepage Banner Video Section--------------*/
+
+.video-banner--container:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg,#000 0%, #fff0 50%);
+}
+
+
+
 /*----------------Homepage Shop Section--------------*/
 .Section--spacingNone .SectionHeader .u-h2:before {
   content: "";
