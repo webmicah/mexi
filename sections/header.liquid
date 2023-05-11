@@ -178,7 +178,7 @@ HEADER CONTENT
             {%- for link in shop_menu.links -%}
               {%- assign downcased_link_title = link.title | downcase | strip -%}
 
-              <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
+              <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %} {% if link.child_active %} with--child{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
                 <a href="{{ link.url }}" class="Heading u-h6">
                   {{- link.title | escape -}}
 
