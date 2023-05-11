@@ -193,7 +193,9 @@
         "show_arrows_desktop": true,
         "show_dots_desktop": false,
         "disable_slider_mobile": false,
-        "show_arrows_mobile": false,
+        "slides_to_show_mobile": 2,
+        "slides_to_scroll_mobile": 2,
+        "show_arrows_mobile": true,
         "show_dots_mobile": false,
         "custom_css": ".section-{{ section.id }} .ProductItem__Wrapper {\n    padding-top: 25px;\n}\n.section-{{ section.id }} .ProductList .slick-arrow {\n    width: 45px;\n    height: 45px;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.section-{{ section.id }} .ProductList .slick-prev {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/prev-arrow.svg?v=1672379256)!important;\n}\n.section-{{ section.id }} .ProductList .slick-next {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/next-arrow.svg?v=1672379256)!important;\n}"
       }
