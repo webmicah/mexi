@@ -181,7 +181,7 @@ HEADER CONTENT
                   <a href="{{ link.url }}" class="Heading u-h6">
                     {{- link.title | escape -}}
 
-                    {%- if menu_item_dropdown == blank -%}
+                    {%- if menu_item_dropdown != blank -%}
                       <span class="Header__LinkSpacer">{{ link.title | escape }}</span>
                     {%- endif -%}
                   </a>
