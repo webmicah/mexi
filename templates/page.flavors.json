@@ -179,23 +179,23 @@
       "settings": {
         "sectionID": "shop",
         "title": "",
-        "layout_mode": "grid",
+        "layout_mode": "carousel",
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
         "grid_items_count": 8,
         "button_text_color": "",
         "button_bg_color": "",
-        "button_border_radius": 1,
+        "button_border_radius": 10,
         "show_bottom_bg": false,
         "bottom_bg_color": "",
         "slides_to_show_desktop": 4,
         "slides_to_scroll_desktop": 4,
-        "show_arrows_desktop": false,
+        "show_arrows_desktop": true,
         "show_dots_desktop": false,
         "disable_slider_mobile": false,
         "show_arrows_mobile": false,
         "show_dots_mobile": false,
-        "custom_css": ""
+        "custom_css": ".section-{{ section.id }} .ProductItem__Wrapper {\n    padding-top: 25px;\n}\n.section-{{ section.id }} .ProductList .slick-arrow {\n    width: 45px;\n    height: 45px;\n    background-size: contain;\n    background-repeat: no-repeat;\n}\n.section-{{ section.id }} .ProductList .slick-prev {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/prev-arrow.svg?v=1672379256)!important;\n}\n.section-{{ section.id }} .ProductList .slick-next {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/next-arrow.svg?v=1672379256)!important;\n}"
       }
     }
   },
