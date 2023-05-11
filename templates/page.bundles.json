@@ -1,47 +1,140 @@
 {
   "sections": {
-    "1644969948fd706d8f": {
-      "type": "slideshow",
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_large": true
+      }
+    },
+    "ea9bb405-0036-4310-97c6-c64682c669b3": {
+      "type": "rich-text",
       "blocks": {
-        "16449699483ef5d9b6-0": {
-          "type": "image",
+        "template--16746071687412__ea9bb405-0036-4310-97c6-c64682c669b3-1683769019734eb0a0-0": {
+          "type": "heading",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Explore-Hero.png",
-            "mobile_image": "shopify:\/\/shop_images\/Explore-Hero_5a4b1bec-9d72-485e-8fb3-e9a2d3cbbfe8.png",
-            "apply_overlay": false,
-            "title": "Explore <br>with Mexi",
-            "content_position": "topLeft",
-            "subheading": "Channel your inner  <br>California spirit.",
-            "content_sub_position": "bottomRight",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": ""
+            "heading": "BUNDLE UP",
+            "heading_style": "ff-serif-2 fw-700",
+            "heading_size": "h1"
           }
         }
       },
       "block_order": [
-        "16449699483ef5d9b6-0"
+        "template--16746071687412__ea9bb405-0036-4310-97c6-c64682c669b3-1683769019734eb0a0-0"
       ],
       "settings": {
-        "show_fullscreen": false,
-        "show_arrow": false,
-        "autoplay": true,
-        "cycle_speed": 5,
-        "text_color": "#050605",
-        "button_color": "#363636",
-        "button_background": "#ffffff"
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 68,
+        "padding_bottom": 0,
+        "section_text_color": "",
+        "section_bg_color": "#f9bd68",
+        "section_display": "all",
+        "custom_css": ".section-{{ section.id }} .richtext_heading strong{font-weight:inherit;}\n.section-{{ section.id }} .richtext_heading strong {\n    position: relative;\n}\n.section-{{ section.id }} .richtext_heading strong:after {\n\tcontent: '';\n    display: block;\n    position: absolute;\n\tleft: 0;\n    bottom: -7px;\n    width: 100%;\n    height: 12px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/underline_accent.svg?v=1670594476);\n    background-repeat: no-repeat;\n}\n.section-{{ section.id }} .rich-text__blocks,\n.section-{{ section.id }} .content-container {\n    position: relative;\n}\n.section-{{ section.id }} .rich-text__blocks:after,\n.section-{{ section.id }} .content-container:before,\n.section-{{ section.id }} .rich-text__blocks:before {\n\tcontent: '';\n    display: block;\n\tbackground-repeat: no-repeat;\n    background-size: contain;\n    position: absolute;\n}\n.section-{{ section.id }} .rich-text__blocks:before {\n    width: 100%;\n    height: 75px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/logo_triangle.svg?v=1670595489);\n\tbackground-position: center;\n    background-repeat: no-repeat;\n    top: -85px;\n}\n@media screen and (max-width: 768px) {\n\t.section-{{ section.id }} .rich-text__blocks:after,\n\t.section-{{ section.id }} .content-container:before\t{\n\t\tcontent:none;\n\t}\n}"
       }
     },
-    "main": {
-      "type": "main-page",
+    "86dca081-faac-444b-8889-b403605dac94": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16746071687412__86dca081-faac-444b-8889-b403605dac94-16837760857057317a-0": {
+          "type": "column",
+          "settings": {
+            "column_width": "",
+            "image": "shopify:\/\/shop_images\/mexibundle.png",
+            "img_max_height": "400",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "",
+            "subtitle": "",
+            "eyebrow": "",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "<p><strong>SPIRIT OF MEXICO COLLECTION<\/strong><\/p>",
+            "desc_img_height": "",
+            "link_label": "SHOP NOW",
+            "link": "shopify:\/\/products\/spirit-of-mexico-collection-variety-pack",
+            "button_style": "1",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#050605",
+            "show_divider": false,
+            "image_position": "top",
+            "bg_color": "",
+            "text_color": "#050605",
+            "padding_left": 40,
+            "padding_right": 40,
+            "padding_top": 40,
+            "padding_bottom": 40
+          }
+        },
+        "template--16746071687412__86dca081-faac-444b-8889-b403605dac94-16837760857057317a-1": {
+          "type": "column",
+          "settings": {
+            "column_width": "",
+            "image": "shopify:\/\/shop_images\/wanderlust2_min.png",
+            "img_max_height": "400",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "",
+            "subtitle": "",
+            "eyebrow": "",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "<p><strong>WANDERLUST COLLECTION<\/strong><\/p>",
+            "desc_img_height": "",
+            "link_label": "SHOP NOW",
+            "link": "shopify:\/\/products\/wanderlust-collection-variety-pack",
+            "button_style": "1",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#050605",
+            "show_divider": false,
+            "image_position": "top",
+            "bg_color": "",
+            "text_color": "",
+            "padding_left": 40,
+            "padding_right": 40,
+            "padding_top": 40,
+            "padding_bottom": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--16746071687412__86dca081-faac-444b-8889-b403605dac94-16837760857057317a-0",
+        "template--16746071687412__86dca081-faac-444b-8889-b403605dac94-16837760857057317a-1"
+      ],
       "settings": {
-        "show_large": true
+        "section_style": "style_1",
+        "title": "",
+        "heading_html": "",
+        "body_text": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_slider_buttons": true,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "section_bg_color": "#f9bd68",
+        "section_text_color": "",
+        "column_border_radius": "",
+        "rounded_bottom": false,
+        "custom_css": ".section-{{ section.id }} .multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing){\n    width: 100% !important;\n}\n.section-{{ section.id }} .multicolumn-list {\n    display: flex;\n    justify-content: center;\n    max-width: 900px;\n    margin: 0 auto;\nalign-items:end;\n}\n.section-{{ section.id }} .multicolumn-card__image {\n    margin-left: auto;\n    margin-right: auto;\n}\n@media screen and (max-width: 1024px){\n\n}"
       }
     }
   },
   "order": [
-    "1644969948fd706d8f",
-    "main"
+    "main",
+    "ea9bb405-0036-4310-97c6-c64682c669b3",
+    "86dca081-faac-444b-8889-b403605dac94"
   ]
 }
