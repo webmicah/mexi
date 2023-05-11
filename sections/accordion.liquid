@@ -137,7 +137,7 @@
                       <button class="accordion-card--btn btn btn-link btn-block{% if forloop.index == 1 %} selected{% endif %}" type="button" data-toggle="collapse"
                         data-target="#collapse_{{ section.id }}_{{ forloop.index }}" aria-expanded="false" aria-controls="collapse{{ forloop.index }}"
                         data-body="{{ block.settings.accordion_body | strip_html }}"
-                        data-links="https://www.instagram.com/{{ block.settings.accordion_heading | lowercase}}"
+                        data-links="https://www.instagram.com/{{ block.settings.accordion_heading | downcase}}"
                         {% if block.settings.featured_img != blank %} data-featured-img="{{ block.settings.featured_img | img_url: 'master' }}" onclick="accFimg(this)"{% endif %}>
                           <h5 class="card-title mb-0 ff-serif_2">{{ block.settings.accordion_heading }}</h5>
                           {% unless block.settings.heading_bg_img == blank %}
