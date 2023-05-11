@@ -149,6 +149,21 @@
             "product_bg_banner": "shopify:\/\/shop_images\/7_7a26b871-64d0-49a4-9e64-7a3426568acc.png",
             "product_bg_banner2": "shopify:\/\/shop_images\/7_7a26b871-64d0-49a4-9e64-7a3426568acc.png"
           }
+        },
+        "ec874e28-ba0c-4e8f-b5bf-73fc292fc6a9": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/08_POMEGRANATEDISPLAY_f1ee64f2-e98e-463d-99b2-df294718d115.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "POMEGRANATE YERBA MATE",
+            "button_link": "shopify:\/\/products\/pomegranate-yerba-mate-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/8.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/8.png"
+          }
         }
       },
       "block_order": [
@@ -158,7 +173,8 @@
         "d6e7552e-3a1e-48cd-a047-992818a14407",
         "20d646e5-de94-4b0d-9554-8adf491fb0c8",
         "86740c5d-fb05-4beb-b247-c89590b5309a",
-        "ec14feaa-8d5f-40d6-a50c-7099c0dfa5e4"
+        "ec14feaa-8d5f-40d6-a50c-7099c0dfa5e4",
+        "ec874e28-ba0c-4e8f-b5bf-73fc292fc6a9"
       ],
       "settings": {
         "sectionID": "shop",
