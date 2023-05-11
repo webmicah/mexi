@@ -177,17 +177,31 @@ HEADER CONTENT
           <ul class="HorizontalList HorizontalList--spacingLoose hidden-pocket hidden-lap">
             {%- for link in shop_menu.links -%}
               {%- assign downcased_link_title = link.title | downcase | strip -%}
-                <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
-                  <a href="{{ link.url }}" class="Heading u-h6">
-                    {{- link.title | escape -}}
 
-                    {%- if menu_item_dropdown != blank -%}
-                      <span class="Header__LinkSpacer">{{ link.title | escape }}</span>
-                    {%- endif -%}
-                  </a>
+              <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
+                <a href="{{ link.url }}" class="Heading u-h6">
+                  {{- link.title | escape -}}
 
-                  {{- menu_item_dropdown -}}
-                </li>
+                  {%- if menu_item_dropdown == blank -%}
+                    <span class="Header__LinkSpacer">{{ link.title | escape }}</span>
+                  {%- endif -%}
+                </a>
+
+                {{- menu_item_dropdown -}}
+
+
+                <ul class="menu-drawer__menu list-menu-dropdown" role="list" tabindex="-1">
+                {%- for childlink in link.links -%}
+                      <li class="HorizontalList__Item {{ link.title | handle }}" >
+                        <a href="{{ link.url }}" class="Heading u-h6 ">
+                          {{- link.title | escape -}}
+                        </a>
+                      </li>
+                {%- endfor -%}
+                </ul>
+           </li>
+
+
 			{% endfor%}
           </ul>
         </nav>
