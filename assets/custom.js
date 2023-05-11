@@ -36,8 +36,8 @@ $( document ).ready(function() {
     dragThreshold: '4',
     groupCells: 'false'
   });
- 
-  
+
+
   $('.MerchList').flickity({
     // options
     prevNextButtons: 'false',
@@ -49,9 +49,17 @@ $( document ).ready(function() {
     dragThreshold: '4',
     groupCells: 'false'
   });
-  
-  
-  
+
+$( ".main--menu li.with--child" ).hover(
+  function() {
+    $( this ).addClass( "actives" );
+  }, function() {
+    $( this ).removeClass( "hover" );
+  }
+);
+
+
+
 //    $('.AnnouncementBar__Wrapper').flickity({
 //   // options
 //     prevNextButtons: 'false',
@@ -64,8 +72,8 @@ $( document ).ready(function() {
 //     dragThreshold: '4',
 //     groupCells: 'false'
 //   });
-  
-  
 
-  
+
+
+
 });
