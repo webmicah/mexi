@@ -107,9 +107,9 @@ h3, .u-h3{
     padding: 10px 20px;
 }
 
-.main--menu li.child--links a {
+.main--menu li.child--link a {
     text-transform: capitalize;
-    color: #fff;
+    color: #000;
 }
 
 .main--menu li.HorizontalList__Item.with--child {
