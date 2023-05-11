@@ -100,11 +100,32 @@ h3, .u-h3{
 /*----------------Header--------------*/
 
 
-li.HorizontalList__Item:hover a {
+.main--menu ul li.main--links:hover  > a {
     background: #000000;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     color: #fff;
     padding: 10px 20px;
+}
+
+.main--menu li.HorizontalList__Item.with--child {
+    position: relative;
+}
+
+.main--menu .list-menu-dropdown {
+    position: absolute;
+    background-color: #fff;
+    max-width: 300px;
+    width: 300px;
+    padding: 15px;
+    border-radius: 0px 10px 10px 10px;
+    border-radius: 0px 10px 10px 10px;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    backdrop-filter: blur(4.5px);
+}
+
+.main--menu .list-menu-dropdown li {
+    display: block;
 }
 
 

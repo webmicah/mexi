@@ -180,7 +180,7 @@ HEADER CONTENT
 
               {%- if link.links != blank -%}
 
-              <li class="HorizontalList__Item with--child {% if link.links == blank and link.active %}is-active{% endif %} " {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
+              <li class="HorizontalList__Item main--links with--child {% if link.links == blank and link.active %}is-active{% endif %} " {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
                 <a href="{{ link.url }}" class="Heading u-h6">
                   {{- link.title | escape -}}
 
@@ -201,7 +201,7 @@ HEADER CONTENT
              </li>
 
               {%- else -%}
-                            <li class="HorizontalList__Item  {% if link.links == blank and link.active %}is-active{% endif %} " {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
+                            <li class="HorizontalList__Item  main--links {% if link.links == blank and link.active %}is-active{% endif %} " {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
                               <a href="{{ link.url }}" class="Heading u-h6">
                                 {{- link.title | escape -}}
 
