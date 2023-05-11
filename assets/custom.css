@@ -97,6 +97,16 @@ h3, .u-h3{
   font-size: 20px;
 }
 
+/*----------------Header--------------*/
+
+
+li.HorizontalList__Item:hover a {
+    background: #000000;
+    border-radius: 10px 10px 0px 0px;
+    color: #fff;
+    padding: 10px 20px;
+}
+
 
 /*----------------Age Gate--------------*/
 .age-gate{
