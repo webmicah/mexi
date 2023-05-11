@@ -90,14 +90,14 @@
   {% endif %}
   {{ section.settings.custom_css }}
 {%- endstyle -%}
-<section class="accordion-section section-{{ section.id }}{% if section.settings.show_bg_img %} bg_img{% endif %} section-{{ section.id }}-padding" 
+<section class="accordion-section section-{{ section.id }}{% if section.settings.show_bg_img %} bg_img{% endif %} section-{{ section.id }}-padding"
 {% if section.settings.section_bg_color != blank %} style="background-color:{{ section.settings.section_bg_color }};" {% endif %}>
   {% assign section_accent_images = section.blocks | where: 'type', 'accent_img' %}
   {% for block in section_accent_images %}
     {% if block.settings.accimg_location == 'entire_section' %}
       {% assign max_height = block.settings.max_height %}
       {% unless block.settings.img == blank %}
-        <img class="grid-icon__aimage" id="block-{{block.id}}" src="{{ block.settings.img | img_url: 'master' }}" alt="{{ block.settings.img.alt }}" loading="lazy" 
+        <img class="grid-icon__aimage" id="block-{{block.id}}" src="{{ block.settings.img | img_url: 'master' }}" alt="{{ block.settings.img.alt }}" loading="lazy"
         style="{% unless max_height == blank %}max-height:{{ max_height }}px;{% endunless %}
         {% unless block.settings.accimg_right == blank %}right:{{block.settings.accimg_right}}%;{% endunless %}
         {% unless block.settings.accimg_top == blank %}top:{{block.settings.accimg_top}}%;{% endunless %}">
@@ -187,7 +187,9 @@
           {% elsif section.settings.tpl == '2' or  section.settings.tpl == '3' %}
             <div class="accordion--wrapper">
               <h1 class="accordion--heading hidden-tablet-and-up mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
+              <a href="https://www.instagram.com/{{ section.settings.heading | lowercase}}" target="_blank">
               <img src="{{ section.settings.featured_img | img_url: 'master' }}" alt="" class="w-100 acc_featured_img" loading="lazy">
+              </a>
               {% assign accordion_items = section.blocks | where: 'type', 'accordion_item' %}
               {% for block in accordion_items limit: 1 %}
                 <h4 class="accordion--body mx-auto ml-md-0">{{ block.settings.accordion_body }}</h4>
