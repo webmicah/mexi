@@ -187,7 +187,7 @@
           {% elsif section.settings.tpl == '2' or  section.settings.tpl == '3' %}
             <div class="accordion--wrapper">
               <h1 class="accordion--heading hidden-tablet-and-up mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
-              <a href="https://www.instagram.com/{{ section.settings.heading | lowercase}}" target="_blank">
+              <a href="https://www.instagram.com/{{ block.settings.accordion_heading | downcase }}" target="_blank">
               <img src="{{ section.settings.featured_img | img_url: 'master' }}" alt="" class="w-100 acc_featured_img" loading="lazy">
               </a>
               {% assign accordion_items = section.blocks | where: 'type', 'accordion_item' %}
