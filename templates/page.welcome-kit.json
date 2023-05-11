@@ -1,0 +1,1841 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_large": true
+      }
+    },
+    "23834e2f-1a7c-4b83-8d30-73f69e95045f": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16547464052973__23834e2f-1a7c-4b83-8d30-73f69e95045f-1666616829908b6ff9-0": {
+          "type": "column",
+          "settings": {
+            "column_width": "100%",
+            "img_max_height": "800",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/09b763bb64d6437aab3f61a484755e68.mp4",
+            "video_autoplay": true,
+            "video_muted": true,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "",
+            "subtitle": "",
+            "eyebrow": "",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "",
+            "desc_img_height": "",
+            "link_label": "",
+            "link": "#shopify-section-template--16529505583341__4214f265-9541-49f7-84fc-2bb473c601cf",
+            "button_style": "1",
+            "button_text_color": "",
+            "button_bg_color": "",
+            "show_divider": false,
+            "image_position": "top",
+            "bg_color": "",
+            "text_color": "",
+            "padding_left": 0,
+            "padding_right": 0,
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "template--16547464052973__23834e2f-1a7c-4b83-8d30-73f69e95045f-1666616829908b6ff9-1": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "column_width": "40%",
+            "img_max_height": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "Refreshing Craft Tequila Seltzers",
+            "subtitle": "",
+            "eyebrow": "LIKE TEQUILA?... YOU'LL LOVE OUR ONE OF A KIND",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "<p>Each MEXI is one of a kind limited edition flavor that's crafted to perfection for your thirst and relax and relaxation.<\/p>",
+            "desc_img_height": "",
+            "link_label": "Try MEXI",
+            "link": "",
+            "button_style": "1",
+            "button_text_color": "",
+            "button_bg_color": "",
+            "show_divider": false,
+            "image_position": "center",
+            "bg_color": "rgba(0,0,0,0)",
+            "text_color": "#ffffff",
+            "padding_left": 40,
+            "padding_right": 40,
+            "padding_top": 0,
+            "padding_bottom": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--16547464052973__23834e2f-1a7c-4b83-8d30-73f69e95045f-1666616829908b6ff9-0",
+        "template--16547464052973__23834e2f-1a7c-4b83-8d30-73f69e95045f-1666616829908b6ff9-1"
+      ],
+      "settings": {
+        "section_style": "style_4",
+        "title": "",
+        "heading_html": "",
+        "body_text": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_slider_buttons": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_bg_color": "#050605",
+        "section_text_color": "",
+        "column_border_radius": "",
+        "rounded_bottom": false,
+        "custom_css": ""
+      }
+    },
+    "386a2fdc-17bc-4fe6-9eac-4e6c44274ff3": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LIKE TEQUILA?... YOU'LL LOVE OUR ONE OF A KIND<\/p>",
+            "font_size": "18",
+            "style": "1"
+          }
+        },
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-0": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Refreshing Craft Tequila Seltzers",
+            "heading_style": "ff-serif-2 fw-700",
+            "heading_size": "h1"
+          }
+        },
+        "9c21372a-6ba1-42d2-a517-5d2602b4a955": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>Refreshing Craft<\/p><p>Tequila Seltzers<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        },
+        "a8feb4b4-6a3d-4001-85d7-3bcb7fad116c": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each MEXI is one of a kind limited edition flavor that's crafted to perfection for your thirst and relaxation.<\/p>",
+            "font_size": "16",
+            "style": "1"
+          }
+        },
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "TRY MEXI",
+            "button_link": "#shopify-section-template--16637683073268__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83",
+            "button_style": "4",
+            "button_style_secondary": false,
+            "text_color": "#050605",
+            "bg_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-1",
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-0",
+        "9c21372a-6ba1-42d2-a517-5d2602b4a955",
+        "a8feb4b4-6a3d-4001-85d7-3bcb7fad116c",
+        "template--16560576790765__386a2fdc-17bc-4fe6-9eac-4e6c44274ff3-16678872284ffe534b-2"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "section_text_color": "#ffffff",
+        "section_bg_color": "#000000",
+        "section_display": "all",
+        "custom_css": ".section-{{section.id}} .richtext_heading p {margin-bottom:0;}\n.section-{{section.id}}{position:relative;}\n.section-{{section.id}}:before {\n    content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1_black.png?v=1674219738);\n    height: 30px;\n    width: 100%;\n    top: -8px;\n    z-index: 1;\n}\n.section-{{section.id}}:after{\n            content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1_black.png?v=1674219738);\n    height: 30px;\n    width: 100%;\n    bottom: -8px;\nz-index: 1;\n    transform: rotate(180deg);\n}\n@media screen and (max-width:750px){\n.section-{{ section.id }}-padding{padding-bottom:12%;}\n}"
+      }
+    },
+    "13758f36-cbb5-43ce-ab21-1ed18760df2a": {
+      "type": "logo-list",
+      "blocks": {
+        "544b3029-7038-432c-82af-dcd6b7b2f4ea": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "glasses.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "1.5 TEQUILA SHOTS PER CAN",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "rgba(0,0,0,0)",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "716bd7c6-632e-4a15-91a2-b1b59b7820c7": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "nom.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "NOM CERTIFIED",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "#322f26",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "2c36282f-41ad-4aa2-b991-43af4ecd4831": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "plant.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "LOW SUGAR & CALORIES",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "#322f26",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "9507795a-1d9c-4fd0-b23a-1948295bf273": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "fruit.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "REAL FRUIT JUICE FLAVORS",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "#322f26",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "fd71201e-7b68-4c89-b79c-cae7f05b06b9": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "sparkling.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "SPARKLING SPRING WATER",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "#322f26",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "544b3029-7038-432c-82af-dcd6b7b2f4ea",
+        "716bd7c6-632e-4a15-91a2-b1b59b7820c7",
+        "2c36282f-41ad-4aa2-b991-43af4ecd4831",
+        "9507795a-1d9c-4fd0-b23a-1948295bf273",
+        "fd71201e-7b68-4c89-b79c-cae7f05b06b9"
+      ],
+      "settings": {
+        "featured_logo_title": "",
+        "heading": "",
+        "subheading": "",
+        "text_position": "bottom",
+        "logos_max_height": "80",
+        "column_width": "20%",
+        "tpl": "1",
+        "columns_desktop": 5,
+        "columns_mobile": 1,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "section_bg_color": "#f9bd68",
+        "section_text_color": "#000000",
+        "block_border_radius": "28",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": false,
+        "section_display": "desktop_only",
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll_desktop": 5,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 1,
+        "slides_to_scroll_mobile": 1,
+        "show_arrows_mobile": true,
+        "show_dots_mobile": true,
+        "custom_css": ".section-{{ section.id }} .logo_list .slick-track{width:100%;}\n.section--{{section.id}}:before {\n    content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1.png?v=1673949743);\n    height: 30px;\n    width: 100%;\n    top: -5px;\n    z-index: 1;\nbackground-repeat-y: no-repeat;\n}\n.section--{{section.id}}:after{\n            content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1.png?v=1673949743);\n    height: 30px;\n    width: 100%;\n    bottom: -8px;\n    z-index: 1;\n    transform: rotate(180deg);background-repeat-y: no-repeat;\n}"
+      }
+    },
+    "d1a05c78-799a-4a20-b82f-8ee975fbd215": {
+      "type": "logo-list",
+      "blocks": {
+        "220d221a-0a8f-4168-8506-d0edd9945142": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "glasses.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "1.5 TEQUILA SHOTS PER CAN",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "0ec79d5c-5b4f-4cbc-89b6-a6f225004a71": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "nom.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "NOM CERTIFIED",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "57332298-170b-48b9-82ae-2653d13d7d20": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "plant.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "LOW SUGAR & CALORIES",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "d2a04b8e-bfd8-47ba-82e1-a93d554ca1d2": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "fruit.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "REAL FRUIT JUICE FLAVORS",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "afb00628-a717-4843-b118-67be29ef6ff8": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "sparkling.svg",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "SPARKLING SPRING WATER",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "220d221a-0a8f-4168-8506-d0edd9945142",
+        "0ec79d5c-5b4f-4cbc-89b6-a6f225004a71",
+        "57332298-170b-48b9-82ae-2653d13d7d20",
+        "d2a04b8e-bfd8-47ba-82e1-a93d554ca1d2",
+        "afb00628-a717-4843-b118-67be29ef6ff8"
+      ],
+      "settings": {
+        "featured_logo_title": "As featured on",
+        "heading": "",
+        "subheading": "",
+        "text_position": "bottom",
+        "logos_max_height": "80",
+        "column_width": "20%",
+        "tpl": "1",
+        "columns_desktop": 5,
+        "columns_mobile": 1,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "section_bg_color": "#f9bd68",
+        "section_text_color": "#050605",
+        "block_border_radius": "28",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": true,
+        "section_display": "mobile_only",
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll_desktop": 5,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 3,
+        "slides_to_scroll_mobile": 3,
+        "show_arrows_mobile": false,
+        "show_dots_mobile": false,
+        "custom_css": ".section-{{ section.id }} .logo_list .slick-track{width:100%;}\n.section--{{section.id}}:before {\n    content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1.png?v=1673949743);\n    height: 30px;\n    width: 100%;\n    top: -5px;\n    z-index: 1;\n}\n.section--{{section.id}}:after{\n            content: '';\n    position: absolute;\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1.png?v=1673949743);\n    height: 30px;\n    width: 100%;\n    bottom: -8px;\n    z-index: 1;\n    transform: rotate(180deg);\n}\n@media screen and (max-width: 750px){\n.section--{{ section.id }}.feature-logo {width:90%;margin-left:auto;margin-right:auto;padding-top:15px;padding-bottom:15px;margin-top:-8%;z-index:1;}\n.section--{{ section.id }}.feature-logo .logo_item .imgBox img,.section--{{ section.id }}.feature-logo .logo_item .imgBox{max-height:50px !important;min-height:unset;}\n.section--{{ section.id }}.feature-logo .col_item .subh{font-size:12px;}\n.section--{{ section.id }}.feature-logo .p-3{position: relative;}.section--{{ section.id }}.feature-logo .p-3:before{content:'';position:absolute;display:block;background-image:url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1v.png?v=1674725741);background-repeat:no-repeat;height:129%;width:20px;top:-19px;left:-14px;z-index:1;transform:rotate(180deg);}.section--{{ section.id }}.feature-logo .p-3:after{content:'';position:absolute;display:block;background-image:url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/section1v.png?v=1674725741);background-repeat:no-repeat;height:129%;width:20px;top:-18px;right:-14px;z-index:1;}\n}"
+      }
+    },
+    "c4679065-6126-4cbd-b85b-4aa9d23b9aab": {
+      "type": "rich-text",
+      "blocks": {
+        "513e1339-bef6-4a90-9704-5531e06774d1": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>MEXI COLLECTIONS<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        }
+      },
+      "block_order": [
+        "513e1339-bef6-4a90-9704-5531e06774d1"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "section_text_color": "",
+        "section_bg_color": "",
+        "section_display": "all",
+        "custom_css": "\/*.section-{{ section.id }}{\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/white-fabric-texture2.png?v=1670573141);\n}*\/\n@media screen and (min-width: 1024px){\n.section-{{ section.id }}{position:relative;}\n.section-{{ section.id }}:after{\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/vacc2.png?v=1673942878);\n    background-repeat-x: no-repeat;\n    background-repeat-y: repeat;\n    position: absolute;\n    display: block;\n    height: 104%;\n    width: 44px;\n    top: 0;\n    right: 0;\n    background-size: cover;\n}\n}"
+      }
+    },
+    "9f66332e-9a97-49dc-91fa-04e93a12a9ea": {
+      "type": "featured-multi-collections",
+      "blocks": {
+        "54aa6ec7-6230-4af4-8e4f-e8da9326aaa2": {
+          "type": "collection",
+          "settings": {
+            "collection": "spirit-of-mexico",
+            "title": ""
+          }
+        },
+        "ff9536f4-2504-4cd7-b018-05471010b11a": {
+          "type": "collection",
+          "settings": {
+            "collection": "wanderlust",
+            "title": ""
+          }
+        },
+        "1f9fe1e7-894d-4100-b01e-72d47f8ae7a2": {
+          "type": "collection",
+          "settings": {
+            "collection": "trifecta",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "54aa6ec7-6230-4af4-8e4f-e8da9326aaa2",
+        "ff9536f4-2504-4cd7-b018-05471010b11a",
+        "1f9fe1e7-894d-4100-b01e-72d47f8ae7a2"
+      ],
+      "settings": {
+        "sectionID": "shop",
+        "title": "",
+        "text": "",
+        "layout_mode": "grid",
+        "show_product_form": false,
+        "bullet_list": "",
+        "grid_mobile_items_per_row": "2",
+        "grid_desktop_items_per_row": 4,
+        "grid_items_count": 8,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "show_arrows_mobile": true,
+        "show_dots_mobile": true,
+        "custom_css": "\/*.section-{{ section.id }}{\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/white-fabric-texture2.png?v=1670573141);\n}*\/.section-{{ section.id }}{position:relative;}\n.section-{{ section.id }} .TabPanel {\n    z-index: 1;\n    position: relative;\n}\n.section-{{ section.id }}:after {\n    content: '';\n    display: block;\n    width: 100%;\n    height: 38%;\n    background-color: #C6DB7C;\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    z-index: 0;\n}\n@media screen and (min-width: 1024px){\n.section-{{ section.id }}{position:relative;}\n.section-{{ section.id }}:before{\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/vacc2.png?v=1673942878);\n    background-repeat-x: no-repeat;\n    background-repeat-y: repeat;\n    position: absolute;\n    display: block;\n    height: 100%;\n    width: 44px;\n    top: 0;\n    right: 0;\n    background-size: cover;\n    z-index: 1;\n}\n}"
+      }
+    },
+    "ff50b08b-9f62-4a3a-8ecb-242b3d2efb83": {
+      "type": "featured-product-copy",
+      "blocks": {
+        "ff5bfda9-1735-4eab-96c5-ba89806ab556": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "BUY WELCOME BOX ONE - TIME + SUBSCRIPTION"
+          }
+        },
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-0": {
+          "type": "product_meta",
+          "disabled": true,
+          "settings": {
+            "custom_name": "SPIRIT OF MEXICO",
+            "show_price": false,
+            "show_vendor": false,
+            "show_sku": false,
+            "show_product_rating": false,
+            "show_taxes_included": false
+          }
+        },
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-2": {
+          "type": "variant_selector",
+          "settings": {
+            "selector_mode": "dropdown",
+            "show_color_swatch": false,
+            "show_color_carousel": false,
+            "size_chart": ""
+          }
+        },
+        "61b06188-7601-48a9-8053-f97bedd19278": {
+          "type": "purchase_type_picker",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "c2e318c2-719f-436f-bab1-9a6625edfdf5": {
+          "type": "subscription_options",
+          "settings": {
+            "bullet_list": "<p>Free shipping|Pause or Cancel Anytime.<\/p>",
+            "label": "SELECT YOUR PLAN"
+          }
+        },
+        "1dec2af0-2cfb-4306-90d0-7a75c6efe96a": {
+          "type": "onetime_options",
+          "settings": {
+            "label": "One-Time Purchase"
+          }
+        },
+        "b8832b5b-9db1-4873-a557-af87b4b6e3aa": {
+          "type": "quantity_selector",
+          "settings": {
+            "show_label": false
+          }
+        },
+        "15c336b7-d907-4072-ab7e-62c4e6f48d69": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "COLLECTION BOX (16 CANS\/BOX)"
+          }
+        },
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_price_in_button": false,
+            "show_payment_button": false
+          }
+        },
+        "60730700-dd40-4716-ab05-857b15261da7": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Cancel Anytime!"
+          }
+        },
+        "6ad69258-d113-4159-8b34-f19e1b3da9d4": {
+          "type": "featured_product",
+          "settings": {
+            "product": "spirit-of-mexico-collection-variety-pack",
+            "title": "SPIRIT OF MEXICO",
+            "featured_image": "shopify:\/\/shop_images\/spiritofmexico-6_1_8c5419ae-a433-40a3-a030-5b683ec97309.jpg",
+            "featured_hover_image": "shopify:\/\/shop_images\/Frame_55.jpg"
+          }
+        },
+        "26c93c47-bc0e-43ff-9770-b5a7e5762937": {
+          "type": "featured_product",
+          "settings": {
+            "product": "wanderlust-collection-variety-pack",
+            "title": "WANDERLUST",
+            "featured_image": "shopify:\/\/shop_images\/wanderlust_fpi.jpg",
+            "featured_hover_image": "shopify:\/\/shop_images\/wanderlust_fpih.jpg"
+          }
+        },
+        "e3c3e69f-b109-4d38-acf3-f8fb18c56b22": {
+          "type": "featured_product",
+          "settings": {
+            "product": "trifecta-12-oz-12pk",
+            "title": "TRIFECTA",
+            "featured_image": "shopify:\/\/shop_images\/trifecta.jpg",
+            "featured_hover_image": "shopify:\/\/shop_images\/Mexi_Day_1-81_1_0de89d7e-7b2d-4309-a5c2-19a549b7a4f5.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "ff5bfda9-1735-4eab-96c5-ba89806ab556",
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-0",
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-2",
+        "61b06188-7601-48a9-8053-f97bedd19278",
+        "c2e318c2-719f-436f-bab1-9a6625edfdf5",
+        "1dec2af0-2cfb-4306-90d0-7a75c6efe96a",
+        "b8832b5b-9db1-4873-a557-af87b4b6e3aa",
+        "15c336b7-d907-4072-ab7e-62c4e6f48d69",
+        "template--16637727211764__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83-16690887423166a950-3",
+        "60730700-dd40-4716-ab05-857b15261da7",
+        "6ad69258-d113-4159-8b34-f19e1b3da9d4",
+        "26c93c47-bc0e-43ff-9770-b5a7e5762937",
+        "e3c3e69f-b109-4d38-acf3-f8fb18c56b22"
+      ],
+      "settings": {
+        "subheading": "<p>SHOP YOUR MEXI COLLECTION<\/p>",
+        "title": "",
+        "show_headings_on_mobile": true,
+        "product": "spirit-of-mexico-collection-variety-pack",
+        "featured_image": "shopify:\/\/shop_images\/spiritofmexico-6_1_c33bfe36-6189-4672-bb1b-7635b62e23f4.jpg",
+        "default_selected_purchase_type": "subscription",
+        "shipping_info_onetime": "Free Shipping in California",
+        "shipping_info_subx": "",
+        "show_sticky_atc": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_text_color": "#322f26",
+        "info_align": "center"
+      }
+    },
+    "4214f265-9541-49f7-84fc-2bb473c601cf": {
+      "type": "rich-text",
+      "blocks": {
+        "ca56b658-fc30-4d15-b107-abbfd6a9def6": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>CHOOSE RIGHT,<\/p><p><strong>CHOOSE MEXI<\/strong><\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        }
+      },
+      "block_order": [
+        "ca56b658-fc30-4d15-b107-abbfd6a9def6"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 40,
+        "padding_bottom": 8,
+        "section_text_color": "",
+        "section_bg_color": "",
+        "section_display": "all",
+        "custom_css": ".section-{{section.id}} .richtext_heading p {margin-bottom:0;}\n.section-{{ section.id }} .richtext_heading strong {\n    position: relative;\nfont-weight:400;\n}\n.section-{{section.id}} .rich-text__button{pointer-events:none;}\n.section-{{section.id}}  .richtext_heading strong:after {\n    content: '';\n    display: block;\n    position: absolute;\n    left: 0;\n    bottom: -7px;\n    width: 100%;\n    height: 12px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/yellow_underline.svg?v=1674206783);\n    background-repeat: no-repeat;\n}\n@media screen and (min-width:1024px) {\n.section-{{section.id}} .content-container:before {\n    content: '';\n    width: 160px;\n    height: 160px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/logo_circle.png);\n    left: 9%;\n    top: 16%;\n    z-index: 2;\n    display: block;\n    background-size: contain;\n    background-repeat: no-repeat;\n    position: absolute;\n}\n}"
+      }
+    },
+    "87a49b06-c1cd-4b4d-b7ce-ecbde8535631": {
+      "type": "carousel",
+      "blocks": {
+        "10ea84e3-3a26-4cde-837f-a2d82287ef60": {
+          "type": "slide",
+          "settings": {
+            "product": "aloe-mint-12-oz-4pk",
+            "left_heading": "Aloe & Mint MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#498b41",
+            "left_image": "shopify:\/\/shop_images\/Group_1587_d42ce06b-d14c-451d-9a0a-3c79e1b46ec0.webp",
+            "left_col_bg_color": "#c7dac2",
+            "right_heading": "Mojito (w tequila)",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#000000",
+            "right_image": "shopify:\/\/shop_images\/aloe-mint_9d259bf1-4660-4314-a1c9-562ffc40fce2.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/aloe_c7eb2bb5-016d-4563-97b3-88e73c9eb5eb.png",
+            "thumb_image_bgcolor": "#c7dac2"
+          }
+        },
+        "65e5d7ce-740b-4b9d-98ad-090ee99b9c0a": {
+          "type": "slide",
+          "settings": {
+            "product": "guava-spice-12-oz-4pk",
+            "left_heading": "Guava Spice MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#f0aab9",
+            "left_image": "shopify:\/\/shop_images\/MEXI_Hero_Wet_Guava_24x36_300dpi_1_1.png",
+            "left_col_bg_color": "#e8d0ca",
+            "right_heading": "Guava Margarita",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#000000",
+            "right_image": "shopify:\/\/shop_images\/guava_drink.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/guava_spice_af6b5052-961e-49b5-8f99-3a20e231ef82.png",
+            "thumb_image_bgcolor": "#f0d7d1"
+          }
+        },
+        "8ab6c40c-41f6-4425-a352-d75f59f1b1c4": {
+          "type": "slide",
+          "settings": {
+            "product": "tamarindo-12-oz-4pk",
+            "left_heading": "Tamarindo MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#872623",
+            "left_image": "shopify:\/\/shop_images\/MEXI_Hero_Wet_Tamarindo_24x36in_300dpi_1_2_b5d492f0-b73e-4c99-874a-96b4c9c2283b.png",
+            "left_col_bg_color": "#c6aba8",
+            "right_heading": "Tamarindo Margarita",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#000000",
+            "right_image": "shopify:\/\/shop_images\/Group_1546.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/tamarindo_can.png",
+            "thumb_image_bgcolor": "#cbafac"
+          }
+        },
+        "a66ffe75-6b3f-4794-87a2-dab80dfd42de": {
+          "type": "slide",
+          "settings": {
+            "product": "spicy-mango-12-oz-4pk",
+            "left_heading": "Spicy Mango MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#f9ba2b",
+            "left_image": "shopify:\/\/shop_images\/Group_1556.png",
+            "left_col_bg_color": "#f1e4bb",
+            "right_heading": "Spicy Mango Margarita",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#000000",
+            "right_image": "shopify:\/\/shop_images\/image_27.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/spicymango_dedec6e1-97eb-4ea4-84e9-56368fc1875f.png",
+            "thumb_image_bgcolor": "#f7eabf"
+          }
+        },
+        "693d1cfe-68d6-4948-9b2c-3bec539f167b": {
+          "type": "slide",
+          "settings": {
+            "product": "prickly-pear-iced-tea-12-oz-4pk",
+            "left_heading": "Prickly Pear Iced Tea MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#b3b818",
+            "left_image": "shopify:\/\/shop_images\/pricklypearicedtea_056c49a2-6bf9-4993-a940-7799bd025fec.png",
+            "left_col_bg_color": "#e4d8a4",
+            "right_heading": "Planter’s Punch",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#1b1c1e",
+            "right_image": "shopify:\/\/shop_images\/image_32.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/pricklypearicedtea_056c49a2-6bf9-4993-a940-7799bd025fec.png",
+            "thumb_image_bgcolor": "#e4d8a4"
+          }
+        },
+        "c0717caa-68fb-4111-bab2-e3f076b94f1a": {
+          "type": "slide",
+          "settings": {
+            "product": "rosewater-lemonade-12-oz-4pk",
+            "left_heading": "Rosewater Lemonade MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#d77700",
+            "left_image": "shopify:\/\/shop_images\/rosewaterlemonade_ca74cfe7-5a57-4795-ad53-b43722f5e55e.png",
+            "left_col_bg_color": "#d6b9af",
+            "right_heading": "Vodka Lemonade",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#1b1c1e",
+            "right_image": "shopify:\/\/shop_images\/kisspng-caipirinha-vodka-tonic-caipiroska-cocktail-garnish-tropical-cocktail-5b4b83620f7a42_1.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/rosewaterlemonade_ca74cfe7-5a57-4795-ad53-b43722f5e55e.png",
+            "thumb_image_bgcolor": "#d6b9af"
+          }
+        },
+        "949dd022-9954-4eb5-b32c-6a22aabac5d5": {
+          "type": "slide",
+          "settings": {
+            "product": "pomegranate-yerba-mate-12-oz-4pk",
+            "left_heading": "Pomegranate Yerba Mate MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#bd4c9c",
+            "left_image": "shopify:\/\/shop_images\/pomegranateyerbamate_8a7452a2-fe8b-4c0a-abf2-bdee982dcb22.png",
+            "left_col_bg_color": "#c5bbcc",
+            "right_heading": "Cosmopolitan",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#1b1c1e",
+            "right_image": "shopify:\/\/shop_images\/kisspng-cosmopolitan-cocktail-martini-soju-vodka-5b2d1a8bf0d3c2_1.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/pomegranateyerbamate_8a7452a2-fe8b-4c0a-abf2-bdee982dcb22.png",
+            "thumb_image_bgcolor": "#c5bbcc"
+          }
+        },
+        "9a696fa2-8119-480f-8d96-537b42d41387": {
+          "type": "slide",
+          "settings": {
+            "product": "tart-cherry-cola-12-oz-4pk",
+            "left_heading": "Tart Cherry Cola MEXI",
+            "left_heading_text_color": "#ffffff",
+            "left_heading_bg_color": "#91050f",
+            "left_image": "shopify:\/\/shop_images\/tartcherrycola_0fb19d43-63b6-46c5-ad85-5f889fc4ecac.png",
+            "left_col_bg_color": "#dbada3",
+            "right_heading": "Batanga",
+            "right_heading_text_color": "#ffffff",
+            "right_heading_bg_color": "#1b1c1e",
+            "right_image": "shopify:\/\/shop_images\/large_el_jimador_batanga_1.png",
+            "right_col_bg_color": "#ffffff",
+            "thumb_image": "shopify:\/\/shop_images\/tartcherrycola_0fb19d43-63b6-46c5-ad85-5f889fc4ecac.png",
+            "thumb_image_bgcolor": "#dbada3"
+          }
+        },
+        "c45a772d-5995-4ee4-aa98-1c5f874119e5": {
+          "type": "collection",
+          "settings": {
+            "collection": "spirit-of-mexico",
+            "default_selected": true
+          }
+        },
+        "b7da09b8-699e-4668-89e3-7cfda255f1a9": {
+          "type": "collection",
+          "settings": {
+            "collection": "wanderlust",
+            "default_selected": false
+          }
+        },
+        "cc260f83-7715-4e41-8da1-074d2a313ca8": {
+          "type": "collection",
+          "settings": {
+            "collection": "trifecta",
+            "default_selected": false
+          }
+        }
+      },
+      "block_order": [
+        "10ea84e3-3a26-4cde-837f-a2d82287ef60",
+        "65e5d7ce-740b-4b9d-98ad-090ee99b9c0a",
+        "8ab6c40c-41f6-4425-a352-d75f59f1b1c4",
+        "a66ffe75-6b3f-4794-87a2-dab80dfd42de",
+        "693d1cfe-68d6-4948-9b2c-3bec539f167b",
+        "c0717caa-68fb-4111-bab2-e3f076b94f1a",
+        "949dd022-9954-4eb5-b32c-6a22aabac5d5",
+        "9a696fa2-8119-480f-8d96-537b42d41387",
+        "c45a772d-5995-4ee4-aa98-1c5f874119e5",
+        "b7da09b8-699e-4668-89e3-7cfda255f1a9",
+        "cc260f83-7715-4e41-8da1-074d2a313ca8"
+      ],
+      "settings": {
+        "heading": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "section_bg_color": "",
+        "section_display": "all"
+      }
+    },
+    "132f881a-2519-4ef3-8946-57565a92b984": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "78232b6a-7bbf-4ea1-bef8-bbff7b12c208": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>LIVE THE MEXI EXPERIENCE<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        }
+      },
+      "block_order": [
+        "78232b6a-7bbf-4ea1-bef8-bbff7b12c208"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "section_text_color": "#ffffff",
+        "section_bg_color": "#000000",
+        "section_display": "all",
+        "custom_css": ".section-{{ section.id }}{position:relative;}\n.section-{{ section.id }}:before {\n        content: '';\n    display: block;\n    position: absolute;\n    width: 100%;\n    height: 40px;\n    background-repeat: no-repeat;\n    top: -12px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent3.png?v=1673503903);\n    background-size: contain;\n    background-position: 85% center;\n}"
+      }
+    },
+    "94af4de4-e9fd-4006-b5de-8fd505d922bf": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_63d06415d297df00271f42de\"><\/div>\n<style>#section-{{ section.id }}{    background-color: #000;\n    padding: 20px 15px 0;\n    margin: 0;}\n#section-{{ section.id }}>.Container {\n    padding: 0;\n}<\/style>"
+      }
+    },
+    "3f04d11c-b422-47de-8ea9-c98eb4b53f88": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16542421319917__3f04d11c-b422-47de-8ea9-c98eb4b53f88-1666165416f2405c80-0": {
+          "type": "column",
+          "settings": {
+            "column_width": "50%",
+            "image": "shopify:\/\/shop_images\/guava_cmp.png",
+            "img_max_height": "580",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "",
+            "subtitle": "",
+            "eyebrow": "",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "<p><strong>PREMIUM <\/strong>BLANCO TEQUILA<\/p><p>NOM <strong>CERTIFIED<\/strong><\/p><p><strong>LIMITED <\/strong>EDITION FLAVORS<\/p><p><strong>GLUTEN FREE<\/strong>, ZERO MALT<\/p><p><strong>REAL <\/strong>FRUIT JUICE<\/p><p><strong>REFRESHING <\/strong>TASTE<\/p>",
+            "desc_img_height": "100",
+            "link_label": "",
+            "link": "",
+            "button_style": "1",
+            "button_text_color": "",
+            "button_bg_color": "",
+            "show_divider": true,
+            "image_position": "left",
+            "bg_color": "",
+            "text_color": "",
+            "padding_left": 40,
+            "padding_right": 40,
+            "padding_top": 40,
+            "padding_bottom": 40
+          }
+        },
+        "template--16542421319917__3f04d11c-b422-47de-8ea9-c98eb4b53f88-1666165416f2405c80-1": {
+          "type": "column",
+          "settings": {
+            "column_width": "50%",
+            "image": "shopify:\/\/shop_images\/others_can_resized_min.png",
+            "img_max_height": "400",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "iframe_embed": "",
+            "show_info": true,
+            "title": "",
+            "subtitle": "",
+            "eyebrow": "",
+            "heading_size": "h1",
+            "heading_style": "heading_style_1",
+            "text": "<p>TEQUILA OF <strong>UNKNOWN <\/strong>ORIGINS<\/p><p><strong>QUESTIONABLE <\/strong>BASE SPIRIT<\/p><p><strong>BORING <\/strong>GENERIC FLAVORS<\/p><p><strong>SUGARY <\/strong>SWEET AFTERTASTE<\/p><p>ARTIFICIAL & <strong>SYNTHETIC <\/strong>FLAVORING<\/p><p><strong>CHEMICAL <\/strong>TASTE<\/p>",
+            "desc_img_height": "160",
+            "link_label": "",
+            "link": "",
+            "button_style": "1",
+            "button_text_color": "",
+            "button_bg_color": "",
+            "show_divider": false,
+            "image_position": "right",
+            "bg_color": "",
+            "text_color": "",
+            "padding_left": 40,
+            "padding_right": 40,
+            "padding_top": 40,
+            "padding_bottom": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--16542421319917__3f04d11c-b422-47de-8ea9-c98eb4b53f88-1666165416f2405c80-0",
+        "template--16542421319917__3f04d11c-b422-47de-8ea9-c98eb4b53f88-1666165416f2405c80-1"
+      ],
+      "settings": {
+        "section_style": "style_3",
+        "title": "",
+        "heading_html": "",
+        "body_text": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "show_slider_buttons": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "section_bg_color": "#211d1a",
+        "section_text_color": "#ffffff",
+        "column_border_radius": "",
+        "rounded_bottom": false,
+        "custom_css": ".section-{{ section.id }} {\n\tposition: relative;\n}\n.section-{{ section.id }}:before {\n    content: '';\n    display: block;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent_top2.png?v=1670654978);\n    background-repeat: no-repeat;\n    background-position: bottom;\n    height: 60px;\n    width: 100%;\n    position: absolute;\n    left: -50%;\n}\n.section-{{ section.id }} .multicolumn-card__info {\n    padding: 10px;\n}\n.section-{{ section.id }} .multicolumn-card__image-wrapper > .media {\n    padding-bottom: 0 !important;\n\theight: 100%;\n    display: flex;\n    align-items: center;\n}\n@media screen and (min-width: 1024px) {\n.section-{{ section.id }} .multicolumn-card__info {\n    margin-top: 200px;\n}\n.section-{{ section.id }} .multicolumn-card__info-rte {\n    display: flex;\n    flex-direction: column;\n    align-items: stretch;\n    min-height: 315px;\n    justify-content: space-between;\n}\n.section-{{ section.id }} .multicolumn-card-spacing {\n    margin-left: 1.5rem;\n    margin-right: 1.5rem;\n}\n.section-{{ section.id }} .style_3 .show_divider .multicolumn-card__info-rte:after {\n    max-height: unset;\n}\n}\n.section-{{ section.id }} .multicolumn-list {\nposition: relative;\n}\n.section-{{ section.id }} .multicolumn-list:before {\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/usvsthem.png?v=1670658201);\n    background-repeat: no-repeat;\n    background-size: contain;\n    background-position: center;\n    height: 100px;\n    width: 100%;\n    position: absolute;\n    left: 0;\n    top: 10%;\n}\n.section-{{ section.id }} .multicolumn-card, .section-{{ section.id }} .multicolumn-card__image-wrapper {\n    height: 100%;\n}\n.section-{{ section.id }} .multicolumn-card__info-rte strong {\n    text-decoration: underline;\n}\n@media screen and (max-width: 1024px) {\n\t.section-{{ section.id }} .multicolumn-card {\n\t\tflex-direction: column;\n\t}\n\t.section-{{ section.id }} .multicolumn-list:not(.slider) {\n\t\tflex-direction: row;\n\t\tpadding-left: 0;\n\t\tpadding-right: 0;\n\t}\n\t.section-{{ section.id }} .multicolumn-card__image-wrapper > .media,\n\t.section-{{ section.id }} .multicolumn-card,\n\t.section-{{ section.id }} .multicolumn-card__image-wrapper{\n\t\theight: auto;\n\t}\n\t.section-{{ section.id }} .multicolumn-list__item:nth-of-type(2) .multicolumn-card {\n\t\tflex-direction: column-reverse;\n\t}\n\t\n\t.section-{{ section.id }} .multicolumn-list {\n\t\tpadding-top: 85px;\n\t}\n\t.section-{{ section.id }} .multicolumn-list:before {\n\t\ttop: 30px;\n\t\tmax-width: 375px;\n\t\twidth: 90%;\n\t\tmargin-left: auto;\n\t\tmargin-right: auto;\n\t\tright: 0;\n\t}\n\t.section-{{ section.id }} .multicolumn-list__item {\n\t\twidth: 100% !important;\n    \tmax-width: 100%;\n\t\tpadding: 10px !important;\n\t}\n\t.section-{{ section.id }} .multicolumn-card__info p {\n\t\tfont-size: 14px;\n\t}\n\t.section-{{ section.id }} .multicolumn-card__image-wrapper.multicolumn-card-spacing {\n\t\tmargin: 0 auto;\n\t}\n\t.section-{{ section.id }}:before,\n\t.style_3 .show_divider .multicolumn-card__info-rte:after {\n\t\tcontent: none;\n\t}\n\t.style_3 .show_divider .multicolumn-card__info-rte:after\n\t.section-{{ section.id }} .multicolumn-card.Grid {\n\t\tmargin-left: auto;\n\t\tmargin-right: auto;\n\t}\n\t.section-{{ section.id }} .multicolumn-list__item:first-of-type {\n\t\tposition: relative;\n\t}\n\t.section-{{ section.id }} .multicolumn-list__item:first-of-type:after {\n\t\tcontent: '';\n\t\twidth: 3px;\n\t\theight: 90%;\n\t\tdisplay: block;\n\t\tbackground-color: #fff;\n\t\tposition: absolute;\n\t\tbottom: 5%;\n\t\tright: 8px;\n\t}\n\t.section-{{ section.id }}:before {\n\t\tcontent: \"\";\n\t\theight: 54px;\n\t\ttransform: skewY(2deg);\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\tright: 0;\n\t\tz-index: 1;\n\t\ttop: -27px;\n\t\tbackground: #211D1A;\n\t}\n}"
+      }
+    },
+    "d48a7feb-4ffc-470e-9fb7-cf1c27fe23df": {
+      "type": "rich-text",
+      "blocks": {
+        "bbb972a9-e580-46be-8fc9-7ad1e96fb31b": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p><strong>BUZZ AROUND<\/strong> MEXI<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        }
+      },
+      "block_order": [
+        "bbb972a9-e580-46be-8fc9-7ad1e96fb31b"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 60,
+        "padding_bottom": 20,
+        "section_text_color": "",
+        "section_bg_color": "",
+        "section_display": "all",
+        "custom_css": ".section-{{ section.id }}{\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/white-fabric-texture2.png?v=1670573141);\n}\n.section-{{ section.id }} .richtext_heading strong{font-weight:inherit;}\n.section-{{ section.id }} .richtext_heading strong {\n    position: relative;\n}\n.section-{{ section.id }} .richtext_heading strong:after {\n\tcontent: '';\n    display: block;\n    position: absolute;\n\tleft: 0;\n    bottom: -7px;\n    width: 100%;\n    height: 12px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/underline_accent.svg?v=1670594476);\n    background-repeat: no-repeat;\n}\n.section-{{ section.id }} .rich-text__blocks,\n.section-{{ section.id }} .content-container {\n    position: relative;\n}\n.section-{{ section.id }} .rich-text__blocks:after,\n.section-{{ section.id }} .content-container:before,\n.section-{{ section.id }} .rich-text__blocks:before {\n\tcontent: '';\n    display: block;\n\tbackground-repeat: no-repeat;\n    background-size: contain;\n    position: absolute;\n}\n.section-{{ section.id }} .rich-text__blocks:after {\n    width: 55px;\n    height: 55px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/logo_edit.svg);\n    right: 0;\n    top: -30px;\n}\n.section-{{ section.id }} .content-container:before {\n    width: 160px;\n    height: 160px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/logo_circle.png);\n    left: 9%;\n    top: 0;\n}\n.section-{{ section.id }} .rich-text__blocks:before {\n    width: 60px;\n    height: 75px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/logo_triangle.svg?v=1670595489);\n    top: -85px;\n    left: 46%;\n}\n@media screen and (max-width: 768px) {\n\t.section-{{ section.id }} .rich-text__blocks:after,\n\t.section-{{ section.id }} .content-container:before\t{\n\t\tcontent:none;\n\t}\n}"
+      }
+    },
+    "e7a56215-b4a5-4e96-a839-4245f49b7126": {
+      "type": "logo-list",
+      "blocks": {
+        "cb6e7c50-84e2-4c2e-8ad0-ee98230716c3": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/stars_588c3bf6-0acd-4585-926d-4d0a6410b940.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "Sweet and spicy. Great combo.",
+            "small_text": "Ange G.",
+            "url": "",
+            "logo_max_height": "18",
+            "column_width": "",
+            "bg_color": "rgba(0,0,0,0)",
+            "text_color": "rgba(0,0,0,0)",
+            "border_radius": "28",
+            "img_border_radius_inherit": false
+          }
+        },
+        "ff354e20-a3b1-4795-b6e8-e4d2b9b62cdd": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/stars_588c3bf6-0acd-4585-926d-4d0a6410b940.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "Just the perfect amount of spice",
+            "small_text": "RS",
+            "url": "",
+            "logo_max_height": "18",
+            "column_width": "",
+            "bg_color": "#1b1c1e",
+            "text_color": "#ffffff",
+            "border_radius": "28",
+            "img_border_radius_inherit": false
+          }
+        },
+        "4113a47f-9553-479f-a39b-77319fdb9571": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/stars_588c3bf6-0acd-4585-926d-4d0a6410b940.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "Very refreshing!",
+            "small_text": "Mitchel M.",
+            "url": "",
+            "logo_max_height": "18",
+            "column_width": "",
+            "bg_color": "#1b1c1e",
+            "text_color": "#ffffff",
+            "border_radius": "28",
+            "img_border_radius_inherit": false
+          }
+        },
+        "81d0b147-f34b-49f5-9c7a-7a4045869350": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/stars_588c3bf6-0acd-4585-926d-4d0a6410b940.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "I love it. Sweet and Spicy!",
+            "small_text": "Anthony M.",
+            "url": "",
+            "logo_max_height": "18",
+            "column_width": "",
+            "bg_color": "#1b1c1e",
+            "text_color": "#ffffff",
+            "border_radius": "28",
+            "img_border_radius_inherit": false
+          }
+        },
+        "5ec71076-c42d-4a55-be43-3b8d0af067fd": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/stars_588c3bf6-0acd-4585-926d-4d0a6410b940.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "Guava spice is the best 🤤",
+            "small_text": "CAROL",
+            "url": "",
+            "logo_max_height": "18",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "cb6e7c50-84e2-4c2e-8ad0-ee98230716c3",
+        "ff354e20-a3b1-4795-b6e8-e4d2b9b62cdd",
+        "4113a47f-9553-479f-a39b-77319fdb9571",
+        "81d0b147-f34b-49f5-9c7a-7a4045869350",
+        "5ec71076-c42d-4a55-be43-3b8d0af067fd"
+      ],
+      "settings": {
+        "featured_logo_title": "",
+        "heading": "",
+        "subheading": "",
+        "text_position": "right",
+        "logos_max_height": "",
+        "column_width": "25%",
+        "tpl": "3",
+        "columns_desktop": 5,
+        "columns_mobile": 1,
+        "padding_top": 12,
+        "padding_bottom": 40,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_text_color": "#ffffff",
+        "block_border_radius": "28",
+        "block_bg_color": "#1b1c1e",
+        "enable_carousel": true,
+        "section_display": "all",
+        "slides_to_show_desktop": 3.5,
+        "slides_to_scroll_desktop": 3,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 1.3,
+        "slides_to_scroll_mobile": 1,
+        "show_arrows_mobile": true,
+        "show_dots_mobile": true,
+        "custom_css": ".section--{{ section.id }}{\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/white-fabric-texture2.png?v=1670573141);\n}\n.section--{{ section.id }} .logo_item .imgBox {min-height:30px !important;}\n.section--{{ section.id }} .logo_list .slick-track{\n\tdisplay: flex;\n    align-items: stretch;\n}\n.section--{{ section.id }} .logo_list .col_item {\n    height: inherit;\n    flex: 1;\n}.section--{{ section.id }} .slick-dots button:before ,\n.section--{{ section.id }} .slick-active button:before {\n    color: #000 !important;\n}\n@media screen and (max-width: 768px) {\n\t.section--{{ section.id }}.feature-logo .logo_item .imgBox img, .section--{{ section.id }}.feature-logo .logo_item video {\n\t\twidth: auto;\n\t}\n\t.section--{{ section.id }} .logo_list .slick-arrow{display: none!important;}\n}"
+      }
+    },
+    "61dd189e-0e07-41ad-bb3b-4b0ceda62a1f": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16542421319917__61dd189e-0e07-41ad-bb3b-4b0ceda62a1f-16661691098494f0ab-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>HOW OUR TOP-QUALITY<\/p>",
+            "font_size": "28",
+            "style": "1"
+          }
+        },
+        "b14da84e-6147-4cd5-99ae-b5f24de3c87c": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>TEQUILA SELTZERS<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        },
+        "f0e36555-fb4b-4642-bdfd-ac859ba2ddb1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ARE MADE BEFORE IT LANDS IN YOUR FRIDGE<\/p>",
+            "font_size": "32",
+            "style": "1"
+          }
+        },
+        "815c6362-4f4a-4920-9091-ff9d9b775aaa": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mexi_hand.png",
+            "overlay": true,
+            "max_height": "600px",
+            "max_height_mob": "250px",
+            "position": "-40%|auto|auto|0"
+          }
+        },
+        "905235d1-b240-4966-ae6b-ef2674ee83cd": {
+          "type": "button",
+          "settings": {
+            "button_label": "SCROLL THROUGH PROCESS",
+            "button_link": "",
+            "button_style": "4",
+            "button_style_secondary": false,
+            "text_color": "",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16542421319917__61dd189e-0e07-41ad-bb3b-4b0ceda62a1f-16661691098494f0ab-1",
+        "b14da84e-6147-4cd5-99ae-b5f24de3c87c",
+        "f0e36555-fb4b-4642-bdfd-ac859ba2ddb1",
+        "815c6362-4f4a-4920-9091-ff9d9b775aaa",
+        "905235d1-b240-4966-ae6b-ef2674ee83cd"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 16,
+        "padding_bottom": 40,
+        "section_text_color": "",
+        "section_bg_color": "#c6db7c",
+        "section_display": "all",
+        "custom_css": "@media screen and (min-width: 1024px){\n.section-{{ section.id }}{position:relative;}\n.section-{{ section.id }}:after{\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/vacc2.png?v=1673942878);\n    background-repeat-x: no-repeat;\n    background-repeat-y: repeat;\n    position: absolute;\n    display: block;\n    height: 100%;\n    width: 44px;\n    top: 0;\n    right: 0;\n    background-size: cover;\n}\n}"
+      }
+    },
+    "b309ee67-3f15-474c-82b2-db70617d1d95": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_63d070d0d297df00272ff0c4\"><\/div>\n<style>.section-{{section.id}}:before {\n    content: '';\n    display: block;\n    width: 100%;\n    height: 220px;\n    position: absolute;\n    background-color: #c6db7c;\n    top: 0;\n    border-bottom-left-radius: 50%;\n    border-bottom-right-radius: 50%;\nz-index:0;\n}<\/style>"
+      }
+    },
+    "68c3be51-8ec9-4e86-b770-3f6b9ec88f6c": {
+      "type": "logo-list",
+      "blocks": {
+        "8cedf303-1479-4b55-a7aa-a9642636ab9c": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7c6f2a1e7efc493791eba6c981e756bf.mp4",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "5aa925b7-921a-4574-9229-73ec7f81f818": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/cf4c41c3f1cb431d9555d0025f73f39e.mp4",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "afcbc291-35d7-41ed-be6f-9ae2d2205cfb": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/d98d7fa817f741ceb1fb808c0220b907.mp4",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "44d86d5a-12e3-4535-8888-86b22c70cce0": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0173b7d6f1834861833b0a999d49c744.mp4",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "8cedf303-1479-4b55-a7aa-a9642636ab9c",
+        "5aa925b7-921a-4574-9229-73ec7f81f818",
+        "afcbc291-35d7-41ed-be6f-9ae2d2205cfb",
+        "44d86d5a-12e3-4535-8888-86b22c70cce0"
+      ],
+      "settings": {
+        "featured_logo_title": "",
+        "heading": "",
+        "subheading": "",
+        "text_position": "right",
+        "logos_max_height": "",
+        "column_width": "",
+        "tpl": "1",
+        "columns_desktop": 1,
+        "columns_mobile": 1,
+        "padding_top": 40,
+        "padding_bottom": 60,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_text_color": "#322f26",
+        "block_border_radius": "",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": true,
+        "section_display": "all",
+        "slides_to_show_desktop": 2.8,
+        "slides_to_scroll_desktop": 2,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 1,
+        "slides_to_scroll_mobile": 1,
+        "show_arrows_mobile": true,
+        "show_dots_mobile": false,
+        "custom_css": ".section--{{section.id}} .logo_list{z-index:1;}\n.section--{{section.id}} .logo_list video{max-width:380px;}\n.section--{{section.id}}:before {\n    content: '';\n    display: block;\n    width: 100%;\n    height: 220px;\n    position: absolute;\n    background-color: #c6db7c;\n    top: 0;\n    border-bottom-left-radius: 50%;\n    border-bottom-right-radius: 50%;\nz-index:0;\n}\n@media screen and (min-width: 1024px){\n.section--{{ section.id }}{position:relative;}\n.section--{{ section.id }}:after{\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/vacc2.png?v=1673942878);\n    background-repeat-x: no-repeat;\n    background-repeat-y: repeat;\n    position: absolute;\n    display: block;\n    height: 20%;\n    width: 44px;\n    top: 0;\n    right: 0;\n    background-size: cover;\nborder-bottom-right-radius:20px;\n}\n}"
+      }
+    },
+    "87847178-5611-49e1-b204-3cde1e3d72d9": {
+      "type": "rich-text",
+      "blocks": {
+        "3fa39c3c-c5d8-49c5-acca-48c0e374b00f": {
+          "type": "richtext_heading",
+          "settings": {
+            "text": "<p>COME DRINK WITH US<\/p>",
+            "heading_style": "ff-serif-2 fw-700"
+          }
+        }
+      },
+      "block_order": [
+        "3fa39c3c-c5d8-49c5-acca-48c0e374b00f"
+      ],
+      "settings": {
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "section_text_color": "#ffffff",
+        "section_bg_color": "#2c2c2d",
+        "section_display": "all",
+        "custom_css": ".section-{{ section.id }}{position:relative;}\n.section-{{ section.id }}:before{\ncontent: \"\";\n    height: 54px;\n    transform: skewY(1.5deg);\n    position: absolute;\n    left: 0;\n    right: 0;\n    z-index: 1;\n    top: -23px;\n    background: #2c2c2d;\n}\n.section-{{ section.id }} .richtext_heading strong {\n    font-weight: inherit;\n    position: relative;\n}\n.section-{{ section.id }} .richtext_heading strong:after {\n    content: '';\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/red_underline.svg?v=1670669534);\n    background-size: cover;\n    background-repeat: no-repeat;\n    display: block;\n    height: 4px;\n    width: 97%;\n    position: absolute;\n    bottom: 2px;\n    left: 0;\n}\n.section-{{ section.id }}:after{\n    content: \"\";\n    height: 54px;\n    transform: skewY(0deg);\n    position: absolute;\n    left: 0;\n    right: 0;\n    z-index: 1;\n    top: -39px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent3.png?v=1673503903);\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n}\n.section-{{ section.id }} .rich-text__blocks:before {\n    width: 160px;\n    height: 30px;\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent2_4952fdde-0b2c-4709-9068-75f2d202fdf6.png?v=1673504964);\n    content: '';\n    display: block;\n    background-size: cover;\n    background-repeat: no-repeat;\n    margin-left: auto;\n    margin-right: auto;\n}\n.section-{{ section.id }} .richtext_heading {\n\tmargin-top: 15px;\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.section-{{ section.id }} .richtext_heading:before,\n.section-{{ section.id }} .richtext_heading:after{\n\tcontent: '';\n    width: 55px;\n    height: 20px;\n    display: block;\n    position: relative;\n\tbackground-size: contain;\n    background-repeat: no-repeat;\n}\n.section-{{ section.id }} .richtext_heading:before {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent4.svg?v=1673505942);\n    margin-right: 10px;\n}\n.section-{{ section.id }} .richtext_heading:after {\n    background-image: url(https:\/\/cdn.shopify.com\/s\/files\/1\/0628\/2549\/6820\/files\/accent4.svg?v=1673505942);\n    margin-left: 10px;\n}"
+      }
+    },
+    "93d17307-de00-4f3c-ac41-423e0e3793f9": {
+      "type": "logo-list",
+      "disabled": true,
+      "blocks": {
+        "cfeffa1c-f64d-4933-bc48-e97995db6bfd": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_43_a4c58f37-6b94-46ac-8007-79c3251462f8.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "05a7f78f-0319-49c1-aca1-7b712947546e": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_38_57b4a2b7-4c56-4def-a735-f98b4b01f3d5.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "638cea53-c464-4fcc-8da0-6604a6f1741a": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_39_08822c38-e897-44fa-822f-459d0a0bed9a.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "568616c2-5bb3-49b7-8c5c-3c9c3b28ade3": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_40_1c1dacc7-4355-4e88-a05b-3fa1c25d5524.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "67d36ca4-76f2-423c-bca4-3c6e0ed86326": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_41_fd598cff-fbdd-40f3-9da2-da69ba3a30e6.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "88627641-3676-48be-ae4a-9b21aa7146db": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_42_c37b36c3-3dd4-4697-83b4-34a75cb00ccb.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "cfeffa1c-f64d-4933-bc48-e97995db6bfd",
+        "05a7f78f-0319-49c1-aca1-7b712947546e",
+        "638cea53-c464-4fcc-8da0-6604a6f1741a",
+        "568616c2-5bb3-49b7-8c5c-3c9c3b28ade3",
+        "67d36ca4-76f2-423c-bca4-3c6e0ed86326",
+        "88627641-3676-48be-ae4a-9b21aa7146db"
+      ],
+      "settings": {
+        "featured_logo_title": "As featured on",
+        "heading": "",
+        "subheading": "",
+        "text_position": "right",
+        "logos_max_height": "",
+        "column_width": "",
+        "tpl": "1",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "section_bg_color": "#2c2c2d",
+        "section_text_color": "#ffffff",
+        "block_border_radius": "",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": true,
+        "section_display": "all",
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll_desktop": 5,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 2.3,
+        "slides_to_scroll_mobile": 1,
+        "show_arrows_mobile": false,
+        "show_dots_mobile": false,
+        "custom_css": ".section--{{ section.id }} .logo_list:before {\n    content: '@mexiseltzer';\n    text-transform: uppercase;\n    position: absolute;\n    left: 85px;\n    top: -27px;\n    font-size: 17px;\n    letter-spacing: 0.09em;\n    font-weight: 900;\ncolor:#fff;\n}\n.section--{{ section.id }} .logo_list:after {\n    content: 'Follow Us';\n    text-transform: uppercase;\n    position: absolute;\n    right: 8%;\n    bottom: 0;\n    font-size: 17px;\n    letter-spacing: 0.09em;\n    font-weight: 900;\n    color: #fff;\n}\n@media only screen and (max-width: 750px) {\n    .section--{{ section.id }} .logo_list:before {\n\t\tleft: 15px;\n\t\ttop: -30px;\n\t\tfont-size: 15px;\n\t}\n}"
+      }
+    },
+    "91f236a3-bbf0-4b56-bfcc-7b9d3b7f29ae": {
+      "type": "ig-feed",
+      "blocks": {
+        "c756ccb5-2c36-4798-aedc-f30294f5a725": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_43_03d6933f-c54d-492d-989e-bc7264e52f9b.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "5f53d802-745d-419c-bec3-5eda9a09253d": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_38_ca8e7c21-e65a-43c8-8858-73977086303f.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "3969795c-bf71-48b1-b639-5ea98bd7165d": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_39_77ca003e-172d-41f0-9842-a2880a7469e1.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "b4a3e431-98a4-4ca8-803c-1193b6c0c5df": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_40_89de9606-05d8-4223-bea2-e02112038b87.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "d774fe32-cb8a-42fb-bfca-ede82e138655": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_41_2ba0f50a-89c4-482d-8537-3eb385bbf239.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "4de18296-c495-42b1-8a81-260aeb299455": {
+          "type": "logo",
+          "settings": {
+            "featured_logo": "shopify:\/\/shop_images\/Rectangle_42_3c0b289a-fd86-4696-b5df-6c5e81c16d9f.png",
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "",
+            "small_text": "",
+            "url": "",
+            "logo_max_height": "",
+            "column_width": "",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "c756ccb5-2c36-4798-aedc-f30294f5a725",
+        "5f53d802-745d-419c-bec3-5eda9a09253d",
+        "3969795c-bf71-48b1-b639-5ea98bd7165d",
+        "b4a3e431-98a4-4ca8-803c-1193b6c0c5df",
+        "d774fe32-cb8a-42fb-bfca-ede82e138655",
+        "4de18296-c495-42b1-8a81-260aeb299455"
+      ],
+      "settings": {
+        "featured_logo_title": "",
+        "heading": "",
+        "subheading": "",
+        "text_position": "right",
+        "logos_max_height": "",
+        "column_width": "",
+        "tpl": "1",
+        "columns_desktop": 5,
+        "columns_mobile": 1,
+        "padding_top": 40,
+        "padding_bottom": 72,
+        "section_bg_color": "#2c2c2d",
+        "section_text_color": "#ffffff",
+        "block_border_radius": "",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": true,
+        "section_display": "all",
+        "handle": "@MEXISELTZER",
+        "cta_url": "https:\/\/www.instagram.com\/mexiseltzer",
+        "cta_text": "FOLLOW US",
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll_desktop": 5,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "slides_to_show_mobile": 2.3,
+        "slides_to_scroll_mobile": 2,
+        "show_arrows_mobile": false,
+        "show_dots_mobile": false,
+        "custom_css": ".section--{{ section.id }}.feature-logo{text-align:left;}"
+      }
+    },
+    "f602b131-4551-401c-935a-bc8bbc4b56f6": {
+      "type": "newsletter",
+      "settings": {
+        "section_size": "normal",
+        "image": "shopify:\/\/shop_images\/bg3.png",
+        "text_color": "#000000",
+        "button_color": "#000000",
+        "subheading": "",
+        "title": "GET 10% OFF",
+        "content": "<p>+ news, exclusive deals, bonus content, and more when you subscribe to our newsletter!<\/p>",
+        "section_bg_color": "",
+        "custom_css": "#section-{{ section.id }} {\n    margin-top:-15px;\n  }"
+      }
+    },
+    "15218eeb-2a9f-4d3c-858a-c301ab167dd0": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "{{ 'custom-page-welcomekit.css' | asset_url | stylesheet_tag }}"
+      }
+    },
+    "dec2961b-ba0f-4fc3-bb0c-de160fe5ba9f": {
+      "type": "logo-list",
+      "disabled": true,
+      "blocks": {
+        "73c2d519-c3ef-4287-b893-c736a47f34cb": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "SHOP",
+            "small_text": "",
+            "url": "https:\/\/mexiseltzer.com\/#shop",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "a2fd490b-ee85-4d4f-adb2-4816e31b5142": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "EXPLORE",
+            "small_text": "",
+            "url": "https:\/\/mexiseltzer.com\/pages\/explore",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "66da1bf2-4764-437b-a165-2a0c089ce34c": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "COMMUNITY",
+            "small_text": "",
+            "url": "https:\/\/mexiseltzer.com\/pages\/discover",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        },
+        "1f1aef53-7e32-40b4-902a-d6569def9f69": {
+          "type": "logo",
+          "settings": {
+            "featured_logo_svg": "",
+            "video_url": "",
+            "video_autoplay": false,
+            "video_muted": false,
+            "text": "CONTACT",
+            "small_text": "",
+            "url": "https:\/\/mexiseltzer.com\/pages\/contact",
+            "logo_max_height": "",
+            "column_width": "25%",
+            "bg_color": "",
+            "text_color": "",
+            "border_radius": "",
+            "img_border_radius_inherit": false
+          }
+        }
+      },
+      "block_order": [
+        "73c2d519-c3ef-4287-b893-c736a47f34cb",
+        "a2fd490b-ee85-4d4f-adb2-4816e31b5142",
+        "66da1bf2-4764-437b-a165-2a0c089ce34c",
+        "1f1aef53-7e32-40b4-902a-d6569def9f69"
+      ],
+      "settings": {
+        "featured_logo_title": "As featured on",
+        "heading": "",
+        "subheading": "",
+        "text_position": "right",
+        "logos_max_height": "",
+        "column_width": "",
+        "tpl": "1",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "section_bg_color": "#1b1c1e",
+        "section_text_color": "#ffffff",
+        "block_border_radius": "",
+        "block_bg_color": "rgba(0,0,0,0)",
+        "enable_carousel": false,
+        "section_display": "all",
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": false,
+        "show_arrows_mobile": false,
+        "show_dots_mobile": false,
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "23834e2f-1a7c-4b83-8d30-73f69e95045f",
+    "386a2fdc-17bc-4fe6-9eac-4e6c44274ff3",
+    "13758f36-cbb5-43ce-ab21-1ed18760df2a",
+    "d1a05c78-799a-4a20-b82f-8ee975fbd215",
+    "c4679065-6126-4cbd-b85b-4aa9d23b9aab",
+    "9f66332e-9a97-49dc-91fa-04e93a12a9ea",
+    "ff50b08b-9f62-4a3a-8ecb-242b3d2efb83",
+    "4214f265-9541-49f7-84fc-2bb473c601cf",
+    "87a49b06-c1cd-4b4d-b7ce-ecbde8535631",
+    "132f881a-2519-4ef3-8946-57565a92b984",
+    "94af4de4-e9fd-4006-b5de-8fd505d922bf",
+    "3f04d11c-b422-47de-8ea9-c98eb4b53f88",
+    "d48a7feb-4ffc-470e-9fb7-cf1c27fe23df",
+    "e7a56215-b4a5-4e96-a839-4245f49b7126",
+    "61dd189e-0e07-41ad-bb3b-4b0ceda62a1f",
+    "b309ee67-3f15-474c-82b2-db70617d1d95",
+    "68c3be51-8ec9-4e86-b770-3f6b9ec88f6c",
+    "87847178-5611-49e1-b204-3cde1e3d72d9",
+    "93d17307-de00-4f3c-ac41-423e0e3793f9",
+    "91f236a3-bbf0-4b56-bfcc-7b9d3b7f29ae",
+    "f602b131-4551-401c-935a-bc8bbc4b56f6",
+    "15218eeb-2a9f-4d3c-858a-c301ab167dd0",
+    "dec2961b-ba0f-4fc3-bb0c-de160fe5ba9f"
+  ]
+}

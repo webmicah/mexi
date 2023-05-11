@@ -1,0 +1,201 @@
+<style>
+    .video-banner--text{color:{{ section.settings.text_color }};}
+    .video-banner--btn{
+        color:{{ section.settings.btn_text_color }};
+        background-color:{{ section.settings.btn_bg_color }};
+        border: 2px solid {{ section.settings.btn_text_color }};
+    }
+</style>
+{% liquid
+    assign video_height = section.settings.video_height | default: 800
+    assign video_autoplay = section.settings.video_autoplay
+    assign video_muted = section.settings.video_muted 
+%}
+<div id="section-{{ section.id }}" class="video-banner">
+    <div class="video-banner--container">
+        <video class="video-banner--video video-desk{% if section.settings.video_mob != blank %} hidden-phone{% endif %}" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_desktop }}"></video>
+        {% if section.settings.video_mob != blank %}
+            <video class="video-banner--video hidden-tablet-and-up video-mob" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height | times: 0.75 | round: 0 }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_mob }}"></video>
+        {% endif %}
+        <div class="video-banner--text">
+            <div>
+                {%- unless section.settings.heading == blank -%}
+                    <h1 class="video-banner--h1 ff-serif-2">{{ section.settings.heading }}</h1>
+                {%- endunless -%}
+                {%- unless section.settings.body_text == blank -%}
+                    <div class="video-banner--p">{{ section.settings.body_text }}</div>
+                {%- endunless -%}
+                {% unless section.settings.btn_url == blank and section.settings.btn_text == blank %}
+                    <a class="link video-banner--btn" href="{{ section.settings.btn_url }}"><span>{{ section.settings.btn_text }}</span></a>
+                {% endunless %}
+            </div>
+        </div>
+        {% if section.settings.accent_img != blank %}
+            <img class="video-banner--accent_img hidden-phone" src="{{ section.settings.accent_img | img_url:'master' }}" loading="lazy">
+        {% endif %}
+    </div>
+    {% if video_autoplay %}
+        {% assign section_idx = section.id | slice: -1, 1 %}
+        <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const vid_{{ section_idx }}_desk = document.querySelector("#section-{{ section.id }} .video-desk");
+            if(vid_{{ section_idx }}_desk && screen.width > 641) {
+                vid_{{ section_idx }}_desk.play();
+            }
+            {% if section.settings.video_mob != blank %}
+                if(screen.width <= 641) {
+                    const vid_{{ section_idx }}_mob = document.querySelector("#section-{{ section.id }} .video-mob");
+                    vid_{{ section_idx }}_mob.play();
+                }
+            {% endif %}
+        });
+        </script>
+    {% endif %}
+</div>
+<style>
+.video-banner--container{position:relative;}
+.video-banner--text {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    left: 0;
+    padding: 15px;
+    text-align: center;
+}
+.video-banner--video{object-fit:cover;display:block;height:{{ video_height | times: 0.75 | round: 0 }}px;}
+.video-banner--h1,.video-banner--h1 p{
+    font-family: 'Canela';
+    font-size: 30px;
+    line-height:1;
+}
+.video-banner--h1 {
+    margin-bottom: 15px;
+}
+.video-banner--h1 p{
+    margin-bottom: 0;
+}
+.video-banner--p {max-width: 45ch;}
+.video-banner--btn {
+    padding: 6px 25px;
+    font-family: 'Ruda';
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-top: 10px;
+    display: inline-block;
+}
+.video-banner--accent_img {
+    position: absolute;
+    top: 18%;
+    right: 10px;
+}
+@media only screen and (min-width: 992px) {
+    .video-banner--video{height:{{ video_height }}px;}
+    .video-banner--h1,.video-banner--h1 p{
+        font-size: 60px;
+    }
+    .video-banner--btn {
+        padding: 10px 40px;
+        border-radius: 10px;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .video-banner--text {
+        left: 8%;
+        padding: 0;
+        text-align: left;
+    }
+}
+</style>
+  {% schema %}
+    {
+      "name": "Video Banner",
+      "class": "index-section",
+      "settings": [
+        {
+          "id": "video_desktop",
+          "type": "url",
+          "label": "Video URL",
+          "info": "Path to an .mp4 video file"
+        },
+        {
+          "id": "video_mob",
+          "type": "url",
+          "label": "Video URL for mobile",
+          "info": "Path to an .mp4 video file"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Fallback image",
+          "info": "A fallback image will be used on mobile devices where autoplay might be disabled."
+        },
+        {
+            "type": "number",
+            "id": "video_height",
+            "label": "Video max height(px)"
+        },
+        {
+        "type": "checkbox",
+        "id": "video_autoplay",
+        "label": "Video autoplay"
+        },
+        {
+        "type": "checkbox",
+        "id": "video_muted",
+        "label": "Video muted"
+        },
+        {
+            "type": "image_picker",
+            "id": "accent_img",
+            "label": "Accent image"
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "body_text",
+          "label": "Body"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button url"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button text",
+          "default": "SHOP NOW"
+        },
+        {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background Color"
+        },
+        {
+        "type": "color",
+        "id": "btn_text_color",
+        "label": "Button Text Color"
+        }
+      ]
+    }
+  {% endschema %}

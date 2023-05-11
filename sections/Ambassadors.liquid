@@ -1,0 +1,62 @@
+<section class="Section Section--spacingNormal Ambassadors_Section" {% if section.settings.border_image %} style="background-image: url('{{ section.settings.border_image | img_url: '2000x' }})'"{% endif %}>
+  <div class="Container">
+    {%- if section.settings.title != blank -%}
+      <header class="SectionHeader SectionHeader--center">
+        {%- if section.settings.title != blank -%}
+          <h2 class="SectionHeader__Heading Heading u-h1 html_heading" style="text-align: center">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+    
+<!--               <div class="Ambassador_List">
+              {%- for block in section.blocks -%}
+                <a href="{{ block.settings.link_url }}" target="_blank" class="Ambassador_Item">
+                    {%- if block.settings.ambassador_image != blank -%}
+                    	<img class="ProductItem__Image Image--lazyLoad Image--fadeIn Image--slideLeft" data-src="{{ block.settings.ambassador_image | img_url: '400x' }}" alt="{{ block.settings.ambassador_image.alt | escape }}" data-media-id="{{ block.settings.ambassador_image.id }}">
+                  	{% endif %}
+                    {%- if block.settings.title != blank -%}
+                  		<h4 class="ambassador_handle">{{ block.settings.title }}</h4>
+                  	{% endif %}
+                </a>
+              {%- endfor -%}
+ 
+            </div>   -->
+    <div class="Ambassador_Insta_container">
+                    <div id="insta-feed"></div>
+    </div>
+    {% if section.settings.insta-handle != blank %}
+    <div class="ambassador_insta">
+      <a href="{{ settings.social_instagram | replace_first: 'https://', '' | replace_first: 'http://', '' | prepend: 'https://' }}" class="Link Link--primary" target="_blank" rel="noopener" aria-label="Instagram">
+        <span class="Icon-Wrapper--clickable ambassador_insta_icon">{%- render 'icon' with 'instagram' -%}</span>
+      	<h3 class="SectionHeader__Subheading Heading u-h3 ambassador_insta_heading">{{ section.settings.insta-handle}}</h3>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ambassadors Section",
+  "class": "shopify-section",
+  "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "Ambassadors"
+        },
+        {
+          "type": "text",
+          "id": "insta-handle",
+          "label": "Instagram Handle",
+          "default": "@mexiseltzer"
+        },
+        {
+          "type": "image_picker",
+          "id": "border_image",
+          "label": "Border Image"
+        }
+	]
+}
+{% endschema %}

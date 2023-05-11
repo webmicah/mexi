@@ -1,0 +1,650 @@
+{{ 'section-multi-collections.css' | asset_url | stylesheet_tag }}
+{% assign layout_mode = section.settings.layout_mode %}
+{%- if layout_mode == 'carousel' -%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{%- endif -%}
+{{ 'section-featured-collection.css' | asset_url | stylesheet_tag }}
+{%- capture section_settings -%}
+{
+  "layout": {{ section.settings.layout_mode | json }}
+}
+{%- endcapture -%}
+{% style %}{{ section.settings.custom_css }}{% endstyle %}
+<section class="Section MultiCollections section-{{ section.id }}" id="{{ section.settings.sectionID }}" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
+  {% if section.settings.title != blank %}
+  <header class="SectionHeader SectionHeader--center">
+    <div class="Container">
+    {%- if section.settings.title != blank -%}
+      <h2 class="SectionHeader__SubHeading Heading u-h2">{{ section.settings.title | escape }}</h2>
+    {%- endif -%}
+    </div>
+  </header>
+  {% endif %}
+  {% assign collection_blocks = section.blocks | where: "type", "collection" %}
+  {% if collection_blocks.size > 0 %}
+    <div class="tab">
+      {%- for block in collection_blocks limit: section.settings.grid_items_count -%}
+        {% assign collection = block.settings.collection %}
+        <button class="tablinks{% if forloop.index == 1 %} active{% endif %}" onclick="openTab(event, '{{ collection.handle }}-tab-content')">
+          <div id="{{ collection.handle }}-tab" class="form-check">{{ collection.title }}</div>
+        </button>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% comment %}{% unless section.settings.text == blank %}
+  <div class="SectionHeader__Text">{{ section.settings.text }}</div>
+  {% endunless %}{% endcomment %}
+  <div class="TabPanel"  aria-hidden="false" role="tabpanel" {{ block.shopify_attributes }}>
+    <div class="ProductListWrapper">
+      {%- assign item_count = section.settings.grid_items_count -%}
+      {%- if block.products_count < section.settings.grid_items_count -%}
+        {%- assign item_count = collection.products_count -%}
+      {%- endif -%}
+      {%- for block in collection_blocks limit: section.settings.grid_items_count -%}
+        {% assign collection = block.settings.collection %}
+        <div id="{{ collection.handle }}-tab-content" class="test0207 ProductList ProductList--grid ProductList--removeMargin Grid tabcontent" data-mobile-count="{{ section.settings.grid_mobile_items_per_row }}" data-desktop-count="{{ section.settings.grid_desktop_items_per_row }}"
+        {% if forloop.index == 1 %} style="display:block;"{% endif %}>
+          {% assign products = block.settings.collection.products %}
+          {% assign default_product = products[0] %}
+          {% for product in products %}
+            {% liquid
+              assign bg_image = product.metafields.custom.product_card_background_image.value
+              assign featured_image = product.metafields.custom.product_card_featured_image.value
+            %}
+            <div class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up" id="block-{{ block.id }}">
+              {%- render 'product-card', product-image: featured_image, temporary_img: featured_image, button_text: product.title, button_link: product.url, product_details: product.description, bg_image: bg_image, show_product_form: section.settings.show_product_form, product_id: product.id -%}
+            </div>
+          {% endfor %}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  {% unless section.settings.text == blank %}
+  <div class="SectionHeader__Text">{{ section.settings.text }}</div>
+  {% endunless %}
+  {% unless section.settings.bottom_image == blank %}
+    <img class="MultiCollections_BottomImage hidden-phone hidden-pocket hidden-tablet" src="{{ section.settings.bottom_image | img_url: 'master' }}" loading="lazy">
+  {% endunless %}
+  {% if section.settings.show_product_form %}
+    {% assign product = default_product %}
+    {% assign discount_percentage = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value %}
+    <form class="ProductDetails_Form">
+      <div class="ProductDetails__PurchaseType">
+        {% if product.selling_plan_groups.size > 0 %}
+          <div class="form-group" style="display:block;">
+            <div class="form-control-wrapper d-flex flex-vcenter">
+              <input type="radio" value="subscription" name="purchase_type" id="pt_subscription" class="purchase_type" checked>
+              <label class="selected" for="pt_subscription" v-text="`Subscribe & Save ${discountPerc}%`"></label>
+              {% comment %} <label class="selected" for="pt_subscription"><span>Subscribe & Save {{ discount_percentage }}%</span></label> {% endcomment %}
+              <div>
+                <label class="selected" for="pt_subscription"><span v-text="discountedPrice"></span></label>
+                <div for="pt_subscription" class="chat-bubble"><span v-text="price_per_can_subx"></span><span>/CAN</span></div>
+              </div>
+            </div>
+            <div class="ProductDetails__Subscription active">
+              <div class="ProductDetails__Subscription_Label">{{ block.settings.label }}</div>
+                {% if product.selling_plan_groups.size > 1 %}
+                <select name="selling_plan">
+                  {% for plan in product.selling_plan_groups[0].selling_plans %}
+                    <option value="{{ plan.id }}">{{ plan.name }}</option>
+                  {% endfor %}
+                </select>
+                {% endif %}
+                {% unless section.settings.bullet_list == blank %}
+                  {% assign bullet_list = section.settings.bullet_list | split: '|' %}
+                  <ul class="ProductMeta__TextList">
+                    {% for item in bullet_list %}
+                      <li>{{ item }}</li>
+                    {% endfor%}
+                  </ul>
+                {% endunless %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="ProductForm__Option ProductForm__Onetime">
+          <div class="form-group">
+            <div class="d-flex flex-vcenter">
+              <input type="radio" value="onetime" name="purchase_type" id="pt_onetime" class="purchase_type">
+              <label for="pt_onetime"><span>One-Time Purchase</span></label>
+            </div>
+            <div>
+              <label for="pt_onetime"><span v-text="regPrice">{{ product.selected_or_first_available_variant.price | money }}</span></label>
+              <div for="pt_onetime" class="chat-bubble"><span v-text="price_per_can_onetime"></span><span>/CAN</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ProductDetails__BuyButtons">
+          <input type="hidden" name="quantity" value="1">
+          <button @click="add_to_cart($event)" data-use-primary-button="true" class="Button Button--primary Button--full">{{- 'product.form.add_to_cart' | t -}}</button>
+        </div>
+      </div>
+
+      {% comment %} <div class="ProductDetails__PurchaseType">
+        <label>SELECT YOUR PLAN</label>
+        {% if product.selling_plan_groups.size > 0 %}
+          <div class="form-group">
+            <div class="form-control-wrapper">
+              <input type="radio" value="subscription" name="purchase_type" id="pt_subscription" checked>
+              <label class="selected" for="pt_subscription">
+                <span>Subscribe & Save {{ discount_percentage }}%</span>
+                <span v-text="discountedPrice"></span>
+              </label>
+            </div>
+            <div class="ProductDetails__Subscription active">
+              {% if product.selling_plan_groups.size > 0 %}
+                <div class="ProductDetails__Subscription_Label">{{ block.settings.label }}</div>
+                {% if product.selling_plan_groups.size > 1 %}
+                <select name="selling_plan">
+                  {% for plan in product.selling_plan_groups[0].selling_plans %}
+                    <option value="{{ plan.id }}">{{ plan.name }}</option>
+                  {% endfor %}
+                </select>
+                {% endif %}
+                {% unless section.settings.bullet_list == blank %}
+                  {% assign bullet_list = section.settings.bullet_list | split: '|' %}
+                  <ul class="ProductMeta__TextList">
+                    {% for item in bullet_list %}
+                      <li>{{ item }}</li>
+                    {% endfor%}
+                  </ul>
+                {% endunless %}
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        <div class="form-group">
+          <div class="form-control-wrapper">
+            <input type="radio" value="onetime" name="purchase_type" id="pt_onetime">
+            <label for="pt_onetime">
+              <span>One-Time Purchase</span>
+              <span v-text="regPrice">{{ product.selected_or_first_available_variant.price | money }}</span>
+            </label>
+          </div>
+        </div>
+        <div class="ProductDetails__BuyButtons">
+          <input type="hidden" name="quantity" value="1">
+          <button @click="add_to_cart($event)" data-use-primary-button="true" class="Button Button--primary Button--full">{{- 'product.form.add_to_cart' | t -}}</button>
+        </div>
+      </div> {% endcomment %}
+    </form>
+  {% endif %}
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% if section.settings.show_product_form %}
+{{ 'vue.global.min.js' | asset_url | script_tag }}
+{% assign product = all_products['tamarindo-12-oz-4pk'] %}
+<script>
+  //let selector_wrapper = document.querySelectorAll('.Product_Selector__Swatch_wrapper');
+  const product_form = document.querySelector('.ProductDetails_Form');
+  const cart_drawer = document.querySelector('#sidebar-cart');
+  const page_overlay = document.querySelector('.PageOverlay');
+  const ProductDetails = {
+    data() {
+      return {
+        current_product: {
+          id: {{ product.id }},
+          handle: "{{ product.handle }}",
+          available: "{{ product.available }}",
+          variant_id: "{{ product.selected_or_first_available_variant.id }}",
+          title: "{{ product.title }}",
+          price: "{{ product.price | money }}",
+          size_variants: [
+            {% assign size_variants = product.metafields.custom.size_variants.value %}
+            {% for p in size_variants %}
+              {% liquid
+                assign plan = p.selling_plan_groups[0].selling_plans[0]
+                assign title = p.title | split: '(' | slice: 1 
+                assign title = title[0] | replace: ')', '' | replace: 'Packs', 'Pack'  
+                if plan.price_adjustments[0].value_type == 'percentage'
+                  assign discount_rate = plan.price_adjustments[0].value | divided_by: 100.00
+                  assign discount_amount = p.selected_or_first_available_variant.price | times: discount_rate
+                else 
+                  assign discount_amount = plan.price_adjustments[0].value
+                endif
+                assign discounted_price = p.selected_or_first_available_variant.price | minus: discount_amount
+                if title == '3 x 4-Pack'
+                  assign price_per_can = p.selected_or_first_available_variant.price | divided_by: 12 | money
+                  assign price_per_can_subx = discounted_price | divided_by: 12 | money
+                elsif title == '6 x 4-Pack'
+                  assign price_per_can = p.selected_or_first_available_variant.price | divided_by: 24 | money
+                  assign price_per_can_subx = discounted_price | divided_by: 24 | money
+                endif
+              %}
+              {
+                id: '{{ p.id }}',
+                variant_id: '{{ p.selected_or_first_available_variant.id }}',
+                title: '{{ title }}',
+                price: '{{ p.selected_or_first_available_variant.price | money }}',
+                discounted_price: '{{ discounted_price | money }}',
+                selling_plan: {{ plan.id }},
+                plan_name: '{{ plan.name }}',
+                price_adjustments: {{ plan.price_adjustments | json }},
+                price_per_can: '{{ price_per_can }}',
+                price_per_can_subx: '{{ price_per_can_subx }}'
+              },
+            {% endfor %}
+          ]
+        },
+        current_size: {idx:0},
+        related_products: [
+          {% for block in collection_blocks %}
+            {% for col_product in block.settings.collection.products %}
+              {% unless col_product == blank %}
+                {
+                  id: {{ col_product.id }},
+                  handle: "{{ col_product.handle }}",
+                  available: {{ col_product.available }},
+                  variant_id: "{{ col_product.selected_or_first_available_variant.id }}",
+                  title: "{{ col_product.title }}",
+                  price: "{{ col_product.price | money }}",
+                  
+                  size_variants: [
+                    {% assign size_variants = col_product.metafields.custom.size_variants.value %}
+                    {% for p in size_variants %}                        
+                      {% liquid
+                        assign plan = p.selling_plan_groups[0].selling_plans[0]
+                        assign title = p.title | split: '(' | slice: 1 
+                        assign title = title[0] | replace: ')', '' | replace: 'Packs', 'Pack'  
+                        if plan.price_adjustments[0].value_type == 'percentage'
+                          assign discount_rate = plan.price_adjustments[0].value | divided_by: 100.00
+                          assign discount_amount = p.selected_or_first_available_variant.price | times: discount_rate
+                        else 
+                          assign discount_amount = plan.price_adjustments[0].value
+                        endif
+                        assign discounted_price = p.selected_or_first_available_variant.price | minus: discount_amount
+                        if title == '3 x 4-Pack'
+                          assign price_per_can = p.selected_or_first_available_variant.price | divided_by: 12 | money
+                          assign price_per_can_subx = discounted_price | divided_by: 12 | money
+                        elsif title == '6 x 4-Pack'
+                          assign price_per_can = p.selected_or_first_available_variant.price | divided_by: 24 | money
+                          assign price_per_can_subx = discounted_price | divided_by: 24 | money
+                        endif
+                      %}
+                      {
+                        id: '{{ p.id }}',
+                        variant_id: '{{ p.selected_or_first_available_variant.id }}',
+                        title: '{{ title }}',
+                        price: '{{ p.selected_or_first_available_variant.price | money }}',
+                        discounted_price: '{{ discounted_price | money }}',
+                        selling_plan: {{ plan.id }},
+                        plan_name: '{{ plan.name }}',
+                        price_adjustments: {{ plan.price_adjustments | json }},
+                        price_per_can: '{{ price_per_can }}',
+                        price_per_can_subx: '{{ price_per_can_subx }}'
+                      },
+                    {% endfor %}
+                  ],
+                  variants: {{ col_product.variants | json }}
+                },
+              {% endunless %}
+            {% endfor %}
+          {% endfor %}
+        ]
+      }
+    },
+    methods: {
+      select_product(event) {
+        event.preventDefault();
+        console.log(`id: ${event.currentTarget.getAttribute('data-pid')}`)
+        this.current_product = this.related_products.find(product => product.id == event.currentTarget.getAttribute('data-pid'));
+      },
+      add_to_cart(event) {
+        event.preventDefault();
+        const variant_id = this.current_product.size_variants[this.current_size.idx].variant_id;
+        const qty = product_form.querySelector('input[name="quantity"]');
+        const purchase_type = document.querySelector('input[name="purchase_type"]:checked').value;
+        let item = {
+          id: variant_id,
+          quantity: qty.value
+        };
+        if(purchase_type == 'subscription') {
+          item['selling_plan'] = this.current_product.size_variants[0].selling_plan;
+        }
+        let cart_items = {
+          items: [item],
+        };
+        console.log(`cart_items: ${JSON.stringify(cart_items)}`)
+        $.ajax({
+          type: "POST",
+          url: "/cart/add.js",
+          dataType: "json",
+          data: cart_items,
+          success: function(data) {
+            document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+              bubbles: true  //this code is for prestige theme, is to refresh the cart
+            }));
+            $('.openCart').trigger("click");
+            //getCartData(qty.value);
+            cart_drawer.setAttribute('aria-hidden','false');
+            page_overlay.classList.add('is-visible');
+          },
+          error: function (e) {
+            alert("Error adding product to cart.");
+          },
+        });
+      }
+    },
+    computed: {
+      regPrice: function() {
+        return this.current_product.size_variants[0].price + '/PCK'
+      },
+      discountPerc: function() {
+        return Math.floor(parseInt(this.current_product.size_variants[this.current_size.idx].price_adjustments[0]['value']));
+      },
+      discountedPrice: function() {
+        return this.current_product.size_variants[0].discounted_price + '/PCK'
+      },
+      price_per_can_onetime: function() {
+        return this.current_product.size_variants[this.current_size.idx].price_per_can
+      },
+      price_per_can_subx: function() {
+        return this.current_product.size_variants[this.current_size.idx].price_per_can_subx
+      }
+    }
+  };
+  Vue.createApp(ProductDetails).mount('.MultiCollections');
+</script>
+{% endif %}
+<script>
+  function openTab(evt, tabContent) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.querySelectorAll(".MultiCollections .tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    //document.getElementById(tabContent).style.display = "block";
+    document.getElementById(tabContent).style.display = "flex";
+    document.getElementById(tabContent).style.justifyContent = "center";
+    evt.currentTarget.className += " active";
+    $('.ProductList').slick('refresh');
+  }
+  document.addEventListener("DOMContentLoaded", ()=>{
+    //$('.slick-slider-{{ section.id | slice: -1, 12 }}').not('.slick-initialized').slick();
+    if(window.innerWidth < 1024){
+      $('.section-{{ section.id }} .ProductList').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+      /*$('.section-{{ section.id }}.MultiCollections .tab').slick({
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: false,
+        dots: false,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2.5,
+              slidesToScroll: 2
+            }
+          }
+        ]
+      });*/
+    }
+  });
+</script>
+<style>
+  .ProductList .Grid__Cell:hover .ProductItem__Info .Button {
+    color: #fff;
+    {% if block.settings.hover_bg %}
+      background-color: {{ block.settings.hover_bg }}!important;
+    {% else %}
+      background-color: #000000;
+    {%endif %}
+  }
+  .MultiCollections .ProductItem {
+    padding: 15px 20px !important;
+  }
+  .ProductItem__Wrapper {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+  }
+{%- for block in section.blocks -%}  
+    #block-{{ block.id }}{
+    -webkit-transition: background .2s ease-in;
+    transition: background .2s ease-in;
+    }
+  {% if block.settings.product_bg_banner2 != blank %}
+    #block-{{ block.id }}:hover .ProductItem__Wrapper {
+      background-image: url('{{- block.settings.product_bg_banner2 | img_url: '600x' -}}'); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  {% endif %}
+  
+  {% if block.settings.temporary_img %}
+  #block-{{ block.id }}:hover .ProductItem__Image, #block-{{ block.id }}:hover .ProductItem__ImageWrapper{
+    background-position: center;
+  }
+  {% endif %}
+  #block-{{ block.id }}:hover .ProductItem__Title{
+   display: none; 
+  }  
+   #block-{{ block.id }} .coming-soon-banner {
+    position: absolute;
+	}
+  #block-{{ block.id }}:hover .ProductItem__ImageWrapper .coming-soon-banner{
+   opacity: 0; 
+  }
+{% endfor %}
+</style>
+
+{%- capture hack -%}
+{%- comment -%}This is just an ugly hack to make those variables appear as part of the theme editor in the General Settings{%- endcomment -%}
+{% if layout_mode == 'grid' %}{{ settings.product_list_horizontal_spacing }},{{ settings.product_list_vertical_spacing }}{% endif %}
+{%- endcapture -%}
+
+{% schema %}
+{
+  "name": "Multi Collections",
+  "class": "shopify-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "sectionID",
+      "label": "ID Anchor Tag",
+      "default": "shop"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Sub-heading",
+      "default": "Manual collection"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "layout_mode",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image",
+      "label": "Bottom Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_form",
+      "label": "Show Product Form"
+    },
+    {
+      "type": "text",
+      "id": "bullet_list",
+      "label": "Product Form Bullet list"
+    },
+    {
+      "type": "header",
+      "content": "Grid",
+      "info": "Those settings apply only if the layout mode is set to grid."
+    },
+    {
+      "type": "select",
+      "id": "grid_mobile_items_per_row",
+      "label": "Products per row (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "min": 2,
+      "max": 4,
+      "id": "grid_desktop_items_per_row",
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_items_count",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "label": "Products to show",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Desktop slider settings"
+    },
+    {
+      "type": "number",
+      "id": "slides_to_show_desktop",
+      "label": "Slides to show"
+    },
+    {
+      "type": "number",
+      "id": "slides_to_scroll_desktop",
+      "label": "Slides to scroll"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows_desktop",
+      "label": "Show arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots_desktop",
+      "label": "Show dots"
+    },
+    {
+      "type": "header",
+      "content": "Mobile slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_slider_mobile",
+      "label": "Disable slider"
+    },
+    {
+      "type": "number",
+      "id": "slides_to_show_mobile",
+      "label": "Slides to show"
+    },
+    {
+      "type": "number",
+      "id": "slides_to_scroll_mobile",
+      "label": "Slides to scroll"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows_mobile",
+      "label": "Show arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots_mobile",
+      "label": "Show dots"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Collection Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Collections"
+    }
+  ]
+}
+{% endschema %}

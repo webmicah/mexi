@@ -1,0 +1,34 @@
+* {
+    font-family: 'Ruda';
+}
+.rich-text__blocks .h1, .richtext_heading p {
+    font-family: 'Canela';
+}
+.SectionHeader__Heading {
+    margin-bottom: 30px;
+}
+.SectionHeader__Heading p {
+    font-family: 'Canela';
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    line-height: 1;
+}
+.CartItem__Title {
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+}
+@media screen and (min-width: 750px) {
+    .SectionHeader__Heading p {
+        font-size: 60px;
+    }
+}
+.Footer__Block--links, .Footer__Block--text {
+    width: 50%;
+    flex-basis: unset;
+}
+.section-image-with-icons {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/fabric-texture.png?v=1671274738);
+}

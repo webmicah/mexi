@@ -1,0 +1,148 @@
+.accordion-section {
+    position: relative;
+}
+/* .section-accordion {
+    margin-bottom: 100px;
+}
+
+.section-accordion .body_text {
+    max-width: 500px;
+} */
+.accordion{
+    margin-bottom: 30px;
+}
+.accordion .card {
+    background-color: transparent;
+    border: 0;
+    margin-bottom: 10px;
+}
+.accordion .card-header {
+    padding: 10px;
+}
+/* .accordion .card-header {
+    background-color: transparent;
+    border-bottom: 2px solid #000;
+} */
+
+.accordion .btn {
+    padding-left: 0;
+}
+
+.accordion .btn h5.subh2 {
+    /* font-family: "sofia_pro";
+    font-weight: 700; */
+    font-size: 1.5rem;
+}
+
+.accordion .btn .btn_plus svg,
+.accordion .btn .btn_minus svg {
+    width: 10px;
+}
+.accordion-section > .container {
+    padding: 40px 15px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.accordion--heading, .accordion--heading p {
+    font-size: 30px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+.card-title {
+    font-weight: 900;
+    font-size: 17px;
+    line-height: 39px;
+    text-align: center;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 0;
+    position: absolute;
+}
+.accordion-card--btn {
+    width: 100%;
+    max-width: 450px;
+    max-height: 60px;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+.accordion-card--btn.selected{
+    filter: unset;
+    -webkit-filter: unset;
+    position: relative;
+}
+.accordion-card--btn.selected:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/asterisk.svg?v=1673412205);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.accordion--body {
+    background: #2C2C2D;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0.09em;
+    text-transform: capitalize;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+.accordion--wrapper {
+    position: relative;
+}
+.acc_featured_img {
+    max-height: 650px;
+}
+.accordion--heading strong {
+    position: relative;
+    font-weight: 400;
+}
+.accordion--heading strong:after {
+    content: '';
+    display: block;
+    width: 112%;
+    position: absolute;
+    background-size: contain;
+    left: 0;
+    bottom: 0;
+    height: 12px;
+    background-repeat: no-repeat;
+    transform: matrix(1, -0.02, -0.02, -1, 0, 0);
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/thick_underline2.svg?v=1673410835);
+}
+.accordion--btn-link {
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 5px 40px;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+.accordion-section .grid-icon__aimage {position: absolute;}
+@media only screen and (min-width: 768px) {
+    .accordion--heading, .accordion--heading p {
+        font-size: 60px;
+    }
+    .accordion--wrapper{margin-top:-40px;}
+    .card-title {
+        font-size: 26px;
+    }
+    .accordion--body{font-size: 19px;}
+    .accordion .card-header {padding-left: 0;}
+}

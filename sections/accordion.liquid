@@ -1,0 +1,449 @@
+{{ 'section-accordion.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .section-{{ section.id }} .accordion {
+    border: 0;
+  }
+  .section-{{ section.id }} .accordion .btn h5.subh2 {
+    font-size: 21px;
+  }
+  {% if section.settings.tpl == '1' %}
+    .section-{{ section.id }} .accordion--info {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+    .section-{{ section.id }} .btn_link {
+      min-width: unset;
+      border-radius: 10px;
+      height: 60px;
+      align-items: center;
+    }
+    .section-{{ section.id }} .accordion>.card>.card-header button {
+      height: 50px;
+      align-items: center;
+    }
+    @media screen and (min-width: 768px) {
+      .section-{{ section.id }} .btn_link {
+        max-width: 50%;
+        height: 70px;
+      }
+    }
+  {% endif %}
+  {% if section.settings.tpl == '2' %}
+    @media only screen and (max-width: 1008px) {
+      .main-grid{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .acc_featured_img {
+        margin-top: 30px;
+      }
+      .accordion--heading, .accordion--heading p {
+        text-align: center;
+      }
+    }
+  {% endif %}
+  {% if section.settings.tpl == '3' %}
+    .section-{{ section.id }} .accordion>.card>.card-header {
+      border-bottom: 5px solid {{ section.settings.card_header_color }};
+    }
+    .section-{{ section.id }} .accordion .btn h5.subh2 {
+      color: {{ section.settings.card_header_color }};
+    }
+    .section-{{ section.id }} .accordion .btn .btn_plus svg *, .section-{{ section.id }} .accordion .btn .btn_minus svg * {
+      fill: {{ section.settings.card_header_color }};
+    }
+    .section-{{ section.id }} .accordion>.card>.card-header button {
+      height: 50px;
+      align-items: flex-end;
+    }
+    .section-{{ section.id }} .accordion .btn .btn_plus svg, .accordion .btn .btn_minus svg {
+      width: 12px;
+    }
+    .section-{{ section.id }} .acc_featured_img {
+      border-radius: 30px;
+    }
+    .section-{{ section.id }} .card-body {
+      padding: 2rem 1.5rem 1rem;
+      color: #676767;
+    }
+    .section-{{ section.id }} .card-body > .row {
+      align-items: center;
+    }
+    .section-{{ section.id }} .card--img {
+      width: 100%;
+      max-width: 240px;
+    }
+  {% endif %}
+  {{ section.settings.custom_css }}
+{%- endstyle -%}
+<section class="accordion-section section-{{ section.id }}{% if section.settings.show_bg_img %} bg_img{% endif %} section-{{ section.id }}-padding" 
+{% if section.settings.section_bg_color != blank %} style="background-color:{{ section.settings.section_bg_color }};" {% endif %}>
+  {% assign section_accent_images = section.blocks | where: 'type', 'accent_img' %}
+  {% for block in section_accent_images %}
+    {% if block.settings.accimg_location == 'entire_section' %}
+      {% assign max_height = block.settings.max_height %}
+      {% unless block.settings.img == blank %}
+        <img class="grid-icon__aimage" id="block-{{block.id}}" src="{{ block.settings.img | img_url: 'master' }}" alt="{{ block.settings.img.alt }}" loading="lazy" 
+        style="{% unless max_height == blank %}max-height:{{ max_height }}px;{% endunless %}
+        {% unless block.settings.accimg_right == blank %}right:{{block.settings.accimg_right}}%;{% endunless %}
+        {% unless block.settings.accimg_top == blank %}top:{{block.settings.accimg_top}}%;{% endunless %}">
+      {% endunless %}
+      <style>
+        {% if block.settings.block_display == 'desktop_only' %}
+          @media screen and (max-width: 749px) {
+            #block-{{block.id}} {display:none;}
+          }
+          {% endif %}
+          {% if block.settings.block_display == 'mobile_only' %}
+          @media screen and (min-width: 750px) {
+            #block-{{block.id}} {display:none;}
+          }
+        {% endif %}
+      </style>
+    {% endif %}
+  {% endfor %}
+  <div class="container container--medium text-md-left text-center">
+    <div class="Grid main-grid align-items-center">
+        <div class="Grid__Cell 11/12--phone 1/2--tablet 1/2--lap-and-up">
+          {% if section.settings.tpl == '2' %}
+              <h1 class="accordion--heading hidden-phone mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
+              <h4 class="subheading_sm my-4">{{ section.settings.subheading }}</h4>
+              <p class="body_text mb-4">{{ section.settings.text }}</p>
+              {% comment %} {% if section.settings.btn_url != blank and section.settings.btn_text != blank %}
+                <a href="{{ section.settings.btn_url }}" class="btn btn_link d-none d-md-inline-block">{{ section.settings.btn_text }}</a>
+              {% endif %} {% endcomment %}
+          {% endif %}
+          {% if section.blocks.size > 0 %}
+          <div class="accordion cAccordion" id="{{ section.id }}" data-section-id="{{ section.id }}">
+            {% for block in section.blocks %}
+              {% if block.type == 'accordion_item' %}
+                <div class="card card-{{block.id}}">
+                  <div class="card-header p-2" id="heading{{ forloop.index }}">
+                    <div class="mb-0">
+                      <button class="accordion-card--btn btn btn-link btn-block{% if forloop.index == 1 %} selected{% endif %}" type="button" data-toggle="collapse"
+                        data-target="#collapse_{{ section.id }}_{{ forloop.index }}" aria-expanded="false" aria-controls="collapse{{ forloop.index }}"
+                        data-body="{{ block.settings.accordion_body | strip_html }}"
+                        {% if block.settings.featured_img != blank %} data-featured-img="{{ block.settings.featured_img | img_url: 'master' }}" onclick="accFimg(this)"{% endif %}>
+                          <h5 class="card-title mb-0 ff-serif_2">{{ block.settings.accordion_heading }}</h5>
+                          {% unless block.settings.heading_bg_img == blank %}
+                            <img src="{{ block.settings.heading_bg_img | img_url:'master' }}" loading="lazy"/>
+                          {% endunless %}
+                      </button>
+                    </div>
+                  </div>
+                  {% comment %} <div id="collapse_{{ section.id }}_{{ forloop.index }}" class="collapse" aria-labelledby="heading{{ forloop.index }}"
+                    data-parent="#{{ section.id }}">
+                    <div class="card-body">
+                      {% if section.settings.tpl == '3' and block.settings.featured_img != blank %}
+                        <div class="row">
+                          <div class="col-6">
+                            <img class="card--img" src="{{ block.settings.featured_img | img_url: '400x' }}" alt="" loading="lazy">
+                          </div>
+                          <div class="col-6">
+                            {{ block.settings.accordion_body }}
+                          </div>
+                        </div>
+                      {% else %}
+                        {{ block.settings.accordion_body }}
+                      {% endif %}
+                    </div>
+                  </div> {% endcomment %}
+                </div>
+                {% if block.settings.rotation != blank %}
+                  <style>.card-{{block.id}} .accordion-card--btn{transform: matrix({{ block.settings.rotation }});}</style>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if section.settings.btn_url != blank and section.settings.btn_text != blank %}
+          <a href="{{ section.settings.btn_url }}" class="accordion--btn-link btn btn_link d-block d-md-none mx-auto mt-4">{{ section.settings.btn_text }}</a>
+          {% endif %}
+        </div>
+        <div class="Grid__Cell 11/12--phone 1/2--tablet 1/2--lap-and-up">
+          {% if section.settings.tpl == '1' %}
+            <div class="accordion--info">
+              <h1 class="accordion--heading mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
+              <h4 class="subheading_sm mx-auto ml-md-0">{{ section.settings.subheading }}</h4>
+              <p class="body_text">{{ section.settings.text }}</p>
+              {% if section.settings.btn_url != blank and section.settings.btn_text != blank %}
+                <a href="{{ section.settings.btn_url }}" class="btn btn_link d-none d-md-inline-flex">{{ section.settings.btn_text }}</a>
+              {% endif %}
+            </div>
+          {% elsif section.settings.tpl == '2' or  section.settings.tpl == '3' %}
+            <div class="accordion--wrapper">
+              <h1 class="accordion--heading hidden-tablet-and-up mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
+              <img src="{{ section.settings.featured_img | img_url: 'master' }}" alt="" class="w-100 acc_featured_img" loading="lazy">
+              {% assign accordion_items = section.blocks | where: 'type', 'accordion_item' %}
+              {% for block in accordion_items limit: 1 %}
+                <h4 class="accordion--body mx-auto ml-md-0">{{ block.settings.accordion_body }}</h4>
+              {% endfor %}
+            </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+  </section>
+  {% if section.settings.tpl == '2' and section.settings.featured_img != blank %}
+    <script>
+      const acc_featured_img = document.querySelector('.acc_featured_img');
+      const acc_body = document.querySelector('.accordion--body');
+      const acc_hbtn = document.querySelectorAll('.accordion-card--btn');
+      function accFimg(e) {
+        acc_hbtn.forEach(btn => {
+          btn.classList.remove('selected');
+        });
+        let featured_img_url = e.getAttribute('data-featured-img');
+        let body_text = e.getAttribute('data-body');
+        acc_featured_img.setAttribute('src',featured_img_url);
+        acc_body.innerText = body_text;
+        e.classList.add('selected');
+      }
+    </script>
+  {% endif %}
+  {% schema %}
+  {
+  "name": "Accordion",
+  "settings": [
+    {
+    "type": "richtext",
+    "id": "heading",
+    "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "options": [
+        {
+          "value": "ff-serif fw-700",
+          "label": "Serif"
+        },
+        {
+          "value": "ff-serif-2 fw-700",
+          "label": "Serif_2"
+        },
+        {
+          "value": "ff-sans-normal fw-700",
+          "label": "Sans Serif"
+        }
+      ],
+      "default": "ff-serif-2 fw-700",
+      "label": "Heading Style"
+    },
+    {
+    "type": "text",
+    "id": "subheading",
+    "label": "Sub heading"
+    },
+    {
+    "type": "text",
+    "id": "text",
+    "label": "Text"
+    },
+    {
+    "type": "url",
+    "id": "btn_url",
+    "label": "Button url"
+    },
+    {
+    "type": "text",
+    "id": "btn_text",
+    "label": "Button text"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_img",
+      "label": "Featured image"
+    },
+    {
+    "type": "select",
+    "id": "tpl",
+    "label": "Template",
+    "options": [
+      {
+      "value": "1",
+      "label": "1"
+      },
+      {
+      "value": "2",
+      "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      }
+    ],
+    "default": "1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_img",
+      "label": "Show Background Image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color"
+    },
+    {
+      "type": "color",
+      "id": "card_header_color",
+      "label": "Card header color",
+      "default": "#417D6A"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    },
+    {
+      "type": "liquid",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }
+  ],
+  "blocks": [
+  {
+  "type": "accordion_item",
+  "name": "Accordion Item",
+  "settings": [
+      {
+      "type": "text",
+      "id": "accordion_heading",
+      "label": "Heading"
+      },
+      {
+      "type": "richtext",
+      "id": "accordion_body",
+      "label": "Body"
+      },
+      {
+        "type": "image_picker",
+        "id": "featured_img",
+        "label": "Featured image"
+      },
+      {
+        "type": "image_picker",
+        "id": "heading_bg_img",
+        "label": "Heading background image"
+      },
+      {
+        "type": "text",
+        "id": "rotation",
+        "label": "rotation"
+      }
+    ]
+  },
+  {
+    "type":"accent_img",
+    "name":"Accent image",
+    "settings":[
+      {
+        "type":"image_picker",
+        "id":"img",
+        "label":"Accent image"
+      },
+      {
+        "type": "text",
+        "id": "max_height",
+        "label": "Image maximum height (px)"
+      },
+      {
+        "type": "select",
+        "id": "accimg_location",
+        "options": [
+          {
+            "value": "entire_section",
+            "label": "Section"
+          },
+          {
+            "value": "featured_img",
+            "label": "Featured image"
+          }
+        ],
+        "default": "featured_img",
+        "label": "Accent image location"
+      },
+      {
+        "type": "range",
+        "id": "accimg_right",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Accent image position horizontal",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "accimg_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Accent image position vertical",
+        "default": 5
+      },
+      {
+        "type": "select",
+        "id": "block_display",
+        "options": [
+          {
+            "value": "all",
+            "label": "Desktop and mobile"
+          },
+          {
+            "value": "desktop_only",
+            "label": "Desktop only"
+          },
+          {
+            "value": "mobile_only",
+            "label": "Mobile only"
+          }
+        ],
+        "default": "all",
+        "label": "Block display"
+      }
+    ]
+  }
+  ],
+  "presets": [{
+  "name": "Accordion",
+  "category": "Text"
+  }]
+  }
+{% endschema %}

@@ -1,0 +1,93 @@
+.FeaturedCollection .ProductItem__Details {
+    display: none;
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    box-shadow: 8px 4px 7px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.FeaturedCollection .ProductItem__Details p {
+    font-family: 'Ruda';
+}
+
+.FeaturedCollection .ProductList .Grid__Cell:hover .ProductItem__Details {
+    display: block;
+}
+
+.FeaturedCollection .ProductList .ProductItem__Title a {
+    text-transform: uppercase;
+    font-family: 'Ruda';
+    font-weight: 300;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.FeaturedCollection .ProductList .ProductItem__Info .Button {
+    font-size: 15px;
+    border: 3px solid #1B1C1E;
+    box-shadow: 0px 0px 8px 1px rgba(130, 65, 6, 0.11);
+    width: 80%;
+    /* max-width: 186px; */
+    margin: 0 auto;
+    padding: 10px;
+    letter-spacing: 0px;
+    font-weight: 700;
+}
+
+.FeaturedCollection .ProductList .ProductItem__Info .Button::before {
+    background-color: transparent;
+}
+
+.FeaturedCollection .ProductList .Grid__Cell:hover .ProductItem__Info .Button {
+    color: #fff;
+}
+
+.FeaturedCollection .ProductList .slick-prev:before,
+.ProductList .slick-next:before {
+    content: none;
+}
+
+.FeaturedCollection .ProductList .slick-prev,
+.ProductList .slick-next {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.FeaturedCollection .ProductList .slick-prev {
+    background-image: url(https://cdn.shopify.com/s/files/1/0623/6576/1773/files/slick-arrow-prev.svg?v=1667888974);
+    left: 0;
+}
+
+.FeaturedCollection .ProductList .slick-next {
+    background-image: url(https://cdn.shopify.com/s/files/1/0623/6576/1773/files/slick-arrow-next.svg?v=1667888974);
+    right: 0;
+}
+
+.FeaturedCollection .ProductList .slick-dots li button:before {
+    font-size: 10px;
+}
+
+.FeaturedCollection .ProductList .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #000;
+}
+
+.FeaturedCollection .ProductList .slick-arrow {
+    z-index: 1;
+}
+@media screen and (min-width:992px){
+    .FeaturedCollection .ProductList .ProductItem__Info .Button {
+      font-size: 20px;
+    }
+}
+@media screen and (min-width:1300px){
+    .FeaturedCollection .ProductList .slick-next {
+        right: -50px;
+    }
+    .FeaturedCollection .ProductList .slick-prev {
+        left: -50px;
+    }
+}

@@ -1,0 +1,251 @@
+
+<section id="section-{{ section.id }}" class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}">
+  {%- capture section_content -%}
+    <div class="FeatureText__ContentWrapper">
+      <div class="FeatureText__Content">
+        {%- if section.settings.title != blank or section.settings.content != blank -%}
+          <header class="SectionHeader">
+
+            {%- if section.settings.title != blank -%}
+              <h3 class="SectionHeader__Heading Heading u-h3 h1-header">{{ section.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if section.settings.content != blank -%}
+              <div class="SectionHeader__Description Rte">
+                {{ section.settings.content }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.link_text != blank -%}
+              <a href="{{ section.settings.link_url }}" class="Button">{{ section.settings.link_text | escape }}</a>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endcapture -%}
+
+  {%- capture section_image -%}
+    {%- if section.settings.image != blank -%}
+      <div class="FeatureText__ImageWrapper">
+        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,600,700,800,900,1000,1200', image: section.settings.image -%}{%- endcapture -%}
+		<a href="{{ section.settings.link_url }}" >
+        <div class="AspectRatio" style="max-width: {{ section.settings.image.width }}px; --aspect-ratio: {{ section.settings.image.aspect_ratio }}">
+          {%- assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <img class="Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }}" data-src="{{ image_url }}" data-expand="-200" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+
+          <noscript>
+            <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}">
+          </noscript>
+        </div>
+        </a>
+      </div>
+    {%- endif -%}
+  {%- endcapture -%}
+
+  <div class="FeatureText {% if section.settings.image != blank %}FeatureText--withImage FeatureText--image{{ section.settings.image_position | capitalize }}{% endif %}">
+    {%- if section.settings.image_position == 'left' -%}
+      {{- section_image -}}
+      {{- section_content -}}
+    {%- else -%}
+      {{- section_content -}}
+      {{- section_image -}}
+    {%- endif -%}
+  </div>
+  <div class="wave_container">
+    <div class="wave">      
+      <svg version="1.1" id="Layer_1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2009.6 101.8" style="enable-background:new 0 0 2009.6 101.8;" xml:space="preserve">
+        <g>
+            <path class="st0" d="M2009.6,0v56.6c0,0-137.4,37.6-461.7,44.7C1223.6,108.4,801.6,33.1,506.8,32C211.9,30.9,0,56.6,0,56.6v45.2
+                h2009.6L2009.6,0L2009.6,0z"/>
+            <path class="st1" d="M506.8,32c294.8,1.1,716.8,76.4,1041.1,69.3c324.3-7.1,461.7-44.7,461.7-44.7V0H0v56.6
+                C0,56.6,211.9,30.9,506.8,32z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+<style>
+  #section-{{ section.id }} {
+    padding-bottom: 170px;
+    position: relative;
+  }
+  
+  #section-{{ section.id }} .FeatureText {
+    padding-top: 100px;
+    {%- assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+    background-color: {{ section.settings.bg_color | color_modify: 'alpha', overlay_opacity }};
+  }
+  
+  #section-{{ section.id }} .FeatureText__Content {
+    max-width: 480px;
+    margin-left: 0!important;
+    text-align: left;
+  }
+  
+  #section-{{ section.id }} .FeatureText__Content .SectionHeader__Heading {
+    font-size: 74px;
+    text-shadow: 0 3px #F8BAB2;
+    margin-bottom: 90px;
+/*     text-align: center; */
+  }
+  
+  #section-{{ section.id }} .FeatureText__Content .SectionHeader__Description{
+    font-family: 'Ruda', sans-serif;
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .wave_container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 170px;
+  }
+
+  
+  .wave svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+        .wave .st0{
+          fill:none;
+        }
+        .wave .st1{
+          fill:{{ section.settings.bg_color }};
+            opacity: {{ section.settings.overlay_opacity }}%;
+        }
+
+.wave {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  overflow: visible;
+}
+  
+  
+  #section-{{ section.id }} .Button:before{
+    background-color:  {{ section.settings.button_color }};
+  }
+  
+    #section-{{ section.id }}  .Button{
+    border-color:  {{ section.settings.button_color }};
+  }
+  
+  @media only screen and (max-width: 1250px) {
+	  #section-{{ section.id }} .FeatureText__Content .SectionHeader__Heading {
+    font-size: 50px;
+        margin-bottom: 30px;
+      }
+	}
+  
+  @media only screen and (max-width: 641px) {
+      #section-{{ section.id }} .FeatureText__Content {
+          margin: 0 auto;
+      }
+    #section-{{ section.id }} .FeatureText__Content .SectionHeader__Heading {
+    	font-size: 35px;
+      }
+      #section-{{ section.id }} .FeatureText {
+    padding-top: 50px;
+      }
+    
+      .wave_container{
+      height: 50px;
+      }
+    
+      #section-{{ section.id }} {
+        padding-bottom: 50px;
+      }
+	}
+  
+
+</style>
+
+{% schema %}
+{
+  "name": "Certified Craft Seltzer",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1200 x 1200px .png recommended"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+    "type": "color",
+    "id": "bg_color",
+    "label": "Background Color",
+    "default": "#F40901"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+    "type": "color",
+    "id": "button_color",
+    "label": "Button Color",
+    "default": "#F8BAB2"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Rich text with image",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

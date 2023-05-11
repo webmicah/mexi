@@ -1,0 +1,535 @@
+{% assign enable_carousel = section.settings.enable_carousel %}
+{% if enable_carousel %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% style %}
+/* .section--{{ section.id }} .feature-logo .logo_list{
+  display:block !important;
+} */
+{% endstyle %}
+{% endif %}
+{{ 'section-logo-list.css' | asset_url | stylesheet_tag }}
+{% style %}
+  {{ section.settings.custom_css }}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  {% unless enable_carousel %}
+    .section--{{ section.id }}.feature-logo .logo_list {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  {% endunless %}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% if section.settings.section_display == 'desktop_only' %}
+  @media screen and (max-width: 749px) {
+    .section--{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  {% if section.settings.section_display == 'mobile_only' %}
+  @media screen and (min-width: 750px) {
+    .section--{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  .section--{{ section.id }} {
+    color: {{ section.settings.section_text_color }};
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  #shopify-section-template--{{ section.id }} {
+    position: relative;
+    background-color: #cedddc;
+  }
+  #shopify-section-template--{{ section.id }} .title h2 {
+    font-family: "sofia_pro";
+    font-size: min(4.5vw, 24px);
+  }
+  #shopify-section-template--{{ section.id }} .titleBox {
+    margin-right: 20px;
+  }
+  #shopify-section-template--{{ section.id }} .imgBoxWrap {
+    text-align: left;
+  }
+  #shopify-section-template--{{ section.id }} .custom-row {
+    justify-content: space-between;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  {% if section.settings.tpl == '2' %}
+  @media screen and (max-width: 992px) {
+    .section--{{ section.id }} .feature-logo .col_item:first-child,
+    .section--{{ section.id }} .feature-logo .col_item,
+    .section--{{ section.id }} .feature-logo .col_item:last-child {
+      width: 50%;
+    }
+    .section--{{ section.id }} .logo_item {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  {% elsif section.settings.tpl == '3' %}
+    .section--{{ section.id }} .logo_item {
+      justify-content: center;
+      padding: 25px 20px;
+    }
+    .section--{{ section.id }}.feature-logo .col_item .subh {
+      max-width: unset;
+      font-weight: 600;
+    }
+    @media screen and (max-width: 992px) {
+    .section--{{ section.id }} .logo_item {
+      flex-direction: column;
+      text-align: center;
+    }
+  {% endif %}
+{% endstyle %}
+<section class="feature-logo section--{{ section.id }} section-{{ section.id }}-padding">
+    <div class="p-3">
+      {% unless section.settings.handle == blank %}
+        {% if section.settings.cta_url != blank %}
+            <a class="ig_handle" href="{{ section.settings.cta_url }}" target="_blank">{{ section.settings.handle }}</a>
+        {% else %}
+            <div class="ig_handle">{{ section.settings.handle }}</a>
+        {% endif %}
+      {% endunless %}
+      {% unless section.settings.heading == blank %}<h2 class="mb-4 text-center">{{ section.settings.heading }}</h2>{% endunless %}
+      {% unless section.settings.subheading == blank %}<h4 class="mb-5 text-center">{{ section.settings.subheading }}</h4>{% endunless %}
+      <div class="logo_list{% if enable_carousel %} slick-slider-{{ section.id | slice: -1, 12 }}{% endif %}"
+        {% if enable_carousel %} data-slick='{"slidesToShow": {{ section.settings.slides_to_show_desktop }}, 
+        "slidesToScroll": {{ section.settings.slides_to_scroll_desktop }},
+        "infinite": false,
+        "lazyLoad": "progressive",
+        "arrows": {{ section.settings.show_arrows_desktop }},
+        "dots": {{ section.settings.show_dots_desktop }},
+        "responsive": [
+            {
+            "breakpoint": 1024,
+            "settings": {
+                "slidesToShow": 2.75,
+                "slidesToScroll": 2,
+                "arrows": true,
+                "dots": true
+                }
+            },
+            {
+            "breakpoint": 750,
+            "settings": {
+                "slidesToShow": {{ section.settings.slides_to_show_mobile }},
+                "slidesToScroll": {{ section.settings.slides_to_scroll_mobile }},
+                "arrows": {{ section.settings.show_arrows_mobile }},
+                "dots": {{ section.settings.show_dots_mobile }}
+                }
+            }
+        ]
+  }'{% endif %}>
+        {% for block in section.blocks %}
+          {% if section.settings.text_position == 'right' %}
+            {% assign item_class = 'd-flex align-items-center' %}
+          {% elsif section.settings.text_position == 'bottom' %}
+            {% assign item_class = 'text-center' %}
+          {% endif %}
+          {% liquid
+            assign logo_max_height = block.settings.logo_max_height | default: section.settings.logos_max_height
+            assign column_width = block.settings.column_width | default: section.settings.column_width
+            assign bg_color = section.settings.block_bg_color
+            assign text_color = section.settings.section_text_color
+            assign border_radius = section.settings.block_border_radius
+            assign logo_item_styles = 'background-color:' | append: bg_color | append: ';color:' | append: text_color | append: ';'
+            unless border_radius == blank
+              assign logo_item_styles = logo_item_styles | append: 'border-radius:' | append: border_radius | append: 'px;'
+            endunless
+          %}
+          <div class="col col_item"{% unless column_width == blank %} style="width:{{ column_width }};"{% endunless %}>
+            {% capture logo_item %}
+            <div class="logo_item {{ item_class }} px-1"{% unless logo_item_styles == blank %} style="{{ logo_item_styles }}"{% endunless %} data-block="{{ block.id }}">
+              {% capture block_logo %}
+                {% if block.settings.featured_logo != blank %}
+                  <img src="{{ block.settings.featured_logo | img_url: 'master' }}" alt="logo" loading="lazy" 
+                    style="{% unless logo_max_height == blank %}max-height:{{ logo_max_height }}px;{% endunless %}
+                    {% if block.settings.img_border_radius_inherit %}border-radius:{{ border_radius }}px;"{% endif %}">
+                {% elsif block.settings.featured_logo_svg != blank %}
+                  <img src="{{ block.settings.featured_logo_svg | file_url }}" alt="logo" loading="lazy"
+                  style="{% unless logo_max_height == blank %}max-height:{{ logo_max_height }}px;{% endunless %}
+                  {% if block.settings.img_border_radius_inherit %}border-radius:{{ border_radius }}px;"{% endif %}">
+                {% endif %}
+              {% endcapture %}
+              {% if block_logo != blank %}
+                <div class="imgBox pr-2 my-2">{{ block_logo }}</div>
+              {% endif %}
+              {% if block.settings.video_url != blank %}
+                {% assign video_autoplay = block.settings.video_autoplay %}
+                {% assign video_muted = block.settings.video_muted %}
+                <div class="media media--transparent media-video">
+                  <video playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="600px" width="100%" style="opacity:1;height:600px;"><source type="video/mp4" src="{{ block.settings.video_url }}"></video>
+                </div>
+                {% if video_autoplay %}
+                  {% assign block_idx = block.id | slice: -1, 1 %}
+                  <script>
+                    document.addEventListener("DOMContentLoaded", ()=>{
+                    const vid_{{ block_idx }} = document.querySelector(".logo_item[data-block='{{ block.id }}'] .media-video video");
+                    if(vid_{{ block_idx }}) {
+                      vid_{{ block_idx }}.play();
+                    }
+                    });
+                  </script>
+                {% endif %}
+              {% endif %}
+              {% unless block.settings.text == blank %}
+              <div class="subh">{{ block.settings.text }}</div>
+              {% endunless %}
+              {% unless block.settings.small_text == blank %}
+                <div class="small--text">{{ block.settings.small_text }}</div>
+              {% endunless %}
+            </div>
+            {% endcapture %}
+            {% if block.settings.url != blank %}
+              <a href="{{ block.settings.url }}">{{ logo_item }}</a>
+            {% else %}
+              {{ logo_item }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      {% unless section.settings.cta_text == blank and section.settings.cta_url == blank %}
+        <a class="ig_cta" href="{{ section.settings.cta_url }}" target="_blank">
+            <span>{{ section.settings.cta_text }}</span>
+            <span>{% render 'icon', icon:'ig_arrow' %}</span>
+        </a>
+      {% endunless %}
+    </div>
+  </section>
+  {% if enable_carousel %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", ()=>{
+    $('.slick-slider-{{ section.id | slice: -1, 12 }}').not('.slick-initialized').slick();
+    /* setTimeout(() => {
+      $('.slick-slider-{{ section.id | slice: -1, 12 }}').not('.slick-initialized').slick();
+      //$('.slick-slider-{{ section.id | slice: -1, 12 }}').slick('unslick').slick('reinit').slick();
+    }, 2000); */
+    /*$('.carousel-slider2').not('.slick-initialized').slick();*/
+  });
+  </script>
+  {% endif %}
+  {% schema %}
+    {
+    "name":"Instagram Feed",
+    "settings":[
+      {
+        "type":"text",
+        "id":"featured_logo_title",
+        "label":"Title",
+        "default":"As featured on"
+      },
+      {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading"
+      },
+      {
+      "type": "html",
+      "id": "subheading",
+      "label": "Sub heading"
+      },
+      {
+        "type": "select",
+        "id": "text_position",
+        "label": "Text position",
+        "options": [
+          {
+            "value": "right",
+            "label": "Right side of logo"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom of logo"
+          }
+        ],
+        "default": "right"
+      },
+      {
+        "type": "text",
+        "id": "logos_max_height",
+        "label": "Logos maximum height (px)"
+      },
+      {
+        "type": "text",
+        "id": "column_width",
+        "label": "Column width (any unit)"
+      },
+      {
+        "type": "select",
+        "id": "tpl",
+        "label": "Style",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "label": "Columns desktop"
+      },
+      {
+        "type": "range",
+        "id": "columns_mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 1,
+        "label": "Columns mobile"
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Top padding",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Bottom padding",
+        "default": 52
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Section Background Color",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "section_text_color",
+        "label": "Section Text Color",
+        "default": "#322F26"
+      },
+      {
+        "type": "text",
+        "id": "block_border_radius",
+        "label": "Block border radius (px)"
+      },
+      {
+        "type": "color",
+        "id": "block_bg_color",
+        "label": "Block Background Color",
+        "default": "transparent"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_carousel",
+        "label": "Enable Carousel"
+      },
+      {
+        "type": "select",
+        "id": "section_display",
+        "options": [
+          {
+            "value": "all",
+            "label": "Desktop and mobile"
+          },
+          {
+            "value": "desktop_only",
+            "label": "Desktop only"
+          },
+          {
+            "value": "mobile_only",
+            "label": "Mobile only"
+          }
+        ],
+        "default": "all",
+        "label": "Section display"
+      },
+      {
+        "type": "text",
+        "id": "handle",
+        "label": "IG Handle"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "header",
+        "content": "Desktop slider settings"
+      },
+      {
+        "type": "number",
+        "id": "slides_to_show_desktop",
+        "label": "Slides to show"
+      },
+      {
+        "type": "number",
+        "id": "slides_to_scroll_desktop",
+        "label": "Slides to scroll"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_arrows_desktop",
+        "label": "Show arrows"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_dots_desktop",
+        "label": "Show dots"
+      },
+      {
+        "type": "header",
+        "content": "Mobile slider settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_slider_mobile",
+        "label": "Disable slider"
+      },
+      {
+        "type": "number",
+        "id": "slides_to_show_mobile",
+        "label": "Slides to show"
+      },
+      {
+        "type": "number",
+        "id": "slides_to_scroll_mobile",
+        "label": "Slides to scroll"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_arrows_mobile",
+        "label": "Show arrows"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_dots_mobile",
+        "label": "Show dots"
+      },
+      {
+        "type": "liquid",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"logo",
+        "name":"Logo",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"featured_logo",
+            "label":" Logo"
+          },
+          {
+            "type":"text",
+            "id":"featured_logo_svg",
+            "label":"Use svg for Logo (enter file name)"
+          },
+          {
+            "type": "url",
+            "id": "video_url",
+            "label": "Video url"
+          },
+          {
+            "type": "checkbox",
+            "id": "video_autoplay",
+            "label": "Video autoplay"
+          },
+          {
+            "type": "checkbox",
+            "id": "video_muted",
+            "label": "Video muted test"
+          },
+          {
+            "type":"text",
+            "id":"text",
+            "label":"Text"
+          },
+          {
+            "type":"text",
+            "id":"small_text",
+            "label":"Small Text"
+          },
+          {
+            "type":"url",
+            "id":"url",
+            "label":"Link"
+          },
+          {
+            "type": "text",
+            "id": "logo_max_height",
+            "label": "Logo maximum height (px)"
+          },
+          {
+            "type": "text",
+            "id": "column_width",
+            "label": "Column width (any unit)"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color"
+          },
+          {
+            "type": "text",
+            "id": "border_radius",
+            "label": "Border radius (px)"
+          },
+          {
+            "type": "checkbox",
+            "id": "img_border_radius_inherit",
+            "label": "Inherit block border radius for image"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Instagram Feed"
+      }
+    ]
+  }
+  {% endschema %}

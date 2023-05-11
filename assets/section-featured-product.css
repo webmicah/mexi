@@ -1,0 +1,445 @@
+.FeaturedProduct{
+    flex-direction: column;
+}
+.FeaturedProduct__Info {
+    display: flex;
+    align-items: center;
+}
+.FeaturedProduct__Info,
+.FeaturedProduct__Info .ProductMeta__Text, .FeaturedProduct__Info .ProductMeta, .FeaturedProduct__Info .Heading, 
+.FeaturedProduct__Info .Heading a {
+    font-family: 'Ruda';
+}
+.FeaturedProduct__Info .ProductMeta {
+    padding-bottom: 0;
+    border: 0;
+}
+.FeaturedProduct__Info .ProductMeta__Title a {
+    font-family: 'Canela';
+    font-size: 38px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.FeaturedProduct__Info .SectionHeader__SubHeading {
+    text-align: center;
+}
+.FeaturedProduct__Info .SectionHeader__SubHeading p {
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-size: 21px;
+    font-weight: 600;
+}
+.FeaturedProduct .AspectRatio {
+    height: 100%;
+}
+.FeaturedProduct__Gallery img {
+    object-fit: contain;
+    height: 100%;
+}
+.ProductForm__Option {
+    padding: 20px;
+    background: #F4F4F4;
+    border: 2px solid #000000;
+    border-radius: 17px;
+}
+.ProductForm__Option label,.QuantitySelector__Wrapper,.QuantitySelector__Qty {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 12ch;
+    line-height: 1.2;
+}
+/* .ProductForm__Subscription {
+    border: 1px solid #1B1C1E;
+    padding: 20px;
+} */
+.purchase_type {
+  margin-right: 10px;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.purchase_type:before {
+    border-radius: 11px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    display: block;
+    border: 2px solid #000;
+}
+.purchase_type:checked:before {
+    background: #000;
+}
+.ProductForm__Onetime,.ProductForm__Option_Subscription {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+.ProductForm__Onetime .form-group {
+    display: flex;
+}
+.ProductForm__Subscription.active {
+    display: block;
+}
+.ProductForm__Subscription:not(.active) {
+    display: none;
+}
+.ProductForm__Subscription_Label {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.ProductForm__Subscription select {
+    background: #F7F5F0;
+    border: 1px solid #FFFFFF;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+.ProductForm__PurchaseType .form-group {
+    display: block;
+    margin: 0 auto 0;
+    width: auto;
+    height: 38px;
+    position: relative;
+    width: 190px;
+}
+.ProductForm__PurchaseType .form-group input[type=radio], .ProductForm__PurchaseType .form-group label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.ProductForm__PurchaseType .form-group input[type=radio] {
+    height: 30px;
+	left: 5px;
+}
+.ProductForm__PurchaseType .form-group label {
+    padding: 5px 5px 5px 23px;
+    cursor: pointer;
+    border: 1px solid rgba(31, 31, 31, 0.4);
+    color:  rgba(31, 31, 31, 0.4);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1;
+    width: 190px;
+}
+.ProductForm__PurchaseType .form-group label.selected {
+    border-color: #1F1F1F;
+    color: #1F1F1F;
+}
+.ProductForm__AddToCart.Button {
+    height: 60px;
+    width: 100%;
+    color: #1F1F1F;
+    border: 0;
+    text-transform: capitalize;
+}
+.ProductForm__AddToCart.Button::before {
+    content:none;
+    /* background-color: #fff; */
+}
+.ProductForm__AddToCart.Button.Button--primary:hover {
+    background-color: #1F1F1F;
+    color: #fff;
+}
+.ProductForm__QuantitySelector {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    color: #fff;
+    background: #1B1C1E;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    justify-content: space-between;
+}
+.ProductForm__QuantitySelector .QuantitySelector {
+    color: #fff;
+    border: none;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.ProductForm__QuantitySelector .ProductMeta__Text {
+    margin: 0;
+    line-height: 1;
+}
+.ProductForm__QuantitySelector .QuantitySelector svg, .ProductForm__QuantitySelector .QuantitySelector--large svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 3px;
+}
+.ProductForm__QuantitySelector .QuantitySelector svg * {
+    fill: #fff;
+    color: #fff;
+}
+.ProductForm__QuantitySelector .QuantitySelector__Button{padding: 6px 20px;}
+.ProductMeta__TextList, .ProductMeta__Text {
+    font-size: 15px;
+}
+.ProductMeta__TextList {
+    margin-top: 15px;
+}
+.ProductMeta__TextList li {
+    list-style-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/bullet-diamond.svg?v=1670667182);
+    line-height: 1.5;
+}
+.ProductForm__Subscription select, .ProductForm__AddToCart.Button {
+    font-size: 21px;
+    font-weight: 600;
+    border: 2px solid #000000;
+    border-radius: 17px;
+}
+.ProductForm__AddToCart.Button {
+    max-width: 210px;
+    border-radius: 11px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.FeaturedProduct__Info .ProductForm {
+    max-width: 530px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.FeaturedProduct__StickyATC {
+    box-shadow: 0px 4px 15px rgba(205, 199, 186, 0.5);
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 10;
+    padding: 15px;
+    font-family: 'Ruda';
+}
+.FeaturedProduct__StickyATC_Name {
+    border-left: 10px solid #000;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+.FeaturedProduct__StickyATC_Controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.FeaturedProduct__StickyATC_Controls label {
+    width: 28%;
+    cursor: pointer;
+}
+.FeaturedProduct__StickyATC_Controls label[for="pt_subscription_stk"] {
+    margin-right: 10px;
+}
+.FeaturedProduct__StickyATC_Controls .ProductForm__AddToCart {
+    width: 40%;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    max-width: 210px;
+    border-radius: 8px;
+}
+.FeaturedProduct__StickyATC_Controls .ProductForm__AddToCart::before {
+    background-color: #000;
+    color: #fff;
+}
+/* .FeaturedProduct__StickyATC_Controls label {
+    border: 1px solid rgba(31, 31, 31, 0.4);
+    text-align: center;
+    color: rgba(31, 31, 31, 0.4);
+} */
+.FeaturedProduct__StickyATC_Controls label.selected {
+    border-color: #322F26;
+    color: #322F26;
+}
+.FeaturedProduct__StickyATC_List select {
+    border: 2px solid #000;
+    padding: 10px 5px;
+    border-radius: 8px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+}
+/* .QuantitySelector .ProductForm__QuantityLabel{display: none;} */
+/* .ProductMeta__Text .ProductForm__QuantityLabel{display: inline-block;} */
+.FeaturedProduct .mob_heading {
+    display: block;
+    margin-top: 40px;
+}
+.ProductForm__Option_Subscription .form-group, .ProductForm__Onetime .form-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.FeaturedProduct__ImgCarousel,.FeaturedProduct__ImgCarousel img {
+    width: 100%;
+    display: block;
+}
+.FeaturedProduct__ImgCarousel .slick-dots {
+    bottom: 15px;
+}
+.FeaturedProduct__ImgCarousel .slick-dots li {
+    margin: 0 12px;
+}
+.FeaturedProduct__ImgCarousel .slick-dots li button:before {
+    font-size: 10px;
+}
+.FeaturedProduct__ImgCarousel .slick-prev, .FeaturedProduct__ImgCarousel .slick-next {
+    background-image: none!important;
+}
+.FeaturedProduct__ImgCarousel .slick-prev {
+    left: 10px;
+    z-index: 1;
+}
+.FeaturedProduct__ImgCarousel .slick-next {
+    right: 0;
+}
+.FeaturedProduct__ImgCarousel .slick-arrow {
+    width: 30px;
+    height: 30px;
+}
+.FeaturedProduct__ImgCarousel .slick-arrow:before {
+    content: '';
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.FeaturedProduct__ImgCarousel .slick-prev:before {
+    background-image: url("https://cdn.shopify.com/s/files/1/0628/2549/6820/files/arrow-white-prev.svg?v=1674731496");
+}
+.FeaturedProduct__ImgCarousel .slick-next:before {
+    background-image: url("https://cdn.shopify.com/s/files/1/0628/2549/6820/files/arrow-white.svg?v=1674730852");
+}
+@media screen and (min-width: 641px) {
+    .FeaturedProduct {
+        align-items: stretch;
+        max-width: unset;
+    }
+}
+@media screen and (min-width: 1008px) {
+    .FeaturedProduct__Info {
+        margin-left: 0;
+    }
+    .FeaturedProduct__ImgCarousel .slick-arrow {
+        width: 60px;
+        height: 60px;
+    }
+    .FeaturedProduct__ImgCarousel .slick-arrow:before {
+        width: 60px;
+        height: 60px;
+    }
+    .FeaturedProduct__ImgCarousel .slick-dots li button:before {
+        font-size: 20px;
+    }
+    .FeaturedProduct__ImgCarousel .slick-dots li.slick-active button:before {
+        font-size: 29px;
+    }
+}
+@media screen and (min-width: 1139px) {
+    .FeaturedProduct {
+        flex-direction: row;
+    }
+    .FeaturedProduct .mob_heading {
+        display: none;
+    }
+    .FeaturedProduct__Info .ProductForm {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .ProductForm__Onetime,.ProductForm__Option_Subscription {
+        align-items: center;
+    }
+    .ProductForm__Option label,.QuantitySelector__Wrapper,.QuantitySelector__Qty {
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 1300px) {
+    /* .ProductForm__QuantitySelector .QuantitySelector__Qty {
+        position: absolute;
+        left: 35%;
+    } */
+    /* .ProductForm__QuantitySelector .QuantitySelector .ProductForm__QuantityLabel {
+        display: block;
+        position: absolute;
+        right: 34%;
+    } */
+    /* .ProductMeta__Text .ProductForm__QuantityLabel{display: none;} */
+}
+@media screen and (max-width: 1139px) {
+    .FeaturedProduct__Info form .ProductsTab,.FeaturedProduct__Info form .SectionHeader__SubHeading {
+        display: none;
+    }
+    .FeaturedProduct__Gallery {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .ProductForm__PurchaseType .form-group {
+        width: 100%;
+        height: 45px;
+    }
+    .ProductForm__PurchaseType .form-group label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ProductForm__Subscription select, .ProductForm__AddToCart.Button {
+        font-size: 17px;
+    }
+    .ProductForm__Subscription select {
+        background: transparent;
+        border: 1px solid #000;
+        height: 50px;
+        border-radius: 4px;
+    }
+    .ProductForm__Subscription {
+        border-radius: 4px;
+    }
+    /* .ProductForm__Subscription_Label {
+        display: none;
+    } */
+    .ProductForm__AddToCart.Button,.ProductForm__AddToCart.Button::before {
+        /* background: #1B1C1E;
+        border-radius: 4px;
+        color: #fff; */
+        max-width: 250px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .FeaturedProduct__StickyATC * {
+        font-size: 13px;
+    }
+    .FeaturedProduct__StickyATC_Controls {
+        margin-top: 10px;
+    }
+    .FeaturedProduct__StickyATC .ProductForm__AddToCart {
+        padding: 0;
+        margin: 0;
+        border-radius: 1px;
+    }
+    .FeaturedProduct__StickyATC_Controls label,
+    .FeaturedProduct__StickyATC_Controls .ProductForm__AddToCart,
+    .FeaturedProduct__StickyATC_Controls .ProductForm__AddToCart:before {
+        width: 30%;
+        /* height: 45px; */
+    }
+}

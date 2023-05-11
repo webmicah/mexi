@@ -1,0 +1,541 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MEXIBackground.png",
+            "mobile_image": "shopify:\/\/shop_images\/Mobile_Hero.png",
+            "apply_overlay": false,
+            "title": "The Adventure Starts Here",
+            "content_position": "bottomCenter",
+            "subheading": "",
+            "content_sub_position": "bottomRight",
+            "button_1_text": "Shop",
+            "button_1_link": "https:\/\/shop.mexiseltzer.com",
+            "button_2_text": "",
+            "button_2_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide-0"
+      ],
+      "settings": {
+        "show_fullscreen": true,
+        "show_arrow": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "text_color": "#ffffff",
+        "button_color": "#ffffff",
+        "button_background": "#000000"
+      }
+    },
+    "1651706292165c6ba0": {
+      "type": "testimonials",
+      "settings": {
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f8bab2",
+        "text_color": "#1c1b1b",
+        "bg_color": "#f8bab2",
+        "overlay_opacity": 60,
+        "show_wave": false
+      }
+    },
+    "certified-craft-seltzer": {
+      "type": "home-certified-section",
+      "settings": {
+        "title": "Certified Craft Tequila Seltzer",
+        "image": "shopify:\/\/shop_images\/Mexi_WebpageInfographic-02_dbd5057b-4dbb-4326-84c1-4cf21ab0a3aa.png",
+        "image_position": "left",
+        "content": "<p>MEXI is a hard seltzer crafted with top-shelf NOM distillery tequila. It’s 6% ABV with a shot and a half of premium blanco tequila and real fruit juice and natural flavors.  Low in sugar and calories, it packs a punch while keeping your body clean!<\/p>",
+        "link_text": "Shop Now",
+        "link_url": "\/#shop",
+        "bg_color": "#f40901",
+        "overlay_opacity": 60,
+        "button_color": "#f8bab2"
+      }
+    },
+    "manual-featured-collection": {
+      "type": "manual-featured-collection",
+      "blocks": {
+        "b93260e4-7c95-4f25-9712-750f5c0292da": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MEXI_Hero_Wet_Aloe_800_1.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/aloe-mint-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#2b8e36",
+            "button_bg_color": "",
+            "product_bg_banner": "shopify:\/\/shop_images\/Group_69.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_8.png",
+            "low_opacity": true
+          }
+        },
+        "1bbab62c-4c19-4231-9f92-3671142f6125": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MEXI_Hero_Wet_Tamarindo_800px.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/tamarindo-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931a1d",
+            "button_bg_color": "",
+            "product_bg_banner": "shopify:\/\/shop_images\/Group_3299.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_4.png",
+            "low_opacity": true
+          }
+        },
+        "e79fece9-e87e-488a-8d8b-865f6f5abc70": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MEXI_Hero_Wet_Guava_800px.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/guava-spice-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#f9bbb3",
+            "button_bg_color": "",
+            "product_bg_banner": "shopify:\/\/shop_images\/Group_79.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_3.png",
+            "low_opacity": true
+          }
+        },
+        "eba60bda-12ed-4b49-9e80-10440288e3a1": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/spicy_mango.png",
+            "temporary_img": true,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/shop.mexiseltzer.com\/products\/spicy-mango-12-oz-4pk?selling_plan=3272605933",
+            "trigger_popup": false,
+            "hover_bg": "#ecc62c",
+            "button_bg_color": "",
+            "product_bg_banner": "shopify:\/\/shop_images\/Recurso_1_1.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Intersect.png",
+            "low_opacity": true
+          }
+        }
+      },
+      "block_order": [
+        "b93260e4-7c95-4f25-9712-750f5c0292da",
+        "1bbab62c-4c19-4231-9f92-3671142f6125",
+        "e79fece9-e87e-488a-8d8b-865f6f5abc70",
+        "eba60bda-12ed-4b49-9e80-10440288e3a1"
+      ],
+      "settings": {
+        "sectionID": "shop",
+        "title": "Spirit of Mexico Collection",
+        "layout_mode": "grid",
+        "grid_mobile_items_per_row": "2",
+        "grid_desktop_items_per_row": 4,
+        "grid_items_count": 8
+      }
+    },
+    "1644622985c1dbcf13": {
+      "type": "manual-featured-collection",
+      "blocks": {
+        "cb8d5fce-436b-46ba-b394-ad900ca31a3e": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/pom.png",
+            "temporary_img": true,
+            "title": "Pomegranate Yerba Mate 12 oz. 4pk",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/pomegranate-yerba-mate-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#fbdf32",
+            "button_bg_color": "",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_e44d1405-2fa0-4813-9fad-22d80968e677.png",
+            "low_opacity": true
+          }
+        },
+        "912fa074-d241-4a87-b36a-9409bdd11745": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/prickly_Pear.png",
+            "temporary_img": true,
+            "title": "Prickly Pear Iced Tea 12 oz. 4pk",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/prickly-pear-iced-tea-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#e9a025",
+            "button_bg_color": "",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_5.png",
+            "low_opacity": true
+          }
+        },
+        "ad39a5cb-db2a-4a94-86b9-03f9cd360a9b": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/rosewater.png",
+            "temporary_img": true,
+            "title": "Rosewater Lemonade 12 oz. 4pk",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/mexi-speakeasy.myshopify.com\/products\/rosewater-lemonade-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#e0b8b7",
+            "button_bg_color": "",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_2.png",
+            "low_opacity": true
+          }
+        },
+        "40229ad3-e0f4-4bce-9968-591df0d5b7d5": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/pricklypearicedtea_bcb65e8c-bff4-46d8-b5cd-4e393be763a0.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/shop.mexiseltzer.com\/products\/prickly-pear-iced-tea-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#c6db7c",
+            "button_bg_color": "#e89e23",
+            "product_bg_banner": "shopify:\/\/shop_images\/Recurso_2_1_1.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Intersect_4415e9b5-992e-4978-8e1e-89c1a398096c.png",
+            "low_opacity": false
+          }
+        },
+        "488cbb31-f8d4-4d8e-9594-a1b9b9e3176c": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/rosewaterlemonade.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Shop Now",
+            "button_link": "https:\/\/shop.mexiseltzer.com\/products\/rosewater-lemonade-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#eda163",
+            "button_bg_color": "#dfb7b7",
+            "product_bg_banner": "shopify:\/\/shop_images\/Recurso_1_3.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/Path_43_2.webp",
+            "low_opacity": false
+          }
+        },
+        "136efc23-6da6-4ff4-9541-1b385b696286": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/08_POMEGRANATEDISPLAY_2.png",
+            "temporary_img": false,
+            "title": "Starting at $50.99",
+            "button_text": "Add to Bag",
+            "button_link": "https:\/\/shop.mexiseltzer.com\/products\/pomegranate-yerba-mate-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#ae6da1",
+            "button_bg_color": "#dfb7b7",
+            "product_bg_banner": "shopify:\/\/shop_images\/accent1.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/accent2_14b94705-29a6-4e25-b742-a7609396e7b9.png",
+            "low_opacity": false
+          }
+        },
+        "b428f3cf-ace5-4500-8792-745ef4a6963d": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/tartcherry_home.png",
+            "temporary_img": true,
+            "title": "Starting at $50.99",
+            "button_text": "Add to Bag",
+            "button_link": "https:\/\/shop.mexiseltzer.com\/products\/tart-cherry-cola-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#ea6369",
+            "button_bg_color": "#dfb7b7",
+            "product_bg_banner": "shopify:\/\/shop_images\/a1.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/a2_a52c4947-1fc3-4b57-a9e0-9eee6bf97437.png",
+            "low_opacity": false
+          }
+        },
+        "2de385a5-baad-42c4-a028-991f0afc671b": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/Group_1627.jpg",
+            "product_image_comingsoon": "shopify:\/\/shop_images\/Group_1627.jpg",
+            "temporary_img": true,
+            "title": "",
+            "button_text": "",
+            "button_link": "",
+            "trigger_popup": false,
+            "hover_bg": "#f7f5f0",
+            "button_bg_color": "",
+            "low_opacity": true
+          }
+        }
+      },
+      "block_order": [
+        "cb8d5fce-436b-46ba-b394-ad900ca31a3e",
+        "912fa074-d241-4a87-b36a-9409bdd11745",
+        "ad39a5cb-db2a-4a94-86b9-03f9cd360a9b",
+        "40229ad3-e0f4-4bce-9968-591df0d5b7d5",
+        "488cbb31-f8d4-4d8e-9594-a1b9b9e3176c",
+        "136efc23-6da6-4ff4-9541-1b385b696286",
+        "b428f3cf-ace5-4500-8792-745ef4a6963d",
+        "2de385a5-baad-42c4-a028-991f0afc671b"
+      ],
+      "settings": {
+        "sectionID": "shop2",
+        "title": "Wanderlust Collection",
+        "layout_mode": "grid",
+        "grid_mobile_items_per_row": "2",
+        "grid_desktop_items_per_row": 4,
+        "grid_items_count": 8
+      }
+    },
+    "7d7aca62-f534-4b16-a5c1-8552ec97ce13": {
+      "type": "text-with-image",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/mexi-logo_d78f15fd-85fd-409e-a8a8-eef19823539f.png",
+        "title": "Wanderlust",
+        "heading_font": "pirata-one",
+        "image": "shopify:\/\/shop_images\/wanderlustcollectionreel.jpg",
+        "image_position": "left",
+        "content": "<p>TASTE THEm all! Mixed 4-Pack RTD Craft Tequila Seltzer (One 4-Pk each of Tart Cherry Cola, Rosewater Lemonade, Pomegranate Yerba Mate, Prickly Pear Iced Tea).<\/p>",
+        "link_text": "SHOP NOW",
+        "link_url": "\/pages\/refreshing-craft-tequila-seltzers\/#shopify-section-template--16637683073268__ff50b08b-9f62-4a3a-8ecb-242b3d2efb83",
+        "new_tab": false,
+        "trigger_popup": false,
+        "bg_color": "#f6ecc6",
+        "overlay_opacity": 30,
+        "show_wave": false
+      }
+    },
+    "1b261da5-1ec3-4502-b704-e4a419ba3939": {
+      "type": "text-with-image",
+      "disabled": true,
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Mexi-Logo.png",
+        "title": "Spirit of Mexico",
+        "heading_font": "pirata-one",
+        "image": "shopify:\/\/shop_images\/spiritofmexico-6_1.jpg",
+        "image_position": "left",
+        "content": "<p>TASTE THEM all! Get (1) 4 pack of each of our refreshing flavors AND TASTE the FULL SPIRIT OF MEXICO.<\/p>",
+        "link_text": "Shop Now",
+        "link_url": "https:\/\/shop.mexiseltzer.com\/products\/spirit-of-mexico-collection-variety-pack",
+        "new_tab": false,
+        "trigger_popup": false,
+        "bg_color": "#c6db7c",
+        "overlay_opacity": 40,
+        "show_wave": false
+      }
+    },
+    "164462304663b70340": {
+      "type": "text-with-image",
+      "disabled": true,
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Mexi_shadow.png",
+        "title": "Multi Pack",
+        "heading_font": "pirata-one",
+        "image": "shopify:\/\/shop_images\/Block1_Image.png",
+        "image_position": "left",
+        "content": "<p>Ever get Analysis Paralysis? We do too… So many great flavors, tough time making commitments, we hear you.<br\/><br\/>Luckily, MEXI offers several Multi Pack options so you can find your favorite!<\/p>",
+        "link_text": "Shop Now",
+        "link_url": "https:\/\/shop.mexiseltzer.com\/products\/trifecta-12-oz-12pk",
+        "new_tab": false,
+        "trigger_popup": false,
+        "bg_color": "#1b9142",
+        "overlay_opacity": 60,
+        "show_wave": false
+      }
+    },
+    "text-with-carousel": {
+      "type": "text-with-carousel",
+      "disabled": true,
+      "blocks": {
+        "4cdb8c51-21cb-4b85-bbc9-d671a2d75f33": {
+          "type": "carousel_image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MexiMerch.png",
+            "button_link": "https:\/\/mexibrand.com\/merchandise\/"
+          }
+        },
+        "05a13e6d-8423-46bf-b5f2-6ba136e47a87": {
+          "type": "carousel_image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MexiMerch.png",
+            "button_link": "https:\/\/mexibrand.com\/merchandise\/"
+          }
+        },
+        "50ba92f1-a7ce-420f-b95b-52c58e8ae2ff": {
+          "type": "carousel_image",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/MexiMerch.png",
+            "button_link": "https:\/\/mexibrand.com\/merchandise\/"
+          }
+        }
+      },
+      "block_order": [
+        "4cdb8c51-21cb-4b85-bbc9-d671a2d75f33",
+        "05a13e6d-8423-46bf-b5f2-6ba136e47a87",
+        "50ba92f1-a7ce-420f-b95b-52c58e8ae2ff"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/MexiLogo.png",
+        "title": "Brand",
+        "image_position": "right",
+        "content": "<p>Description of merch and <br\/> or selling proposition <\/p>",
+        "link_text": "Shop Merch",
+        "link_url": "https:\/\/mexibrand.com\/merchandise\/"
+      }
+    },
+    "1647547223f8e6951d": {
+      "type": "text-with-image",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Mexi-Logo.png",
+        "title": "BRAND",
+        "heading_font": "canela-large",
+        "image": "shopify:\/\/shop_images\/block2_Image.png",
+        "image_position": "right",
+        "content": "<p>Be a MEXI ambassador and discover our line of merch here.<\/p>",
+        "link_text": "Shop Merch",
+        "link_url": "https:\/\/mexibrand.com\/merchandise\/",
+        "new_tab": true,
+        "trigger_popup": false,
+        "bg_color": "#e9a025",
+        "overlay_opacity": 60,
+        "show_wave": false
+      }
+    },
+    "164754723585df0ba2": {
+      "type": "text-with-image",
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Mexi-Logo.png",
+        "title": "Subscription",
+        "heading_font": "canela-small",
+        "image": "shopify:\/\/shop_images\/block3_image.png",
+        "image_position": "left",
+        "content": "<p>Subscribe to MEXI for additional savings, subscriber perks, and other custom MEXI bonuses. <\/p>",
+        "link_text": "Join waitlist",
+        "link_url": "https:\/\/mexiseltzer.com#section-footer",
+        "new_tab": false,
+        "trigger_popup": true,
+        "bg_color": "#f8bab2",
+        "overlay_opacity": 60,
+        "show_wave": false
+      }
+    },
+    "16587889612dc88031": {
+      "type": "text-with-video",
+      "settings": {
+        "title": "Why we're loved",
+        "heading_font": "pirata-one",
+        "videourl": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/13dab29998224fe3b5e320bbf7483b72.mp4#t=1.0",
+        "image_position": "right",
+        "content": "<p>Don't just take our word for it, see what other people are saying about MEXI Seltzer!<\/p>",
+        "link_text": "",
+        "link_url": "",
+        "new_tab": false,
+        "trigger_popup": false,
+        "bg_color": "#1b9142",
+        "overlay_opacity": 40,
+        "show_wave": true
+      }
+    },
+    "164462315605a9bd6f": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "section_size": "large",
+        "image": "shopify:\/\/shop_images\/explore-section.jpg",
+        "text_color": "#ffffff",
+        "overlay_color": "#f2ad29",
+        "overlay_opacity": 0,
+        "subheading": "Where can I find MEXI?",
+        "title": "explore",
+        "content": "",
+        "link_text": "Learn More",
+        "link_url": "https:\/\/www.instagram.com\/mexiseltzer\/",
+        "new_tab": true
+      }
+    },
+    "164462340078f5f88a": {
+      "type": "invest-section",
+      "disabled": true,
+      "settings": {
+        "title": "Invest in NOM Certified Craft Tequila Seltzer",
+        "image": "shopify:\/\/shop_images\/Home_start_engine.jpg",
+        "image2": "shopify:\/\/shop_images\/Asset_16.png",
+        "image_position": "left",
+        "content": "<p>Our mission is to deliver an authentic tequila seltzer experience offering unique flavors inspired by the mysterious and exhilarating spirit of Mexico. <\/p>",
+        "link_text": "Learn More",
+        "link_url": "shopify:\/\/pages\/invest",
+        "bg_color": "#ffffff"
+      }
+    },
+    "brands-section": {
+      "type": "brands-bar",
+      "blocks": {
+        "d3306ce5-230e-42bd-b9a3-e8a7accc03ac": {
+          "type": "brand_image",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/bartenderlogo_retina11_1a7f8ef9-fff5-43f7-bc74-5a13c949a69e.png"
+          }
+        },
+        "5747b180-3c8d-4f6d-adb2-a505d1cc6637": {
+          "type": "brand_image",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/1200px-Whole_Foods_Market_logo.svg_f3855747-db29-440f-a73b-f090ad163a40.png"
+          }
+        },
+        "42a4c7fc-ee3b-4b75-8aea-7ea68f4e4df9": {
+          "type": "brand_image",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/SR_Logo_1_428c0718-8f77-4741-9a17-e20f1d6c99c5.png"
+          }
+        },
+        "2d962eff-6800-4a65-bf39-ea68014cfa17": {
+          "type": "brand_image",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/TA-2022-BOP-Nominee-RGB-800.png"
+          }
+        }
+      },
+      "block_order": [
+        "d3306ce5-230e-42bd-b9a3-e8a7accc03ac",
+        "5747b180-3c8d-4f6d-adb2-a505d1cc6637",
+        "42a4c7fc-ee3b-4b75-8aea-7ea68f4e4df9",
+        "2d962eff-6800-4a65-bf39-ea68014cfa17"
+      ],
+      "settings": {
+        "bg_color": "#000000"
+      }
+    },
+    "1653670921ba6f113f": {
+      "type": "custom-html",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "html": "<div id=\"stamped-reviews-widget\" data-widget-type=\"carousel\" data-auto-play=\"true\" data-style-color-title=\"#373f47\" data-style-color-star=\"#fbb516\" data-style-color-text=\"#050605\" data-style-color-link=\"#050605\" data-min-rating=\"5\" data-with-photos=\"? string:#fbb516 ?\"><\/div>"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "1651706292165c6ba0",
+    "certified-craft-seltzer",
+    "manual-featured-collection",
+    "1644622985c1dbcf13",
+    "7d7aca62-f534-4b16-a5c1-8552ec97ce13",
+    "1b261da5-1ec3-4502-b704-e4a419ba3939",
+    "164462304663b70340",
+    "text-with-carousel",
+    "1647547223f8e6951d",
+    "164754723585df0ba2",
+    "16587889612dc88031",
+    "164462315605a9bd6f",
+    "164462340078f5f88a",
+    "brands-section",
+    "1653670921ba6f113f"
+  ]
+}

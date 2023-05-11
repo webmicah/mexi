@@ -1,0 +1,365 @@
+{{ 'section-image-wicons.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% if section.settings.section_display == 'desktop_only' %}
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  {% if section.settings.section_display == 'mobile_only' %}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  .section--{{ section.id }} {
+    color: {{ section.settings.section_text_color }};
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  {% if section.settings.left_pattern_img != blank %}
+  .section--{{ section.id }}:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 34px;
+    background-image: url({{ section.settings.left_pattern_img | img_url:'master' }});
+    left: 0;
+    background-size: cover;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+  }
+  {% endif %}
+  {% if section.settings.hlight_color != blank %}
+    .section--{{ section.id }} .grid-icon__text strong:after {
+      background-color: {{section.settings.hlight_color}};      
+    }
+  {% endif %}
+  {{ section.settings.custom_css }}
+{% endstyle %}
+<section class="section--{{ section.id }} section-image-with-icons section-{{ section.id }}-padding">
+  {% assign section_accent_images = section.blocks | where: 'type', 'accent_img' %}
+  {% for block in section_accent_images %}
+    {% if block.settings.accimg_location == 'entire_section' %}
+      {% assign max_height = block.settings.max_height %}
+      {% unless block.settings.img == blank and block.settings.img_svg == blank %}
+        {% if block.settings.img != blank %}
+          {% assign block_img = block.settings.img | img_url: 'master' %}
+        {% else %}
+          {% assign block_img = block.settings.img_svg | file_url %}
+        {% endif %}
+        <img class="grid-icon__aimage" id="block-{{block.id}}" src="{{ block_img }}" alt="{{ block.settings.img.alt }}" loading="lazy" 
+        style="{% unless max_height == blank %}max-height:{{ max_height }}px;{% endunless %}
+        {% unless block.settings.accimg_right == blank %}right:{{block.settings.accimg_right}}%;{% endunless %}
+        {% unless block.settings.accimg_top == blank %}top:{{block.settings.accimg_top}}%;{% endunless %}">
+      {% endunless %}
+      <style>
+        {% if block.settings.block_display == 'desktop_only' %}
+          @media screen and (max-width: 749px) {
+            #block-{{block.id}} {display:none;}
+          }
+          {% endif %}
+          {% if block.settings.block_display == 'mobile_only' %}
+          @media screen and (min-width: 750px) {
+            #block-{{block.id}} {display:none;}
+          }
+        {% endif %}
+      </style>
+    {% endif %}
+  {% endfor %}
+  {% assign icons = section.blocks | where: 'type', 'icon' %}
+  {% unless section.settings.heading == blank %}
+  <div class="SectionHeader__Heading rich-text rich-text__blocks">
+    <h2 class="h1">{{ section.settings.heading }}</h2>
+  </div>
+  {% endunless %}
+  <div class="grid-container">
+    <div class="grid-item grid-icon__fimage_wrapper">
+      {% if section.settings.featured_img_mob != blank %}
+        <picture>
+          <source media="(min-width:1024px)" srcset="{{ section.settings.featured_img | img_url: 'master' }}">
+          <source media="(max-width:1024px)" srcset="{{ section.settings.featured_img_mob | img_url: 'master' }}">
+          <img class="grid-icon__fimage" src="{{ section.settings.featured_img | img_url: 'master' }}" alt="{{ section.settings.featured_img.alt }}" loading="lazy">
+        </picture>
+      {% else %}
+        <img class="grid-icon__fimage" src="{{ section.settings.featured_img | img_url: 'master' }}" alt="" loading="lazy">
+      {% endif %}
+      {% unless section.settings.overlay_img == blank %}<img class="grid-icon__ovimage" src="{{ section.settings.overlay_img | img_url: 'master' }}" alt="" loading="lazy">{% endunless %}
+      {% assign accent_images = section.blocks | where: 'type', 'accent_img' %}
+      {% for block in accent_images %}
+        {% if block.settings.accimg_location == 'featured_img' %}
+          {% assign max_height = block.settings.max_height %}
+          {% unless block.settings.img == blank %}
+            {% if block.settings.img != blank %}
+              {% assign block_img = block.settings.img | img_url: 'master' %}
+            {% else %}
+              {% assign block_img = block.settings.img_svg | file_url %}
+            {% endif %}
+            <img class="grid-icon__aimage" id="block-{{block.id}}" src="{{ block_img }}" alt="{{ block.settings.img.alt }}" loading="lazy" 
+            style="{% unless max_height == blank %}max-height:{{ max_height }}px;{% endunless %}
+            {% unless block.settings.accimg_left == blank %}left:{{block.settings.accimg_left}};{% endunless %}
+            {% unless block.settings.accimg_top == blank %}top:{{block.settings.accimg_top}};{% endunless %}">
+          {% endunless %}
+          <style>
+            {% if block.settings.block_display == 'desktop_only' %}
+              @media screen and (max-width: 749px) {
+                #block-{{block.id}} {display:none;}
+              }
+              {% endif %}
+              {% if block.settings.block_display == 'mobile_only' %}
+              @media screen and (min-width: 750px) {
+                #block-{{block.id}} {display:none;}
+              }
+            {% endif %}
+          </style>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% for block in icons %}
+      <div class="grid-item" data-block-id="{{ block.id }}">
+        {% liquid
+          if block.settings.icon != blank
+            assign icon_img = block.settings.icon | img_url: 'master'
+          elsif block.settings.icon_svg != blank
+            assign icon_img = block.settings.icon_svg | file_url
+          endif
+        %}
+        {% unless icon_img == blank %}
+          <div class="grid-icon__item">
+            <img src="{{ icon_img }}" alt="icon" loading="lazy" style="{% unless icon_max_height == blank %}max-height:{{ icon_max_height }}px;{% endunless %}">
+          </div>
+        {% endunless %}
+        {% unless block.settings.heading == blank %}
+          <h4 class="grid-icon__heading">{{ block.settings.heading }}</h4>
+        {% endunless %}
+        {% unless block.settings.text == blank %}
+          <h4 class="grid-icon__text">{{ block.settings.text }}</h4>
+        {% endunless %}
+      </div>
+    {% endfor %}   
+</div>
+</section>  
+  {% schema %}
+  {
+    "name": "Image with icons",
+    "settings": [
+      {
+        "type":"richtext",
+        "id":"heading",
+        "label":"Heading"
+      },
+      {
+        "type":"image_picker",
+        "id":"featured_img",
+        "label":" Featured Image (Desktop)"
+      },
+      {
+        "type":"image_picker",
+        "id":"featured_img_mob",
+        "label":" Featured Image (Mobile)"
+      },
+      {
+        "type":"image_picker",
+        "id":"overlay_img",
+        "label":" Overlay Image"
+      },
+      {
+        "type":"image_picker",
+        "id":"left_pattern_img",
+        "label":" Left Pattern Image"
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Section Background Color",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "section_text_color",
+        "label": "Section Text Color",
+        "default": "#322F26"
+      },
+      {
+        "type": "color",
+        "id": "hlight_color",
+        "label": "Text Highlight Color",
+        "default": "#FFED2C"
+      },
+      {
+        "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Top padding",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Bottom padding",
+        "default": 52
+      },
+      {
+        "type": "select",
+        "id": "section_display",
+        "options": [
+          {
+            "value": "all",
+            "label": "Desktop and mobile"
+          },
+          {
+            "value": "desktop_only",
+            "label": "Desktop only"
+          },
+          {
+            "value": "mobile_only",
+            "label": "Mobile only"
+          }
+        ],
+        "default": "all",
+        "label": "Section display"
+      },
+      {
+        "type": "liquid",
+        "id": "custom_css",
+        "label": "Custom CSS"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"icon",
+        "name":"Icon",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"icon",
+            "label":" Icon"
+          },
+          {
+            "type":"text",
+            "id":"icon_svg",
+            "label":"Use svg for Icon (enter file name)"
+          },
+          {
+            "type":"richtext",
+            "id":"heading",
+            "label":"Heading"
+          },
+          {
+            "type":"richtext",
+            "id":"text",
+            "label":"Text"
+          },
+          {
+            "type": "text",
+            "id": "icon_max_height",
+            "label": "Icon maximum height (px)"
+          }
+        ]
+      },
+      {
+        "type":"accent_img",
+        "name":"Accent image",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"img",
+            "label":"Accent image"
+          },
+          {
+            "type":"text",
+            "id":"img_svg",
+            "label":"Accent image (svg file name)"
+          },
+          {
+            "type": "text",
+            "id": "max_height",
+            "label": "Image maximum height (px)"
+          },
+          {
+            "type": "select",
+            "id": "accimg_location",
+            "options": [
+              {
+                "value": "entire_section",
+                "label": "Section"
+              },
+              {
+                "value": "featured_img",
+                "label": "Featured image"
+              }
+            ],
+            "default": "featured_img",
+            "label": "Accent image location"
+          },
+          {
+            "type": "range",
+            "id": "accimg_right",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Accent image position horizontal",
+            "default": 5
+          },
+          {
+            "type": "range",
+            "id": "accimg_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "label": "Accent image position vertical",
+            "default": 5
+          },
+          {
+            "type": "select",
+            "id": "block_display",
+            "options": [
+              {
+                "value": "all",
+                "label": "Desktop and mobile"
+              },
+              {
+                "value": "desktop_only",
+                "label": "Desktop only"
+              },
+              {
+                "value": "mobile_only",
+                "label": "Mobile only"
+              }
+            ],
+            "default": "all",
+            "label": "Block display"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Image",
+        "name": "Image with icons",
+        "settings": {}
+      }
+    ]
+  }
+  {% endschema %}

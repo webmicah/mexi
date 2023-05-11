@@ -1,0 +1,177 @@
+{%- if section.settings.enable_bar -%}
+  {%- unless section.settings.home_page_only and template != 'index' -%}
+    <section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="announcement-bar">
+      <div class="AnnouncementBar">
+        <div class="AnnouncementBar__Wrapper" id="scroll-container">
+          <p class="AnnouncementBar__Content Heading{% if section.settings.enable_scrolling_text %} scroll-text{% endif %}">
+            {%- if section.settings.link -%}
+              <a href="{{ section.settings.link }}">{{ section.settings.content | escape }}</a>
+            {%- else -%}
+              {{ section.settings.content | escape }}
+            {%- endif -%}
+          </p>
+          {% unless section.settings.content2 == blank %}
+            <p class="AnnouncementBar__Content  Heading{% if section.settings.enable_scrolling_text %} scroll-text2{% endif %}">
+              {%- if section.settings.link2 != blank -%}
+                <a href="{{ section.settings.link2 }}">{{ section.settings.content2 | escape }}</a>
+              {%- else -%}
+                {{ section.settings.content2 | escape }}
+              {%- endif -%}
+            </p>
+          {% endunless %}
+        </div>
+      </div>
+    </section>
+
+    <style>
+      #section-{{ section.id }} {
+        background: {{ section.settings.background }};
+        color: {{ section.settings.text_color }};
+      }
+
+      .AnnouncementBar__Content {
+      text-align: left;
+      }
+
+        #scroll-container {
+          width: 100%;
+          display: flex;
+        overflow: hidden;
+      }
+
+      .scroll-text {
+
+        flex-basis: 100%;
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+
+        -moz-animation: my-animation 40s linear infinite;
+        -webkit-animation: my-animation 40s linear infinite;
+        animation: my-animation 40s linear infinite;
+
+      }
+
+      .scroll-text2 {
+        flex-basis: 100%;
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+
+        -moz-animation: my-animation 40s linear infinite;
+        -webkit-animation: my-animation 40s linear infinite;
+        animation: my-animation 40s linear infinite;
+      }
+
+
+      @-moz-keyframes my-animation {
+        from { -moz-transform: translateX(100%); }
+        to { -moz-transform: translateX(-150%); }
+      }
+
+
+      @-webkit-keyframes my-animation {
+        from { -webkit-transform: translateX(100%); }
+        to { -webkit-transform: translateX(-150%); }
+      }
+
+      @keyframes my-animation {
+        from {
+          -moz-transform: translateX(100%);
+          -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+        }
+        to {
+          -moz-transform: translateX(-150%);
+          -webkit-transform: translateX(-150%);
+          transform: translateX(-150%);
+        }
+      }
+
+
+
+
+      @media only screen and (max-width: 580px) {
+          .scroll-text, .scroll-text2 {
+
+            -moz-animation: my-animation 20s linear infinite;
+            -webkit-animation: my-animation 20s linear infinite;
+            animation: my-animation 20s linear infinite;
+
+          }
+          #scroll-container {
+            display: block;
+            line-height: 1;
+            padding: 10px;
+          }
+      }
+    </style>
+
+    <script>
+      document.documentElement.style.setProperty(
+        '--announcement-bar-height',
+        document.getElementById('shopify-section-announcement').offsetHeight + 'px'
+      );
+    </script>
+  {%- endunless -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_bar",
+      "label": "Enable bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_scrolling_text",
+      "label": "Enable Scrolling Text",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "content",
+      "label": "Text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "content2",
+      "label": "Text",
+      "default": "Announce something else here"
+    },
+    {
+      "type": "url",
+      "id": "link2",
+      "label": "Link something else here"
+    }
+  ]
+}
+{% endschema %}

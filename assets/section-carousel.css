@@ -1,0 +1,167 @@
+.Carousel__Card {
+  max-width: 400px;
+}
+.Carousel__Card * {
+  font-family: 'Ruda';
+}
+.Carousel__Heading {
+  font-size: 32px;
+  font-family: 'Pirata One';
+}
+.Carousel__Main, .Carousel__Main .Carousel__Cell {
+  width: 100%;
+  height: 100%;
+}
+.Carousel__Main, .Carousel__Nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+.Carousel__Main .Carousel__Cell {
+  display: none;
+}
+.Carousel__Main .Carousel__Cell.default_show {
+  display: block;
+}
+.Carousel__Main .Carousel__Cell_Image {
+  display: block;
+  height: 350px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Carousel__Nav {
+  margin-bottom: 30px;
+}
+.Carousel__Nav .Carousel__Cell {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 10px;
+  display: none;
+}
+.Carousel__Nav .Carousel__Cell.default_show {
+  display: block;
+}
+.Carousel__Nav .Carousel__Cell:not(:last-child) {
+  margin-right: 10px;
+}
+.Carousel__Nav .Carousel__Cell_Image {
+  height: 100%;
+  width: auto;
+}
+.Carousel__Cell_Left .Carousel__Card {
+  margin-right: 0;
+  margin-left: auto;
+}
+.Carousel__Cell_Right .Carousel__Card {
+  margin-right: auto;
+  margin-left: 0;
+}
+.Carousel__Card_Heading {
+  padding: 10px;
+  font-weight: 700;
+  font-size: 25px;
+}
+.Carousel__Card_Image {
+  padding: 50px 15px;
+}
+.Carousel__Card_Details {
+  padding: 10px;
+}
+.Carousel__Card_Details h3 {
+  margin-bottom: 0;
+  color: #1F1F1F;
+  font-size: 25px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.Carousel__Card_Details .Grid__Cell {
+  position: relative;
+}
+.Carousel__Card_Details .Grid__Cell:not(:last-child):after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 85%;
+  position: absolute;
+  border-left: 1px solid #ddd;
+  top: 5px;
+  bottom: 0;
+  right: -12px;
+}
+.Carousel__Nav .Carousel__Cell:not(.is-selected) {
+  background-color: transparent !important;
+}
+.Carousel__Nav .Carousel__Cell.is-selected img {
+  transform: scale(1.3);
+}
+.Carousel__Main .flickity-viewport {
+  height: 100%;
+  min-height: 610px;
+}
+.Carousel__Main .Carousel__Left_Card {
+  position: relative;
+}
+.Carousel__Main .Carousel__Left_Card:after {
+  content: 'VS';
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+  top: 43%;
+  right: -43px;
+  font-family: 'Ruda';
+  font-size: 30px;
+}
+.CollectionsTab {
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 750px) {
+  .Carousel__Main .flickity-viewport {
+    min-height: 450px;
+  }
+  .Carousel__Main .Carousel__Cell_Image {
+    height: 100%;
+    max-height: 205px;
+  }
+  .Carousel__Card_Image {
+    min-height: 305px;
+  }
+  .Carousel__Card_Heading {
+    font-size: 15px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Carousel__Card_Details h3 {
+    font-size: 17px;
+  }
+  .Carousel__Card_Details h3, .Carousel__Card_Details p {
+    font-size: 13px;
+  }
+  .Carousel__Card_Details > .Grid {
+    margin-left: -20px;
+  }
+  .Carousel__Card_Details .Grid__Cell {
+    position: relative;
+    padding-left: 20px;
+  }
+  .Carousel__Main .Carousel__Left_Card:after {
+    width: 50px;
+    height: 50px;
+    right: -35px;
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .Carousel__Main .flickity-viewport {
+    height: 500px !important;
+  }
+}

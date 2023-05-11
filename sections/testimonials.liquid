@@ -1,0 +1,428 @@
+{%- capture flickity_options -%}
+{
+  "prevNextButtons": false,
+  "wrapAround": true,
+  "dragThreshold": 16,
+  "pageDots": {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
+  "autoPlay": {% if section.settings.autoplay %}{{ section.settings.cycle_speed | times: 1000 }}{% else %}false{% endif %}
+}
+{%- endcapture -%}
+
+{%- assign should_show_nav = false -%}
+
+{%- for block in section.blocks -%}
+  {%- if block.settings.logo -%}
+    {%- assign should_show_nav = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<section class="Section Section--spacingNormal" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="testimonials">
+
+  <div id="stamped-reviews-widget" data-widget-type="carousel" data-auto-play="false" data-style-color-title="#373f47" data-style-color-star="#fbb516" data-style-color-text="#050605" data-style-color-link="#050605" data-min-rating="5" data-fill-empty="false" data-with-photos="false"></div>
+  
+  <div class="TestimonialList {% if should_show_nav %}TestimonialList--withNav{% endif %} Carousel Carousel--fadeIn" data-flickity-config='{{ flickity_options }}'>
+  
+    
+    {%- for block in section.blocks -%}
+      <div id="block-{{ block.id }}" class="Carousel__Cell Testimonial {% if forloop.first %}is-selected{% endif %}" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+        <div class="Container">
+          {%- if block.settings.quote != blank -%}
+            <div class="Testimonial__Content">
+              <div class="star-content">
+                <svg id="stars" style="display: none;" version="1.1">
+	<symbol id="stars-full-star" viewBox="0 0 102 18">
+		<path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
+	</symbol>
+
+	<symbol id="stars-half-star" viewBox="0 0 102 18">
+		<path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792" fill="#e9ba26" />
+	</symbol>
+
+	<symbol id="stars-all-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-full-star" />
+		<use xlink:href="#stars-full-star" transform="translate(21)" />
+		<use xlink:href="#stars-full-star" transform="translate(42)" />
+		<use xlink:href="#stars-full-star" transform="translate(63)" />
+		<use xlink:href="#stars-full-star" transform="translate(84)" />
+	</symbol>
+
+	<symbol id="stars-0-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-all-star" fill="#9b9b9b" />
+	</symbol>
+
+	<symbol id="stars-0-5-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-0-0-star" />
+		<use xlink:href="#stars-half-star" />
+	</symbol>
+
+	<symbol id="stars-1-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-0-0-star" />
+		<use xlink:href="#stars-full-star" fill="#e9ba26" />
+	</symbol>
+
+	<symbol id="stars-1-5-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-1-0-star" />
+		<use xlink:href="#stars-half-star" transform="translate(21)" />
+	</symbol>
+
+	<symbol id="stars-2-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-1-0-star" />
+		<use xlink:href="#stars-full-star" fill="#e9ba26" transform="translate(21)" />
+	</symbol>
+
+	<symbol id="stars-2-5-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-2-0-star" />
+		<use xlink:href="#stars-half-star" transform="translate(42)" />
+	</symbol>
+
+	<symbol id="stars-3-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-2-0-star" />
+		<use xlink:href="#stars-full-star" fill="#e9ba26" transform="translate(42)" />
+	</symbol>
+
+	<symbol id="stars-3-5-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-3-0-star" />
+		<use xlink:href="#stars-half-star" transform="translate(63)" />
+	</symbol>
+
+	<symbol id="stars-4-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-3-0-star" />
+		<use xlink:href="#stars-full-star" fill="#e9ba26" transform="translate(63)" />
+	</symbol>
+
+	<symbol id="stars-4-5-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-4-0-star" />
+		<use xlink:href="#stars-half-star" transform="translate(84)" />
+	</symbol>
+
+	<symbol id="stars-5-0-star" viewBox="0 0 102 18">
+		<use xlink:href="#stars-all-star" fill="#e9ba26" />
+	</symbol>
+</svg>
+
+
+	<svg class="icon">
+		<use xlink:href="#stars-5-0-star">
+	</svg>
+              </div>
+              {{ block.settings.quote }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.logo != blank -%}
+            <img class="Testimonial__Logo hidden-lap-and-up" src="{{ block.settings.logo | img_url: '300x' }}" alt="{{ block.settings.logo.alt | escape }}">
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if should_show_nav -%}
+    <div class="TestimonialNav hidden-pocket">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.logo != blank -%}
+          <img class="TestimonialNav__Item {% if forloop.first %}is-selected{% endif %}" src="{{ block.settings.logo | img_url: '300x' }}" alt="{{ block.settings.logo.alt | escape }}" data-index="{{ forloop.index0 }}">
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+{% if section.settings.show_wave %}
+  <div class="wave2_container">
+    <div class="wave_inner">
+      <div class="wave2">      
+        <svg id="background-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 2009.6 126.9" style="enable-background:new 0 0 2009.6 126.9;" xml:space="preserve">
+          <g>
+              <path class="st0" d="M1502.8,57C1208,58.1,786,133.5,461.7,126.4S0,81.6,0,81.6v45.2h2009.6V81.6
+                  C2009.6,81.6,1797.6,55.9,1502.8,57z"/>
+              <path class="st1" d="M0,81.6c0,0,137.4,37.7,461.7,44.7S1208,58.1,1502.8,57s506.8,24.6,506.8,24.6V0H0V81.6z"/>
+          </g>
+        </svg>
+     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 2009.6 126.9" style="enable-background:new 0 0 2009.6 126.9;" xml:space="preserve">
+        <g>
+            <path class="st0" d="M1502.8,57C1208,58.1,786,133.5,461.7,126.4S0,81.6,0,81.6v45.2h2009.6V81.6
+                C2009.6,81.6,1797.6,55.9,1502.8,57z"/>
+            <path class="st1" d="M0,81.6c0,0,137.4,37.7,461.7,44.7S1208,58.1,1502.8,57s506.8,24.6,506.8,24.6V0H0V81.6z"/>
+        </g>
+      </svg>
+      </div> 
+
+    </div>
+  </div>
+  {% endif %}
+<style>
+  #section-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    background: {{ section.settings.background }};
+  }
+
+  #section-{{ section.id }} .flickity-page-dots .dot:not(.is-selected) {
+    border-color: {{section.settings.background | color_mix: section.settings.text_color, 85}};
+  }
+</style>
+<style>
+ {% if section.settings.show_wave %}
+  #section-{{ section.id }} {
+    position: relative;
+    z-index: 3;
+  }
+  {% endif %}
+  
+  #section-{{ section.id }} {
+    {%- assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+    background-color: {{ section.settings.bg_color | color_modify: 'alpha', overlay_opacity }};
+  }
+.star-svg path {
+      {%- assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+
+      fill: {{ section.settings.bg_color | color_modify: 'alpha', overlay_opacity }};
+
+}
+ {% if section.settings.show_wave %}
+
+
+  
+
+
+  .wave2 svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+	}
+  
+  .wave2 .st0{
+    fill:none;
+  }
+  .wave2 .st1{
+    fill:{{ section.settings.bg_color }};
+    opacity: {{ section.settings.overlay_opacity }}%;
+  }
+  
+  .wave2 #background-svg .st1{
+    fill:white;
+    opacity: 100%;
+  }    
+
+  .wave2 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    overflow: visible;
+  }
+  
+    {% endif %}
+  
+      	{%- if section.settings.heading_font == 'pirata-one' -%}
+          #section-{{ section.id }} .SectionHeader__Heading{
+             font-size: 88px;
+             line-height: 1em;
+             margin-bottom: 0; 
+             text-shadow: 2px 3px #E9A025;
+             font-family: 'Pirata One', serif;
+    		 font-weight: 500;
+             text-transform: uppercase;
+          }
+  		{% elsif section.settings.heading_font == 'canela-large' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              letter-spacing: .5em!important;
+              text-transform: uppercase;
+              font-size: 60px!important;
+              font-family: 'Canela',sans-serif;
+    		  font-weight: 500;
+              margin-right: -0.5em;
+            }
+  		{% elsif section.settings.heading_font == 'canela-small' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              letter-spacing: .5em!important;
+              text-transform: uppercase;
+              font-size: 25px!important;
+              font-family: 'Canela',sans-serif;
+    		  font-weight: 500;
+              margin-right: -0.5em;
+            }
+  		{% endif %}
+  
+  .FeatureText__Content {
+    text-align: center;
+    max-width: 462.5px;
+    margin: 0 auto!important;
+}
+  
+  .Button {
+    pointer-events:all;
+  }
+ @media only screen and (max-width: 980px) {
+  .wave2_container {
+    height: 20px;
+	}
+ }
+  
+ @media only screen and (max-width: 650px) {
+  .wave2_container {
+    height: 8px;
+	}
+   
+   .FeatureText__Content {
+    max-width: 80%;
+   }
+   
+        {%- if section.settings.heading_font == 'pirata-one' -%}
+          #section-{{ section.id }} .SectionHeader__Heading{
+             font-size: 50px;
+          }
+  		{% elsif section.settings.heading_font == 'canela-large' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              font-size: 30px!important;
+            }
+  		{% elsif section.settings.heading_font == 'canela-small' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+ 
+              font-size: 18px!important;
+            }
+  		{% endif %}
+} 
+  #stamped-reviews-widget[data-widget-type=carousel] .stamped-carousel-scroll .stamped-reviews-title {
+    line-height:normal!important;
+    font-size:36px!important;
+  }
+.stamped-reviews-image {display:none!important;
+}
+  #stamped-reviews-widget[data-widget-type=carousel] .stamped-carousel-title:empty:before {
+    content:"See what people are saying"!important;
+  }
+  #stamped-reviews-widget[data-widget-type=carousel] .stamped-carousel-buttons div {
+    position:absolute!important;
+     top: 50%!important;
+    z-index:99999!important;
+  }
+  .stamped-carousel-button-left {
+    left: 0!important;
+   
+  }
+  .stamped-carousel-button-right {
+    right: 0!important;
+   
+  }
+  @media (min-width:1200px){
+  #stamped-reviews-widget[data-widget-type=carousel] .stamped-carousel-scroll .stamped-reviews-message {
+  
+    width: 58%!important;
+    text-align: center!important;
+  }
+  }
+  @media (min-width:1600px){
+    #stamped-reviews-widget[data-widget-type=carousel] {
+    
+    max-width: 1400px!important;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "shopify-section--bordered",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between testimonials",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change testimonials every",
+      "default": 5
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#eaeaea"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1c1b1b"
+    },
+    {
+    "type": "color",
+    "id": "bg_color",
+    "label": "Background Color",
+    "default": "#1B9142"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wave",
+      "label": "Show Wave",
+      "info": "If enabled, a wave will appear on the bottom of this container",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo",
+          "info": "340 x 80px .jpg recommended"
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>Share what your customers are saying about your products, your company...</p>",
+          "info": "For best results, keep the word count consistent in each quote."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Testimonials",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {}
+        },
+        {
+          "type": "testimonial",
+          "settings": {}
+        },
+        {
+          "type": "testimonial",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

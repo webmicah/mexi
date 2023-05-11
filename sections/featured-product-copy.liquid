@@ -1,0 +1,1077 @@
+{{ 'section-featured-product.css' | asset_url | stylesheet_tag }}
+{%- assign product = all_products[section.settings.product] -%}
+
+{%- assign meta_block = section.blocks | where: 'type', 'product_meta' | first -%}
+{%- assign inventory_block = section.blocks | where: 'type', 'inventory' | first -%}
+{%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
+{% assign featured_products = section.blocks | where: "type", "featured_product" %}
+{%- capture section_settings -%}
+{
+  "enableHistoryState": false,
+  "usePlaceholder": {% if product == empty %}true{% else %}false{% endif %},
+  "templateSuffix": {{ product.template_suffix | json }},
+  "showInventoryQuantity": {% if inventory_block != blank %}true{% else %}false{% endif %},
+  "showSku": {{ meta_block.settings.show_sku | json }},
+  "inventoryQuantityThreshold": {{ inventory_block.settings.inventory_quantity_threshold | default: 0 }},
+  "showPriceInButton": {{ buy_buttons_block.settings.show_price_in_button | json }},
+  "showPaymentButton": {{ buy_buttons_block.settings.show_payment_button | json }},
+  "useAjaxCart": {% if settings.cart_type == 'drawer' %}true{% else %}false{% endif %}
+}
+{%- endcapture -%}
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% if section.settings.section_display == 'desktop_only' %}
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  {% if section.settings.section_display == 'mobile_only' %}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  .section--{{ section.id }} {
+    color: {{ section.settings.section_text_color }};
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  .FeaturedProduct__Info .ProductMeta__Text,
+  .FeaturedProduct__Info .ProductMeta,
+  .FeaturedProduct__Info .ProductMeta__Title {
+    text-align: {{ section.settings.info_align }};
+  }
+{% endstyle %}
+<section class="Section section--{{ section.id }} section-{{ section.id }}-padding" data-section-id="{{ section.id }}" data-section-type="featured-product" data-section-settings='{{ section_settings }}'>
+  <div class="Container" style="padding:0;">
+    {%- unless section.settings.title == blank -%}
+      <header class="SectionHeader SectionHeader--center {% unless section.settings.show_headings_on_mobile %}hidden-phone{% endunless %}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endunless -%}
+
+    <div class="FeaturedProduct {% if section.settings.show_description == false or product.description == blank %}FeaturedProduct--center{% endif %}">
+      {%- if product != empty -%}
+        {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        PRODUCT GALLERY
+        --------------------------------------------------------------------------------------------------------------------
+        {%- endcomment -%}
+
+        <div class="mob_heading FeaturedProduct__Info">
+          {% comment %} <div class="ProductMeta__Text">BUY WELCOME BOX ONE - TIME + SUBSCRIPTION</div> {% endcomment %}
+          {%- if section.settings.subheading != blank -%}
+            <h3 class="SectionHeader__SubHeading Heading">{{ section.settings.subheading }}</h3>
+          {%- endif -%}
+          {% if featured_products.size > 0 %}
+            <div class="tab ProductsTab">
+              {%- for block in featured_products -%}
+                {% assign featured_product = block.settings.product %}
+                <button type="button" class="tablinks{% if forloop.index == 1 %} active{% endif %}" data-product_id="{{ featured_product.id }}" @click="select_product($event)">
+                  <div id="{{ featured_product.handle }}-tab" class="form-check">{{ block.settings.title }}</div>
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {%- if product.media.size > 0 -%}
+          {% liquid
+            if section.settings.featured_image != blank
+              assign featured_image = section.settings.featured_image
+            else
+              assign featured_image = product.featured_media
+            endif
+          %}
+          <div class="FeaturedProduct__Gallery">
+            <div class="FeaturedProduct__ImgCarousel">
+              <div v-for="img in current_product.images.slice(0,4)">
+                <img alt="{{ featured_image.alt | escape }}" :src="img_hovered === true ? current_product.images[1].url : img.url" @mouseover="img_hovered = true" @mouseleave="img_hovered = false" loading="lazy">
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <div class="FeaturedProduct__Info">
+          {%- assign has_ouputted_variant_selector = false -%}
+
+          {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
+            {% comment %} {%- render 'product-data', product: product -%} {% endcomment %}
+
+            {%- if section.settings.subheading != blank -%}
+              <h3 class="SectionHeader__SubHeading Heading">{{ section.settings.subheading }}</h3>
+            {%- endif -%}
+            
+            {% if featured_products.size > 0 %}
+              <div class="tab ProductsTab">
+                {%- for block in featured_products -%}
+                  {% assign featured_product = block.settings.product %}
+                  <button type="button" class="tablinks{% if forloop.index == 1 %} active{% endif %}" data-product_id="{{ featured_product.id }}" @click="select_product($event)">
+                    <div class="form-check">{{ block.settings.title }}</div>
+                  </button>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {%- render block -%}
+
+                {%- when 'product_meta' -%}
+                  {%- render 'product-meta', form: form, block: block, product: product, show_price: block.settings.show_price, custom_name: block.settings.custom_name -%}
+
+                {%- when 'description' -%}
+                  {%- if product.description != blank -%}
+                    <div class="ProductMeta__Description" {{ block.shopify_attributes }}>
+                      <div class="Rte">
+                        {{- product.description | replace: 'data-section-type', 'data-section-type-placeholder' -}}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- when 'text' -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                      {{- block.settings.text -}}
+                    </div>
+                  {%- endif -%}
+                {%- when 'share_buttons' -%}
+                  <div class="ProductMeta__ShareButtons hidden-pocket" {{ block.shopify_attributes }}>
+                    <span class="ProductMeta__ShareTitle Heading Text--subdued u-h7">{{ 'product.form.share' | t }}</span>
+
+                    {%- assign share_url = shop.url | append: product.url -%}
+                    {%- assign twitter_text = product.title -%}
+                    {%- assign pinterest_description = product.description | strip_html | truncatewords: 15 | url_param_escape -%}
+                    {%- assign pinterest_image = product.featured_image | img_url: 'large' | prepend: 'https:' -%}
+
+                    <div class="ProductMeta__ShareList Text--subdued">
+                      <a class="ProductMeta__ShareItem" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" aria-label="Facebook">{%- render 'icon' with 'facebook' -%}</a>
+                      <a class="ProductMeta__ShareItem" href="https://twitter.com/share?{% if twitter_text != blank %}text={{twitter_text}}&{% endif %}url={{ share_url }}" target="_blank" rel="noopener" aria-label="Twitter">{%- render 'icon' with 'twitter' -%}</a>
+                      <a class="ProductMeta__ShareItem" href="https://pinterest.com/pin/create/button/?url={{ share_url }}{% if pinterest_image != blank %}&media={{ pinterest_image }}{% endif %}&description={{ pinterest_description }}" target="_blank" rel="noopener" aria-label="Pinterest">{%- render 'icon' with 'pinterest' -%}</a>
+                    </div>
+                  </div>
+
+                {%- when 'variant_selector' -%}
+                  {%- assign has_ouputted_variant_selector = true -%}
+                  {%- render 'product-form', block: block, product: product -%}
+
+                {%- when 'quantity_selector' -%}
+                  <div class="ProductForm__QuantitySelector" {{ block.shopify_attributes }}>
+                    {%- if block.settings.show_label -%}
+                      <span class="ProductForm__Label">{{ 'product.form.quantity' | t }}:</span>
+                    {%- endif -%}
+
+                    <div class="QuantitySelector">
+                      {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+                      <button type="button" class="QuantitySelector__Button Link Link--secondary" onclick="decrementQty()">{% render 'icon' with 'minus' %}</button>
+                      {% comment %} <input type="text" class="QuantitySelector__Qty" pattern="[0-9]*" name="quantity" value="1" aria-label="{{ 'product.form.quantity' | t }}"> {% endcomment %}
+                      <div>
+                        <div class="QuantitySelector__Wrapper">
+                      <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" class="QuantitySelector__Qty" />
+                          <span>COLLECTION BOX</span>
+                    </div>
+                    <div class="ProductMeta__Text">
+                      <span v-text="current_product.total_cans"></span>
+                      <span> CANS / BOX</span>
+                    </div>
+                  </div>
+                      <button type="button" class="QuantitySelector__Button Link Link--secondary" onclick="incrementQty()">{% render 'icon' with 'plus' %}</button>
+                    </div>
+                    
+                  </div>
+
+                {%- when 'inventory' -%}
+                  {%- assign hide_inventory_quantity_by_default = false -%}
+
+                  {%- if product.selected_or_first_available_variant.inventory_management == blank or product.selected_or_first_available_variant.inventory_quantity <= 0 -%}
+                    {%- assign hide_inventory_quantity_by_default = true -%}
+                  {%- endif -%}
+
+                  {%- if block.settings.inventory_quantity_threshold != 0 and product.selected_or_first_available_variant.inventory_quantity > block.settings.inventory_quantity_threshold -%}
+                    {%- assign hide_inventory_quantity_by_default = true -%}
+                  {%- endif -%}
+
+                  <p class="ProductForm__Inventory Text--subdued" {% if hide_inventory_quantity_by_default %}style="display: none"{% endif %} {{ block.shopify_attributes }}>
+                    {%- if block.settings.inventory_quantity_threshold == 0 -%}
+                      {{- 'product.form.inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
+                    {%- else -%}
+                      {{- 'product.form.low_inventory_quantity_count' | t: count: product.selected_or_first_available_variant.inventory_quantity -}}
+                    {%- endif -%}
+                  </p>
+
+                {%- when 'buy_buttons' -%}
+                  {%- if block.settings.show_payment_button == false or product.selling_plan_groups.size > 0 -%}
+                    {%- assign use_primary_button = true -%}
+                  {%- else -%}
+                    {%- assign use_primary_button = false -%}
+                  {%- endif -%}
+
+                  <div class="ProductForm__BuyButtons" {{ block.shopify_attributes }}>
+                    {%- if block.settings.show_payment_button and product.selected_or_first_available_variant.available == false -%}
+                      <style>
+                        #shopify-section-{{ section.id }} .shopify-payment-button {
+                          display: none;
+                        }
+                      </style>
+                    {%- endif -%}
+
+                    <button type="submit" data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="ProductForm__AddToCart Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.selected_or_first_available_variant.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} @click="add_to_cart($event)">
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>
+
+                        {%- if block.settings.show_price_in_button -%}
+                          <span class="Button__SeparatorDot"></span>
+                          <span>{{ product.selected_or_first_available_variant.price | money }}</span>
+                        {%- endif -%}
+                      {%- else -%}
+                        {{- 'product.form.sold_out' | t -}}
+                      {%- endif -%}
+                    </button>
+
+                    {%- if block.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
+                      {{ form | payment_button }}
+                    {%- endif -%}
+                    <div style="text-align:center;margin-top:10px;" v-text="shipping_info"></div>
+                  </div>
+
+                {%- when 'store_pickup' -%}
+                  {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
+                  <div class="ProductMeta__StoreAvailabilityContainer" {{ block.shopify_attributes }}></div>
+                {%- when 'product_details_link' -%}
+                  <div class="FeaturedProduct__ViewWrapper">
+                    <a href="{{ product.url }}" class="Link Link--underline">{{ 'home_page.featured_product.view_product' | t }}</a>
+                  </div>
+                {% when 'onetime_options' %}
+                  <div class="ProductForm__Option form-group ProductForm__Onetime">
+                    <div class="form-group">
+                      <div class="d-flex flex-vcenter">
+                        {% comment %} <input type="radio" value="onetime" name="purchase_type" id="pt_onetime" @change="select_purchase_type($event)"{% if section.settings.default_selected_purchase_type == 'onetime' %} checked{% endif %} v-model="selected_purchase_type"> {% endcomment %}
+                        <input type="radio" value="onetime" id="pt_onetime"{% if section.settings.default_selected_purchase_type == 'onetime' %} checked{% endif %} v-model="selected_purchase_type" class="purchase_type">
+                        <label for="pt_onetime"><span>{{block.settings.label}} </span></label>
+                      </div>
+                      <div>
+                        <label for="pt_onetime"><span v-text="current_product.reg_price"></span><span>/PCK</span></label>
+                        <div for="pt_onetime" class="chat-bubble"><span v-text="price_per_can_onetime"></span><span>/CAN</span></div>
+                      </div>
+                    </div>
+                  </div>
+                {% when 'subscription_options' %}
+                  {% liquid
+                    assign discount_type = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value_type
+                    case discount_type
+                      when 'percentage'
+                        assign discount_percentage = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value | floor
+                        assign discount_value = product.selected_or_first_available_variant.price | times: product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value | divided_by: 100.00
+                        assign discounted_amount = product.selected_or_first_available_variant.price | minus: discount_value
+                      when 'fixed_amount'
+                        assign discount_amount = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value
+                    endcase
+                  %}
+                  <div class="ProductForm__Subscription_Label">{{ block.settings.label }}</div>
+                  <div class="ProductForm__Option form-group">
+                    {% if product.selling_plan_groups.size > 0 %}
+                      <div class="ProductForm__Option_Subscription">
+                        <div class="form-group">
+                          <div class="d-flex flex-vcenter">
+                            {% comment %} <input type="radio" value="subscription" name="purchase_type" id="pt_subscription" @change="select_purchase_type($event)"{% if section.settings.default_selected_purchase_type == 'subscription' %} checked{% endif %} v-model="selected_purchase_type"> {% endcomment %}
+                            <input type="radio" value="subscription" id="pt_subscription"{% if section.settings.default_selected_purchase_type == 'subscription' %} checked{% endif %} v-model="selected_purchase_type" class="purchase_type">
+                            <label class="selected" for="pt_subscription">Subscribe & Save {{ discount_percentage }}%</label>
+                          </div>
+                          <div>
+                            <label for="pt_subscription"><span v-text="current_product.subscription_plans[0].price"></span><span>/PCK</span></label>
+                            <div for="pt_subscription" class="chat-bubble"><span v-text="price_per_can_subx"></span><span>/CAN</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ProductForm__Subscription active">
+                        {% if product.selling_plan_groups[0].selling_plans.size > 1 %}
+                          <select name="selling_plan">
+                          {% for plan in product.selling_plan_groups[0].selling_plans %}
+                            <option value="{{ plan.id }}">{{ plan.name }}</option>
+                          {% endfor %} 
+                          </select>
+                        {% endif %}
+                        {% unless block.settings.bullet_list == blank %}
+                          {% assign bullet_list = block.settings.bullet_list | split: '|' %}
+                          <ul class="ProductMeta__TextList test0208">
+                            {% for item in bullet_list %}
+                              <li>{{ item }}</li>
+                            {% endfor%}
+                            <li>
+                              <span>Ships every </span>
+                              <span><strong v-text="current_product.subscription_plans[0].name">{{ item }}</strong>.</span>
+                            </li>
+                          </ul>
+                        {% endunless %}
+                      </div>
+                    {% endif %}
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+
+            {%- unless has_ouputted_variant_selector -%}
+              {%- comment -%}If for any reason the merchant has removed the variant selector block, we still output the ID here{%- endcomment -%}
+              <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
+            {%- endunless -%}
+            {% if section.settings.show_sticky_atc %}
+            <div class="FeaturedProduct__StickyATC" style="display:none;">
+              {% liquid
+                assign discount_type = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value_type
+                assign discount_value = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value
+                if discount_type == 'percentage'
+                  assign discount_value = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value | divided_by: 100.00
+                  assign subx_discount = product.selected_or_first_available_variant.price | times: discount_value
+                else
+                  assign discount_value = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value | times: 100
+                  assign subx_discount = product.selected_or_first_available_variant.price | minus: discount_value
+                endif
+                assign subx_price = product.selected_or_first_available_variant.price | minus: subx_discount
+              %}
+              <div class="Grid">
+                <div class="Grid__Cell 3/12--tablet-and-up">
+                  <div class="FeaturedProduct__StickyATC_List">
+                    <select data-product_list @change="select_product($event)">
+                      {% if featured_products.size > 0 %}
+                        {%- for block in featured_products -%}
+                          {% assign featured_product = block.settings.product %}
+                          <option data-product_id="{{ featured_product.id }}" value="{{ featured_product.id }}">{{ block.settings.title }}</option>
+                        {% endfor %}
+                      {% endif %}
+                    </select>
+                  </div>
+                </div>
+                <div class="Grid__Cell 9/12--tablet-and-up">
+                  <div class="FeaturedProduct__StickyATC_Controls">
+                    {%- for block in section.blocks -%}
+                      {%- case block.type -%}
+                        {% when 'subscription_options' %}
+                          <input type="radio" value="subscription" id="pt_subscription_stk"{% if section.settings.default_selected_purchase_type == 'subscription' %} checked{% endif %} v-model="selected_purchase_type" class="purchase_type">
+                          <label class="selected" for="pt_subscription_stk">
+                            <span>Subscribe & Save {{ discount_percentage }}% </span>
+                            (<span v-text="current_product.subscription_plans[0].price"></span><span>/PCK</span>)
+                          </label>
+                        {% when 'onetime_options' %}
+                          <input type="radio" value="onetime" id="pt_onetime_stk"{% if section.settings.default_selected_purchase_type == 'onetime' %} checked{% endif %} v-model="selected_purchase_type" class="purchase_type">
+                          <label for="pt_onetime_stk">
+                            <span>{{block.settings.label}} </span>
+                            (<span v-text="current_product.reg_price"></span><span>/PCK</span>)
+                          </label>
+                      {% endcase %}
+                    {% endfor %}
+                    <button type="submit" data-use-primary-button="true" class="ProductForm__AddToCart Button Button--primary Button--full" @click="add_to_cart($event)">
+                      <span class="hidden-phone">{{- 'product.form.add_to_cart' | t -}}</span>
+                      <img src="{{ 'icon-cart.svg' | file_url }}" alt="" class="hidden-tablet-and-up" width="33" height="35">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="markerShowStickyATC"></div>
+            {% endif %}
+          {%- endform -%}
+        </div>
+      {%- else -%}
+        {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        PLACEHOLDER WHEN NO PRODUCT IS SELECTED
+        --------------------------------------------------------------------------------------------------------------------
+        {%- endcomment -%}
+
+        <div class="FeaturedProduct__Gallery">
+          {{- 'product-1' | placeholder_svg_tag -}}
+        </div>
+
+        <div class="FeaturedProduct__Info">
+          <div class="ProductForm">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'product_meta' -%}
+                  <div class="ProductMeta">
+                    {%- if block.settings.show_vendor -%}
+                      <h2 class="ProductMeta__Vendor Heading u-h6">{{ 'home_page.onboarding.vendor_title' | t }}</h2>
+                    {%- endif -%}
+                    <img src="{{ 'mexi-logo-white.svg' | file_url }}" class="ProductMeta__siteLogo" style="max-height:56px;margin-left:7px;margin-right:7px;" loading="lazy">
+                    <h1 class="ProductMeta__Title Heading u-h2">{{ 'home_page.onboarding.product_title' | t }}</h1>
+                    <div class="ProductMeta__PriceList Heading">
+                      <span class="ProductMeta__Price Price Text--subdued u-h4">{{ 4500 | money }}</span>
+                    </div>
+                  </div>
+
+                {%- when 'description' -%}
+                  <div class="ProductMeta__Description" {{ block.shopify_attributes }}>
+                    <div class="Rte">
+                      {{ 'home_page.onboarding.product_description' | t }}
+                    </div>
+                  </div>
+
+                {%- when 'share_buttons' -%}
+                  <div class="ProductMeta__ShareButtons hidden-pocket" {{ block.shopify_attributes }}>
+                    <span class="ProductMeta__ShareTitle Heading Text--subdued u-h7">{{ 'product.form.share' | t }}</span>
+
+                    <div class="ProductMeta__ShareList Text--subdued">
+                      <a class="ProductMeta__ShareItem" href="#" target="_blank" rel="noopener" aria-label="Facebook">{%- render 'icon' with 'facebook' -%}</a>
+                      <a class="ProductMeta__ShareItem" href="#" target="_blank" rel="noopener" aria-label="Twitter">{%- render 'icon' with 'twitter' -%}</a>
+                      <a class="ProductMeta__ShareItem" href="#" target="_blank" rel="noopener" aria-label="Pinterest">{%- render 'icon' with 'pinterest' -%}</a>
+                    </div>
+                  </div>
+
+                {%- when 'quantity_selector' -%}
+                  <div class="ProductForm__QuantitySelector" {{ block.shopify_attributes }}>
+                    {%- if block.settings.show_label -%}
+                      <span class="ProductForm__Label">{{ 'product.form.quantity' | t }}:</span>
+                    {%- endif -%}
+
+                    <div class="QuantitySelector QuantitySelector--large">
+                      {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+
+                      <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="decrease-quantity">{% render 'icon' with 'minus' %}</button>
+                      <input type="text" class="QuantitySelector__CurrentQuantity" pattern="[0-9]*" name="quantity" value="1" aria-label="{{ 'product.form.quantity' | t }}">
+                      <button type="button" class="QuantitySelector__Button Link Link--secondary" data-action="increase-quantity">{% render 'icon' with 'plus' %}</button>
+                    </div>
+                  </div>
+
+                {%- when 'inventory' -%}
+                  <p class="ProductForm__Inventory Text--subdued" {{ block.shopify_attributes }}>
+                    {{- 'product.form.inventory_quantity_count' | t: count: 4 -}}
+                  </p>
+
+                {%- when 'buy_buttons' -%}
+                  <div class="ProductForm__BuyButtons" {{ block.shopify_attributes }}>
+                    <button type="submit" data-use-primary-button="true" class="ProductForm__AddToCart Button Button--primary Button--full" @click="add_to_cart($event)">{{- 'product.form.add_to_cart' | t -}}</button>
+                  </div>
+
+                {%- when 'text' -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                      {{- block.settings.text -}}
+                    </div>
+                  {%- endif -%}
+              </div>
+            {%- endcase -%}
+          {%- endfor -%}
+
+          <div class="FeaturedProduct__ViewWrapper">
+            <a href="#" class="Link Link--underline">{{ 'home_page.featured_product.view_product' | t }}</a>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- render 'product-data', product: product -%}
+  {%- comment -%}
+  --------------------------------------------------------------------------------------------------------------------
+  OFF SCREEN ELEMENTS
+  --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  {{- product_popovers -}}
+  {{- product_modals -}}
+</section>
+{{ 'vue.global.min.js' | asset_url | script_tag }}
+<script>
+  const curr_symbol = theme.moneyFormat.split('{')[0];
+  const fproduct_form = document.querySelector('.FeaturedProduct__Info .ProductForm');
+  const fproduct_img = document.querySelector('.FeaturedProduct__Gallery img');
+  const subx_form = document.querySelector('.ProductForm__Subscription');
+  const product_ddl = document.querySelector('.FeaturedProduct__StickyATC_List select')
+  function incrementQty(){
+    console.log('incrementQty')
+    let qty_selector = document.querySelector('.QuantitySelector__Qty')
+    var qty_val = parseInt(qty_selector.value, 10);
+    qty_val = isNaN(qty_val) ? 0 : qty_val;
+    console.log(qty_val)
+    qty_val++;
+    qty_selector.value = qty_val;
+  }
+  function decrementQty(){
+    console.log('decrementQty')
+    let qty_selector = document.querySelector('.QuantitySelector__Qty')
+    var qty_val = parseInt(qty_selector.value, 10);
+    qty_val = isNaN(qty_val) ? 0 : qty_val;
+    if(qty_val>1){
+    qty_val--;
+    qty_selector.value = qty_val;
+    }
+  }
+  const FProductForm = {
+    data() {
+      return {
+        img_hovered: false,
+        selected_purchase_type: '{{ section.settings.default_selected_purchase_type }}',
+        shipping_info_onetime: '{{ section.settings.shipping_info_onetime }}',
+        shipping_info_subx: '{{ section.settings.shipping_info_subx }}',
+        {% if featured_products.size > 0 %}
+          featured_products: [
+            {%- for block in featured_products -%}
+              {% assign featured_product = block.settings.product %}
+              {
+                id: '{{ featured_product.id }}',
+                variant_id: '{{ featured_product.selected_or_first_available_variant.id }}',
+                handle: '{{ featured_product.handle }}',
+                reg_price: '{{ featured_product.selected_or_first_available_variant.price | money }}',
+                reg_price_int: '{{ featured_product.selected_or_first_available_variant.price | divided_by: 100.00 }}',
+                total_cans: {{ featured_product.metafields.custom.total_cans | times: 1 }},
+                subscription_plans: [
+                  {% for plan in featured_product.selling_plan_groups[0].selling_plans %}
+                    {% liquid
+                      if plan.price_adjustments[0].value_type == 'percentage'
+                        assign discount_rate = plan.price_adjustments[0].value | divided_by: 100.00
+                        assign discount_amount = featured_product.price | times: discount_rate 
+                      elsif  plan.price_adjustments[0].value_type == 'fixed_amount'
+                        assign discount_amount = plan.price_adjustments[0].value 
+                      endif 
+                      assign discounted_price = featured_product.price | minus: discount_amount
+                    %}
+                    {
+                      id: "{{ plan.id }}",
+                      name: "{{ plan.name | replace: 'Delivery every ', '' | downcase }}",
+                      price: "{{ discounted_price | money }}",
+                      price_int: "{{ discounted_price | divided_by: 100.00 }}"
+                    },
+                  {% endfor %}
+                ],
+                images: [
+                  {% for image in featured_product.images %}
+                    {
+                      id: "{{ image.id }}",
+                      width: "{{ image.width }}",
+                      height: "{{ image.height }}",
+                      aspect_ratio: "{{ image.aspect_ratio }}",
+                      alt: "{{ image.alt }}",
+                      url: "{{ image | img_url: 'master' }}"
+                    },
+                  {% endfor %}
+                ],
+              },
+            {% endfor %}
+          ],
+        {% endif %}
+        current_product: "",
+        current_variant_id: "{{ this.featured_products[0].selected_or_first_available_variant.id }}",
+      }
+    },
+    created(){
+      this.current_product = this.featured_products[0];
+    },
+    computed: {
+      price_per_can_onetime: function() {
+        return curr_symbol + (this.current_product.reg_price_int / this.current_product.total_cans).toFixed(2);
+      },
+      price_per_can_subx: function() {
+        return curr_symbol + (this.current_product.subscription_plans[0].price_int / this.current_product.total_cans).toFixed(2);
+      },
+      shipping_info: function() {
+        if(this.selected_purchase_type == 'subscription') {
+          return this.shipping_info_subx
+        }
+        else if(this.selected_purchase_type == 'onetime') {
+          return this.shipping_info_onetime
+        }
+      }
+    },
+    methods: {
+      select_product(event) {
+        let pt_tablinks = document.querySelectorAll('.FeaturedProduct .ProductsTab button');
+        let product_id = event.currentTarget.getAttribute('data-product_id') != null ? event.currentTarget.getAttribute('data-product_id') : event.currentTarget.value
+        console.log(`select_product product_id: ${product_id}`)
+        pt_tablinks.forEach(el => {
+          el.classList.remove('active');
+        });
+        let selected_tabs = document.querySelectorAll('.FeaturedProduct .ProductsTab button[data-product_id="' + product_id +'"]');
+        selected_tabs.forEach(el => {
+          el.classList.add('active')
+        })
+        this.current_product = this.featured_products.find(item => item.id == product_id);
+        product_ddl.value = product_id
+        {% comment %} if(event.currentTarget.value == null) {
+          const product_ddl = document.querySelector('.FeaturedProduct__StickyATC_List select')
+          product_ddl.value = product_id
+        } {% endcomment %}
+      },
+      select_purchase_type(event){
+        event.preventDefault();
+        if(document.querySelector('input[name="purchase_type"]:checked').value == 'subscription'){
+          subx_form.classList.add('active');
+        }
+        else{
+          subx_form.classList.remove('active');
+        }
+        this.selected_purchase_type = document.querySelector('input[name="purchase_type"]:checked').value
+      },
+      add_to_cart(event) {
+        event.preventDefault();
+        const variant_id = this.current_product.variant_id;
+        const qty = document.querySelector('.QuantitySelector__Qty');
+        //const purchase_type = document.querySelector('input[name="purchase_type"]:checked').value;
+        let item = {
+          id: variant_id,
+          quantity: qty.value
+        };
+        if(this.selected_purchase_type == 'subscription') {
+          item['selling_plan'] = this.current_product.subscription_plans[0].id;
+        }
+        let cart_items = {
+          items: [item],
+        };
+        console.log(`cart_items: ${JSON.stringify(cart_items)}`)
+        $.ajax({
+          type: "POST",
+          url: "/cart/add.js",
+          dataType: "json",
+          data: cart_items,
+          success: function(data) {
+            window.open('/cart','_self')
+            /*document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+              bubbles: true  //this code is for prestige theme, is to refresh the cart
+            }));
+            $('.openCart').trigger("click");
+            cart_drawer.setAttribute('aria-hidden','false');
+            page_overlay.classList.add('is-visible');*/
+          },
+          error: function (e) {
+            alert("Error adding product to cart.");
+          },
+        });
+      }
+    }
+  }
+  Vue.createApp(FProductForm).mount('.FeaturedProduct');
+  {% if section.settings.show_sticky_atc %}
+  const sticky_atc = document.querySelector('.FeaturedProduct__StickyATC')
+  function toggle_sticky_atc() {
+    let observer = new IntersectionObserver(entries => {
+      if (entries[0].boundingClientRect.y < 0) {
+        sticky_atc.style.display = 'block'
+      } else {
+        sticky_atc.style.display = 'none'
+      }
+    });
+    observer.observe(document.querySelector("#markerShowStickyATC"));
+  }
+  document.addEventListener("DOMContentLoaded", ()=> {
+    /*const sticky_atc_labels = document.querySelectorAll('.FeaturedProduct__StickyATC_Controls label')
+    sticky_atc_labels.forEach(label => {
+      label.addEventListener('click',(e) => {
+          e.preventDefault();
+          let pt=label.getAttribute('data-pt')
+          document.querySelector('input[name="purchase_type"][value="' + pt + '"]').click();
+          label.classList.add('selected')
+      })
+    })*/
+    toggle_sticky_atc();
+  });
+{% endif %}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+  $('.FeaturedProduct__ImgCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
+    infinite: false,
+    /*responsive: [
+      {
+        breakpoint: 1139,
+        settings: {
+          arrows: true,
+          dots: true
+        }
+      }
+    ]*/
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Featured product copy",
+  "class": "shopify-section--bordered",
+  "blocks": [
+    {
+      "type": "featured_product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Featured Product"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Featured Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_hover_image",
+          "label": "Featured Hover Image"
+        }
+      ]
+    },
+    {
+      "type": "product_meta",
+      "name": "Product meta",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_name",
+          "label": "Custom product name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show price",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "label": "Show vendor",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sku",
+          "label": "Show SKU",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_rating",
+          "label": "Show product rating",
+          "info": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/en/manual/products/product-reviews/installation)",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_taxes_included",
+          "label": "Show price taxes notice",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "variant_selector",
+      "name": "Variant selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "selector_mode",
+          "label": "Selector type",
+          "options": [
+            {
+              "value": "block",
+              "label": "Block"
+            },
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            }
+          ],
+          "default": "dropdown"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_color_swatch",
+          "label": "Show color swatch",
+          "default": false,
+          "info": "Some colors appear white? [Learn more](http://support.maestrooo.com/article/80-product-uploading-custom-color-for-color-swatch)."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_color_carousel",
+          "label": "Show color carousel",
+          "info": "A pop-up selector with variant images for choosing colors. Only enables when color swatch is disabled.",
+          "default": false
+        },
+        {
+          "type": "page",
+          "id": "size_chart",
+          "label": "Size chart",
+          "info": "Show along option named Size."
+        }
+      ]
+    },
+    {
+      "type": "share_buttons",
+      "name": "Share buttons",
+      "limit": 1
+    },
+    {
+      "type": "inventory",
+      "name": "Inventory",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "inventory_quantity_threshold",
+          "label": "Inventory quantity threshold",
+          "info": "Only show inventory quantity if below threshold. Choose 0 to always show.",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_price_in_button",
+          "label": "Show price in add to cart button",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_button",
+          "label": "Show dynamic checkout button",
+          "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_label",
+          "label": "Show label",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "store_pickup",
+      "name": "Local pickup availability",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Show customers where they can pick up the product. [Learn more](https://help.shopify.com/en/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-pickup#show-pickup-availability-to-your-customers)"
+        }
+      ]
+    },
+    {
+      "type": "product_details_link",
+      "name": "Product details link"
+    },
+    {
+      "type": "purchase_type_picker",
+      "name": "Purchase Type Picker"
+    },
+    {
+      "type": "onetime_options",
+      "name": "Onetime options",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    },
+    {
+      "type": "subscription_options",
+      "name": "Subscription options",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "bullet_list",
+          "label": "Bullet list"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Sub-heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_headings_on_mobile",
+      "label": "Show headings on mobile",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_image",
+      "label": "Featured Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_hover_image",
+      "label": "Featured Hover Image"
+    },
+    {
+      "type": "select",
+      "id": "default_selected_purchase_type",
+      "label": "Default Selected Purchase Type",
+      "options": [
+        {
+          "value": "onetime",
+          "label": "One-time"
+        },
+        {
+          "value": "subscription",
+          "label": "Subscription"
+        }
+      ],
+      "default": "subscription"
+    },
+    {
+      "type": "text",
+      "id": "shipping_info_onetime",
+      "label": "Shipping Info for Onetime"
+    },
+    {
+      "type": "text",
+      "id": "shipping_info_subx",
+      "label": "Shipping Info for Subscription"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sticky_atc",
+      "label": "Show sticky add-to-cart section"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 52
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "section_text_color",
+      "label": "Section Text Color",
+      "default": "#322F26"
+    },
+    {
+      "type": "select",
+      "id": "info_align",
+      "label": "Product Info Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Product",
+      "name": "Featured product copy",
+      "blocks": [
+        {
+          "type": "product_meta",
+          "settings": {}
+        },
+        {
+          "type": "share_buttons",
+          "settings": {}
+        },
+        {
+          "type": "variant_selector",
+          "settings": {}
+        },
+        {
+          "type": "buy_buttons",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

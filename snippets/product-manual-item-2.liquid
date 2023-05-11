@@ -1,0 +1,42 @@
+{% comment %}
+{%- render 'product-manual-item', product-image: block.settings.product_image, temporary_img: block.settings.temporary_img, coming_soon: block.settings.product_image_comingsoon, title: block.settings.title, button_text: block.settings.button_text, button_link: block.settings.button_link, popup: block.settings.trigger_popup  -%}
+{% endcomment %}
+
+<div class="ProductItem">
+    <div class="ProductItem__Wrapper">
+  
+  
+      <a href="{% unless popup == true %}{{ button_link }}{% endunless %}" class="ProductItem__ImageWrapper {% if popup == true %}klaviyo_form_trigger {% endif %}">
+          {%- assign max_width = image.width -%}
+        {%- assign media_aspect_ratio = product-image.aspect_ratio | default: product-image.aspect_ratio -%}
+  
+        <div class="AspectRatio AspectRatio--{{ settings.product_image_size }}" style="max-width: {{ max_width }}px; --aspect-ratio: {{ media_aspect_ratio }}">
+          {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200', image: product-image -%}{%- endcapture -%}
+          {%- assign image_url = product-image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+  
+          <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ product-image.alt | escape }}" data-media-id="{{ product-image.id }}" loading="lazy">
+          <span class="Image__Loader"></span>
+  
+          <noscript>
+            <img class="ProductItem__Image ProductItem__Image--alternate" src="{{ product-image[1] | img_url: '600x' }}" alt="{{ product-image.alt | escape }}" loading="lazy">
+            <img class="ProductItem__Image" src="{{ product-image| img_url: '600x' }}" alt="{{product-image.alt | escape }}" loading="lazy">
+          </noscript>
+          
+                {% if coming_soon != blank%}
+            <img class="coming-soon-banner" src="{{ coming_soon | img_url: '600x' }}" alt="coming soon" loading="lazy">
+        {% endif %}
+        </div>
+      </a>
+        <div class="ProductItem__Info ProductItem__Info--center">
+          <h2 class="ProductItem__Title Heading">
+            <a href="{% unless popup == true %}{{ button_link }}{% endunless %}" class="{% if popup == true %}{% endif %}">{{ title }}</a>
+          </h2>
+          {% unless product_details == blank %}
+            <div class="ProductItem__Details">{{ product_details }}</div>
+          {% endunless %}
+          {%- if button_text -%}
+              <a {% unless popup == true %}href="{{ button_link }}"{% endunless %} class="{% if popup == true %}klaviyo_form_trigger1 {% endif %} Button">{{ button_text | escape }}</a>
+          {%- endif -%}        
+        </div>
+    </div>
+  </div>

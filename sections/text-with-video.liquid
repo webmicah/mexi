@@ -1,0 +1,320 @@
+<section id="section-{{ section.id }}" class="Section ">
+  {%- capture section_content -%}
+    <div class="FeatureText__ContentWrapper">
+      <div class="FeatureText__Content">
+        {%- if section.settings.title != blank or section.settings.content != blank -%}
+          <header class="SectionHeader">
+            {%- if section.settings.logo != blank -%}
+            <img class="SectionHeader__Logo" src="{{ section.settings.logo | img_url: 'x350' }}" alt="logo">
+            {%- endif -%}
+
+            {%- if section.settings.title != blank -%}
+              <h2 class="SectionHeader__Heading Heading u-h1 h1-header">{{ section.settings.title | escape }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.content != blank -%}
+              <div class="SectionHeader__Description Rte">
+                {{ section.settings.content }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.link_text != blank -%}
+              <a {% unless section.settings.trigger_popup == true%}href="{{ section.settings.link_url }}"{% endunless %} {% if section.settings.new_tab == true %}target="_blank"{% endif %}class="Button {% if section.settings.trigger_popup == true%} klaviyo_form_trigger2{% endif %}">{{ section.settings.link_text | escape }}</a>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endcapture -%}
+
+  {%- capture section_image -%}
+      <div class="FeatureText__ImageWrapper">
+        <video playsinline controls class="hurabg-video" preload="metadata">
+          <source src="{{ section.settings.videourl }}" type="video/mp4">
+        </video>
+      </div>
+  {%- endcapture -%}
+
+  <div class="FeatureText FeatureText--withImage FeatureText--image{{ section.settings.image_position | capitalize }}">
+    {%- if section.settings.image_position == 'left' -%}
+      {{- section_image -}}
+      {{- section_content -}}
+    {%- else -%}
+      {{- section_content -}}
+      {{- section_image -}}
+    {%- endif -%}
+  </div>
+  
+  {% if section.settings.show_wave %}
+  <div class="wave2_container">
+    <div class="wave_inner">
+      <div class="wave2">      
+        <svg id="background-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 2009.6 126.9" style="enable-background:new 0 0 2009.6 126.9;" xml:space="preserve">
+          <g>
+              <path class="st0" d="M1502.8,57C1208,58.1,786,133.5,461.7,126.4S0,81.6,0,81.6v45.2h2009.6V81.6
+                  C2009.6,81.6,1797.6,55.9,1502.8,57z"/>
+              <path class="st1" d="M0,81.6c0,0,137.4,37.7,461.7,44.7S1208,58.1,1502.8,57s506.8,24.6,506.8,24.6V0H0V81.6z"/>
+          </g>
+        </svg>
+     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 2009.6 126.9" style="enable-background:new 0 0 2009.6 126.9;" xml:space="preserve">
+        <g>
+            <path class="st0" d="M1502.8,57C1208,58.1,786,133.5,461.7,126.4S0,81.6,0,81.6v45.2h2009.6V81.6
+                C2009.6,81.6,1797.6,55.9,1502.8,57z"/>
+            <path class="st1" d="M0,81.6c0,0,137.4,37.7,461.7,44.7S1208,58.1,1502.8,57s506.8,24.6,506.8,24.6V0H0V81.6z"/>
+        </g>
+      </svg>
+      </div> 
+
+    </div>
+  </div>
+  {% endif %}
+</section>
+
+<style>
+ {% if section.settings.show_wave %}
+  #section-{{ section.id }} {
+    position: relative;
+    z-index: 3;
+  }
+  {% endif %}
+  
+  #section-{{ section.id }} .FeatureText {
+    {%- assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+    background-color: {{ section.settings.bg_color | color_modify: 'alpha', overlay_opacity }};
+  }
+
+ {% if section.settings.show_wave %}
+
+
+  
+
+
+  .wave2 svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+	}
+  
+  .wave2 .st0{
+    fill:none;
+  }
+  .wave2 .st1{
+    fill:{{ section.settings.bg_color }};
+    opacity: {{ section.settings.overlay_opacity }}%;
+  }
+  
+  .wave2 #background-svg .st1{
+    fill:white;
+    opacity: 100%;
+  }    
+
+  .wave2 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    overflow: visible;
+  }
+  
+    {% endif %}
+  
+      	{%- if section.settings.heading_font == 'pirata-one' -%}
+          #section-{{ section.id }} .SectionHeader__Heading{
+             font-size: 88px;
+             line-height: 1em;
+             margin-bottom: 0; 
+             text-shadow: 2px 3px #E9A025;
+             font-family: 'Pirata One', serif;
+    		 font-weight: 500;
+             text-transform: uppercase;
+          }
+  		{% elsif section.settings.heading_font == 'canela-large' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              letter-spacing: .5em!important;
+              text-transform: uppercase;
+              font-size: 60px!important;
+              font-family: 'Canela',sans-serif;
+    		  font-weight: 500;
+              margin-right: -0.5em;
+            }
+  		{% elsif section.settings.heading_font == 'canela-small' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              letter-spacing: .5em!important;
+              text-transform: uppercase;
+              font-size: 25px!important;
+              font-family: 'Canela',sans-serif;
+    		  font-weight: 500;
+              margin-right: -0.5em;
+            }
+  		{% endif %}
+  
+  .FeatureText__Content {
+    text-align: center;
+    max-width: 462.5px;
+    margin: 0 auto!important;
+}
+  
+  .Button {
+    pointer-events:all;
+  }
+ @media only screen and (max-width: 980px) {
+  .wave2_container {
+    height: 20px;
+	}
+ }
+  
+ @media only screen and (max-width: 650px) {
+  .wave2_container {
+    height: 8px;
+	}
+   
+   .FeatureText__Content {
+    max-width: 80%;
+   }
+   
+        {%- if section.settings.heading_font == 'pirata-one' -%}
+          #section-{{ section.id }} .SectionHeader__Heading{
+             font-size: 50px;
+          }
+  		{% elsif section.settings.heading_font == 'canela-large' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+              font-size: 30px!important;
+            }
+  		{% elsif section.settings.heading_font == 'canela-small' %}
+            #section-{{ section.id }} .SectionHeader__Heading{
+ 
+              font-size: 18px!important;
+            }
+  		{% endif %}
+} 
+
+
+</style>
+
+{% schema %}
+{
+  "name": "Rich text with Video",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image",
+      "info": "Min 400px wide .png recommended"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "options": [
+        {
+          "value": "pirata-one",
+          "label": "Pirata One with shadow"
+        },
+        {
+          "value": "canela-large",
+          "label": "Canela Large"
+        },         
+		{
+          "value": "canela-small",
+          "label": "Canela Small"
+        }
+      ],
+      "default": "pirata-one"
+    },
+    {
+      "type": "html",
+      "id": "videourl",
+      "label": "Shopify Video URL",
+      "default": "https://cdn.shopify.com/videos/c/o/v/13dab29998224fe3b5e320bbf7483b72.mp4#t=1.0"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Video Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "new_tab",
+      "label": "Open in New Tab",
+      "info": "Open links in new tab if they are external Links",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "trigger_popup",
+      "label": "Trigger Klaviyo Popup",
+      "info": "popup must first be setup in Klaviyo for this to work",
+      "default": false
+    },
+    {
+    "type": "color",
+    "id": "bg_color",
+    "label": "Background Color",
+    "default": "#1B9142"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "show_wave",
+      "label": "Show Wave",
+      "info": "If enabled, a wave will appear on the bottom of this container",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Rich text with Video",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

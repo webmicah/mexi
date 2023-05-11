@@ -1,0 +1,85 @@
+<section class="Section" {% if section.settings.bg_color %} style="background-color: {{ section.settings.bg_color }}"{% endif %}>
+
+ 
+<!--             <div class="Brand_List">
+              {%- for block in section.blocks -%}
+                <div class="Brands_Item">
+                    <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ block.settings.brand_image | img_url: '400x' }}" alt="{{ block.settings.brand_image.alt | escape }}" data-media-id="{{ block.settings.brand_image.id }}">
+                </div>
+              {%- endfor -%}
+            </div> -->
+  
+    <div class="FeatureText {% if section.blocks != blank %}FeatureText--withImage FeatureText--image{{ section.settings.image_position | capitalize }}{% endif %}">
+
+
+    <div class="TabPanel"  aria-hidden="false" role="tabpanel" {{ block.shopify_attributes }}>
+      <div class="ProductListWrapper">
+ 
+            <div class="ProductList Brand_List ProductList--carousel Carousel">
+              {%- for block in section.blocks -%}
+                <div class="Carousel__Cell Brands_Item">
+                  <div class="ProductItem">
+                    <div class="ProductItem__Wrapper">
+
+<!--                     <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ block.settings.brand_image | img_url: '400x' }}" alt="{{ block.settings.brand_image.alt | escape }}" data-media-id="{{ block.settings.brand_image.id }}">
+ -->
+                     <div class="ProductItem__ImageWrapper">
+                        {%- assign max_width = block.settings.brand_image.width -%}
+                        {%- assign media_aspect_ratio = block.settings.brand_image.aspect_ratio | default: block.settings.brand_image.aspect_ratio -%}
+
+                        <div class="AspectRatio AspectRatio--natural" style="max-width: {{ max_width }}px; --aspect-ratio: {{ media_aspect_ratio }}">
+                          {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200', image: block.settings.brand_image -%}{%- endcapture -%}
+                          {%- assign image_url = block.settings.brand_image | img_url: '600x'  -%}
+
+                          <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ block.settings.brand_image.alt | escape }}" data-media-id="{{ block.settings.brand_image.id }}">
+                          <span class="Image__Loader"></span>
+
+                          <noscript>
+                            <img class="ProductItem__Image ProductItem__Image--alternate" src="{{ block.settings.brand_image | img_url: '600x' }}" alt="{{ block.settings.brand_image.alt | escape }}">
+                            <img class="ProductItem__Image" src="{{ block.settings.brand_image | img_url: '600x' }}" alt="{{ block.settings.brand_image.alt | escape }}">
+                          </noscript>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>                  
+                </div>
+              {%- endfor -%}
+            </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+</section>
+
+{% schema %}
+{
+  "name": "Brands Section",
+  "class": "shopify-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand_image",
+      "name": "Brand Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

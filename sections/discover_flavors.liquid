@@ -1,0 +1,94 @@
+<section class="Section Section--spacingNormal Flavors_Section" {% if section.settings.bg_color %} style="background-color: {{ section.settings.bg_color }}"{% endif %}>
+  <div class="Container">
+    {%- if section.settings.title != blank -%}
+      <header class="SectionHeader SectionHeader--center">
+        {%- if section.settings.subheading != blank -%}
+          <h3 class="SectionHeader__FlavorsSubHeading">{{ section.settings.subheading | escape }}</h3>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="SectionHeader__FlavorsHeading html_heading" style="text-align: center">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+    
+    
+    <div class="Flavors_ImgBlock">
+      {%- if section.settings.ambassador_image != blank -%}
+      <img class="FlavorItem__Image Image--lazyLoad Image--fadeIn Image--slideRight" data-src="{{ section.settings.ambassador_image | img_url: '2000x' }}" alt="{{ section.settings.ambassador_image.alt | escape }}" data-media-id="{{ section.settings.ambassador_image.id }}">
+      {% endif %}    
+    </div>      
+    
+
+    <div class="Rte html_text" style="text-align: center">
+      {{ section.settings.content }}
+    </div>
+
+
+
+      <div class="Flavors_List">
+        {%- for block in section.blocks -%}
+          <div class="Flavors_Item">
+            {%- if block.settings.title != blank -%}
+            <h3 class="flavor_handle">{{ block.settings.title }}</h4>
+            {% endif %}
+          </div>            
+        {%endfor %}
+      </div>   
+        
+
+ 
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flavors Section",
+  "class": "shopify-section",
+  "settings": [
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Rather than offer typical sugary margarita or Paloma style canned cocktails,"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Section Title",
+"default": "<p>MEXI Seltzer is inspired to innovate. No more Black Cherry, Blood Orange, and simple Lime flavors, either!</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "ambassador_image",
+          "label": "Brand Image"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "content",
+		  "default": "<p>Write your own custom HTML content.</p>"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#262626"
+        }
+	 ],
+  "blocks": [
+    {
+      "type": "flavor_text",
+      "name": "Flavor Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Flavor Text",
+		  "default": "<p>Guava Spice (sweet and spicy)</p>"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

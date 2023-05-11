@@ -1,0 +1,100 @@
+.logo_list.slick-slider:not(.slick-initialized){
+    display: flex;
+}
+.logo_list.slick-slider:not(.slick-initialized) .logo_item{
+    opacity: 0;
+}
+.feature-logo {
+    text-align: center;
+    position: relative;
+}
+.feature-logo>.container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1075px;
+}
+.feature-logo .col_item {
+    width: 20%;
+    padding: 10px;
+}
+.feature-logo .col_item .subh {
+    font-size: 18px;
+    font-family: 'Ruda';
+    font-weight: 700;
+    max-width: 13ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+}
+.feature-logo .logo_item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+}
+.feature-logo .logo_item .small--text {
+    font-family: 'Ruda';
+    font-size: 14px;
+}
+.feature-logo .logo_item .imgBox  {
+    margin-bottom: 15px;
+    min-height: 80px;
+}
+.feature-logo .logo_item .imgBox img {
+    margin-left: auto;
+    margin-right: auto;
+}
+.feature-logo .slick-prev:before, .feature-logo .slick-next:before {
+    content: none;
+}
+.feature-logo .slick-prev, .feature-logo .slick-next {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.feature-logo .slick-prev {
+    left: 15px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0623/6576/1773/files/slick-arrow-prev.svg?v=1667888974);
+    z-index: 1;
+}
+.feature-logo .slick-next {
+    right: 15px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0623/6576/1773/files/slick-arrow-next.svg?v=1667888974);
+}
+.feature-logo .slick-next:before, .slick-prev:before {
+    opacity: 1;
+}
+.feature-logo .slick-dots li button:before {
+    font-size: 10px;
+    color: #fff;
+}
+.feature-logo .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #fff;
+}
+.ig_handle,.ig_cta {
+    font-family: 'Ruda';
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.09em;
+}
+.ig_handle {
+    margin-left: 30px;
+}
+.ig_cta {
+    float: right;
+    display: block;
+    margin-right: 30px;
+}
+@media only screen and (max-width: 768px) {
+    .feature-logo > .container {
+        flex-flow: column;
+    }
+    .feature-logo .logo_item .imgBox img, .feature-logo .logo_item video {
+        width: 80%;
+        max-width: 300px;
+        max-height: 500px;
+    }
+}

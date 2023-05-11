@@ -1,0 +1,427 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+{%- style -%}
+  .section-{{ section.id }} {
+    {% unless section.settings.section_bg_color == blank %}
+      background-color:{{ section.settings.section_bg_color }};
+    {% endunless %}
+    {% unless section.settings.section_text_color == blank %}
+      color:{{ section.settings.section_text_color }};
+    {% endunless %}
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% if section.settings.section_display == 'desktop_only' %}
+  @media screen and (max-width: 1024px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  {% if section.settings.section_display == 'mobile_only' %}
+  @media screen and (min-width: 1024px) {
+    .section-{{ section.id }} {display:none;}
+  }
+  {% endif %}
+  {{ section.settings.custom_css }}
+{%- endstyle -%}
+<div class="isolate section-{{ section.id }}{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
+  <div class="rich-text content-container {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    <div class="rich-text__blocks">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            {% unless block.settings.heading == blank %}
+              <h2 class="{{ block.settings.heading_size }} {{ block.settings.heading_style }}" {{ block.shopify_attributes }} style="text-align:{{ section.settings.text_align }};">{{ block.settings.heading }}</h2>
+            {% endunless %}
+          {%- when 'text' -%}
+            <div class="rich-text__text rte style--{{ block.settings.style }}" data-block="{{ block.id }}" {{ block.shopify_attributes }} style="text-align:{{ section.settings.text_align }};">{{ block.settings.text }}</div>
+          {%- when 'richtext_heading' -%}
+            <h2 class="richtext_heading {{ block.settings.heading_style }}" {{ block.shopify_attributes }} style="text-align:{{ section.settings.text_align }};">{{ block.settings.text }}</h2>
+          {%- when 'button' -%}
+            {% if block.settings.button_style == '2' %}
+              <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} 
+              class="btn btn_link rich-text__button rich-text__button_{{ block.settings.button_style }}" {{ block.shopify_attributes }} block-id="{{block.id | slice: -1, 12}}">
+                <span>{{ block.settings.button_label | escape }}</span>
+                {% render 'icon', icon:'bold-arrow-right' %}
+              </a>
+            {% elsif block.settings.button_style == '4' %}
+              <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} 
+              class="btn btn_link rich-text__button rich-text__button_{{ block.settings.button_style }}" {{ block.shopify_attributes }} block-id="{{block.id | slice: -1, 12}}">
+                <span>{{ block.settings.button_label | escape }}</span>
+              </a>
+            {% else %}
+              <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} 
+                class="button rich-text__button rich-text__button_{{ block.settings.button_style }}" {{ block.shopify_attributes }} block-id="{{block.id | slice: -1, 12}}">
+                {{ block.settings.button_label | escape }}
+              </a>
+            {% endif %}
+            {% unless block.settings.text_color == blank %}
+              <style>.rich-text__button[block-id="{{block.id | slice: -1, 12}}"] span{color:{{block.settings.text_color}};}</style>
+            {% endunless %}
+            {% unless block.settings.bg_color == blank %}
+              <style>.rich-text__button[block-id="{{block.id | slice: -1, 12}}"]{background-color:{{block.settings.bg_color}};}</style>
+            {% endunless %}
+            {%- when 'image' -%}
+              {% liquid
+                if block.settings.overlay
+                  assign overlay = 'position:absolute;'
+                endif
+                assign position = block.settings.position | split: '|'
+                assign abs_pos = 'top: ' | append: position[0] | append: ';bottom: ' | append: position[1] | append: ';left: ' | append: position[2] | append: ';right: ' | append: position[3] | append: ';'
+                assign img_styles = overlay | append: abs_pos
+              %}
+              <img src="{{ block.settings.image | img_url: 'master' }}" alt="" loading="lazy" class="rich-text__img" data-block-id="{{ block.id }}"
+                {% unless img_styles == blank %} style="{{ img_styles }}"{% endunless %}
+              >
+              {% if block.settings.max_height_mob != blank %}
+                <style>
+                  .rich-text__img[data-block-id="{{ block.id }}"] {
+                    max-height: {{ block.settings.max_height_mob }};
+                  }
+                </style>
+              {% endif %}
+              {% if block.settings.max_height != blank %}
+                <style>
+                    @media screen and (min-width: 750px) {
+                      .rich-text__img[data-block-id="{{ block.id }}"] {
+                        max-height: {{ block.settings.max_height }};
+                      }
+                    }
+                </style>
+              {% endif %}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Richtext",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text Align"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    },
+    {
+      "type": "color",
+      "id": "section_text_color",
+      "label": "Section Text Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color"
+    },
+    {
+      "type": "select",
+      "id": "section_display",
+      "options": [
+        {
+          "value": "all",
+          "label": "Desktop and mobile"
+        },
+        {
+          "value": "desktop_only",
+          "label": "Desktop only"
+        },
+        {
+          "value": "mobile_only",
+          "label": "Mobile only"
+        }
+      ],
+      "default": "all",
+      "label": "Section display"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    }   
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "options": [
+            {
+              "value": "ff-serif fw-700",
+              "label": "Serif"
+            },
+            {
+              "value": "ff-serif-2 fw-700",
+              "label": "Serif_2"
+            },
+            {
+              "value": "ff-sans-normal fw-700",
+              "label": "Sans Serif"
+            }
+          ],
+          "default": "ff-serif-2 fw-700",
+          "label": "Heading Style"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "richtext_heading",
+      "name": "Richtext Heading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "options": [
+            {
+              "value": "ff-serif fw-700",
+              "label": "Serif"
+            },
+            {
+              "value": "ff-serif-2 fw-700",
+              "label": "Serif_2"
+            },
+            {
+              "value": "ff-sans-normal fw-700",
+              "label": "Sans Serif"
+            }
+          ],
+          "default": "ff-serif-2 fw-700",
+          "label": "Heading Style"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "font_size",
+          "default": "28",
+          "label": "Font size (px)"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "options": [
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            }
+          ],
+          "default": "1",
+          "label": "Style"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.button.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "options": [
+            {
+              "value": "1",
+              "label": "Style 1"
+            },
+            {
+              "value": "2",
+              "label": "Style 2"
+            },
+            {
+              "value": "3",
+              "label": "Style 3"
+            },
+            {
+              "value": "4",
+              "label": "Style 4"
+            }
+          ],
+          "default": "1",
+          "label": "Button Style"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.button.settings.button_style_secondary.label"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "overlay",
+          "label": "Overlay"
+        },
+        {
+          "type": "text",
+          "id": "max_height",
+          "label": "Image max height",
+          "default": "unset"
+        },
+        {
+          "type": "text",
+          "id": "max_height_mob",
+          "label": "Image max height mobile"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position",
+          "default": "0|auto|auto|0",
+          "info": "Top bottom left right, separate with |"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Richtext",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
