@@ -211,7 +211,7 @@ h3, .u-h3{
     display: block;
 }
 
-.main--menu li.HorizontalList__Item.with--child.actives {
+.main--menu ul li.main--links.actives:hover >a{
     border-radius: 10px 10px 0px 0px;
 }
 
