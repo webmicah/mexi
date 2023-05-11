@@ -1,47 +1,190 @@
 {
   "sections": {
-    "1644969948fd706d8f": {
-      "type": "slideshow",
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_large": true
+      }
+    },
+    "76dd5e6c-ea36-4730-8991-7047b26c0815": {
+      "type": "rich-text",
       "blocks": {
-        "16449699483ef5d9b6-0": {
-          "type": "image",
+        "template--16746017063156__76dd5e6c-ea36-4730-8991-7047b26c0815-1683769019734eb0a0-0": {
+          "type": "heading",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Explore-Hero.png",
-            "mobile_image": "shopify:\/\/shop_images\/Explore-Hero_5a4b1bec-9d72-485e-8fb3-e9a2d3cbbfe8.png",
-            "apply_overlay": false,
-            "title": "Explore <br>with Mexi",
-            "content_position": "topLeft",
-            "subheading": "Channel your inner  <br>California spirit.",
-            "content_sub_position": "bottomRight",
-            "button_1_text": "",
-            "button_1_link": "",
-            "button_2_text": "",
-            "button_2_link": ""
+            "heading": "TASTE MEXI",
+            "heading_style": "ff-serif-2 fw-700",
+            "heading_size": "h1"
+          }
+        },
+        "template--16746017063156__76dd5e6c-ea36-4730-8991-7047b26c0815-1683769019734eb0a0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>DISCOVER OUR VARIETY OF DELICIOUS FLAVORS OF THE BEST TEQUILA SELTZER OUT THERE<\/p>",
+            "font_size": "28",
+            "style": "1"
           }
         }
       },
       "block_order": [
-        "16449699483ef5d9b6-0"
+        "template--16746017063156__76dd5e6c-ea36-4730-8991-7047b26c0815-1683769019734eb0a0-0",
+        "template--16746017063156__76dd5e6c-ea36-4730-8991-7047b26c0815-1683769019734eb0a0-1"
       ],
       "settings": {
-        "show_fullscreen": false,
-        "show_arrow": false,
-        "autoplay": true,
-        "cycle_speed": 5,
-        "text_color": "#050605",
-        "button_color": "#363636",
-        "button_background": "#ffffff"
+        "full_width": true,
+        "text_align": "center",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "section_text_color": "",
+        "section_bg_color": "",
+        "section_display": "all",
+        "custom_css": ""
       }
     },
-    "main": {
-      "type": "main-page",
+    "249cb16c-8f2a-4563-b79c-113779f3f330": {
+      "type": "manual-featured-collection-copy",
+      "blocks": {
+        "8a11beaa-fefb-48aa-8321-f6be9d1fd124": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/02_ALOEDISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "ALOE & MINT",
+            "button_link": "shopify:\/\/products\/aloe-mint-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/ALOE.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/ALOE.png"
+          }
+        },
+        "066c04b4-5fa8-4c1d-b623-bac1f6d9966b": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/01_MANGODISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "SPICY MANGO",
+            "button_link": "shopify:\/\/products\/spicy-mango-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/MANGO.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/MANGO.png"
+          }
+        },
+        "62e342a9-78ca-42c7-bfd5-778cbe3a7a98": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/03_GUAVADISPLAY_4ee3ad38-1a42-48bb-b0c7-a88f6253ddd1.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "GUAVA SPICE",
+            "button_link": "shopify:\/\/products\/guava-spice-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/3_f8ff3d4f-2132-4048-a4a1-427a6d6b4e16.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/3_f8ff3d4f-2132-4048-a4a1-427a6d6b4e16.png"
+          }
+        },
+        "d6e7552e-3a1e-48cd-a047-992818a14407": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/04_TAMARINDODISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "TAMARINDO",
+            "button_link": "shopify:\/\/products\/tamarindo-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/4_dd1042ef-3d84-4cf2-ab01-a32bcbf2db45.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/4_dd1042ef-3d84-4cf2-ab01-a32bcbf2db45.png"
+          }
+        },
+        "20d646e5-de94-4b0d-9554-8adf491fb0c8": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/05_CHERRYDISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "TART CHERRY COLA",
+            "button_link": "shopify:\/\/products\/tart-cherry-cola-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/5_8a425778-0303-41bf-81ae-d0378676b305.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/5_8a425778-0303-41bf-81ae-d0378676b305.png"
+          }
+        },
+        "86740c5d-fb05-4beb-b247-c89590b5309a": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/06_ROSEWATERDISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "ROSEWATER LEMONADE",
+            "button_link": "shopify:\/\/products\/rosewater-lemonade-12-oz-4pk",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/6_7d05b7dd-48fc-4e68-8888-7f1aee72e3b0.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/6_7d05b7dd-48fc-4e68-8888-7f1aee72e3b0.png"
+          }
+        },
+        "ec14feaa-8d5f-40d6-a50c-7099c0dfa5e4": {
+          "type": "title",
+          "settings": {
+            "product_image": "shopify:\/\/shop_images\/07_PRICKLYDISPLAY.png",
+            "temporary_img": false,
+            "title": "",
+            "product_details": "",
+            "button_text": "PRICKLY PEAR ICED TEA",
+            "button_link": "shopify:\/\/products\/prickly-pear-iced-tea-12-oz-4pk-3",
+            "trigger_popup": false,
+            "hover_bg": "#931A1D",
+            "product_bg_banner": "shopify:\/\/shop_images\/7_7a26b871-64d0-49a4-9e64-7a3426568acc.png",
+            "product_bg_banner2": "shopify:\/\/shop_images\/7_7a26b871-64d0-49a4-9e64-7a3426568acc.png"
+          }
+        }
+      },
+      "block_order": [
+        "8a11beaa-fefb-48aa-8321-f6be9d1fd124",
+        "066c04b4-5fa8-4c1d-b623-bac1f6d9966b",
+        "62e342a9-78ca-42c7-bfd5-778cbe3a7a98",
+        "d6e7552e-3a1e-48cd-a047-992818a14407",
+        "20d646e5-de94-4b0d-9554-8adf491fb0c8",
+        "86740c5d-fb05-4beb-b247-c89590b5309a",
+        "ec14feaa-8d5f-40d6-a50c-7099c0dfa5e4"
+      ],
       "settings": {
-        "show_large": true
+        "sectionID": "shop",
+        "title": "",
+        "layout_mode": "grid",
+        "grid_mobile_items_per_row": "2",
+        "grid_desktop_items_per_row": 4,
+        "grid_items_count": 8,
+        "button_text_color": "",
+        "button_bg_color": "",
+        "button_border_radius": 1,
+        "show_bottom_bg": false,
+        "bottom_bg_color": "",
+        "slides_to_show_desktop": 0,
+        "show_arrows_desktop": false,
+        "show_dots_desktop": false,
+        "disable_slider_mobile": true,
+        "show_arrows_mobile": false,
+        "show_dots_mobile": false,
+        "custom_css": ""
       }
     }
   },
   "order": [
-    "1644969948fd706d8f",
-    "main"
+    "main",
+    "76dd5e6c-ea36-4730-8991-7047b26c0815",
+    "249cb16c-8f2a-4563-b79c-113779f3f330"
   ]
 }

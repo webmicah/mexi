@@ -157,6 +157,9 @@
       },
       "age-gate": {
         "type": "age-gate",
+        "custom_css": [
+
+        ],
         "settings": {
           "color_background": "#ffffff",
           "color_text": "#050605",
