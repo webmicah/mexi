@@ -113,22 +113,32 @@ h3, .u-h3{
     display: block;
 }
 
-.main--menu li.child--link a::before {
-    content: '';
+.main--menu li.child--link a:before {
+    content: "";
     width: 10%;
+    height: 100%;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 10px;
+    padding: 20px 20px;
+    vertical-align: middle;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .main--menu li.HorizontalList__Item.with--child {
     position: relative;
 }
 
+li.HorizontalList__Item.child--link.spicy-mango a:before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/Group_1765.png?v=1683791335);
+}
+
 .main--menu .list-menu-dropdown {
     position: absolute;
     background-color: #fff;
-    max-width: 300px;
-    width: 300px;
+    max-width: 350px;
+    width: 350px;
     padding: 15px 10px 15px 15px;
     border-radius: 0px 10px 10px 10px;
     background: #FFFFFF;
