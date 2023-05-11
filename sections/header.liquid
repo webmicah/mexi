@@ -192,9 +192,9 @@ HEADER CONTENT
 
                 <ul class="menu-drawer__menu list-menu-dropdown" role="list" tabindex="-1">
                 {%- for childlink in link.links -%}
-                      <li class="HorizontalList__Item {{ link.title | handle }}" >
-                        <a href="{{ link.url }}" class="Heading u-h6 ">
-                          {{- link.title | escape -}}
+                      <li class="HorizontalList__Item {{ childlink.title | handle }}" >
+                        <a href="{{ childlink.url }}" class="Heading u-h6 ">
+                          {{- childlink.title | escape -}}
                         </a>
                       </li>
                 {%- endfor -%}
