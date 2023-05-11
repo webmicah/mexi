@@ -54,7 +54,15 @@ $( ".main--menu li.with--child" ).hover(
   function() {
     $( this ).addClass( "actives" );
   }, function() {
-    $( this ).removeClass( "hover" );
+    $( this ).removeClass( "actives" );
+  }
+);
+
+$( ".main--menu li.with--child .list-menu-dropdown" ).hover(
+  function() {
+    $( this ).parents(".main--menu li.with--child").addClass( "actives" );
+  }, function() {
+    $( this ).parents(".main--menu li.with--child").removeClass( "actives" );
   }
 );
 
