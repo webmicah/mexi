@@ -137,6 +137,7 @@
                       <button class="accordion-card--btn btn btn-link btn-block{% if forloop.index == 1 %} selected{% endif %}" type="button" data-toggle="collapse"
                         data-target="#collapse_{{ section.id }}_{{ forloop.index }}" aria-expanded="false" aria-controls="collapse{{ forloop.index }}"
                         data-body="{{ block.settings.accordion_body | strip_html }}"
+                        data-links="https://www.instagram.com/{{ block.settings.accordion_heading | lowercase}}"
                         {% if block.settings.featured_img != blank %} data-featured-img="{{ block.settings.featured_img | img_url: 'master' }}" onclick="accFimg(this)"{% endif %}>
                           <h5 class="card-title mb-0 ff-serif_2">{{ block.settings.accordion_heading }}</h5>
                           {% unless block.settings.heading_bg_img == blank %}
@@ -187,7 +188,7 @@
           {% elsif section.settings.tpl == '2' or  section.settings.tpl == '3' %}
             <div class="accordion--wrapper">
               <h1 class="accordion--heading hidden-tablet-and-up mx-auto ml-md-0 {{ section.settings.heading_style }}">{{ section.settings.heading }}</h1>
-              <a href="https://www.instagram.com/{{ block.settings.accordion_heading | downcase }}" target="_blank">
+              <a class="accordion--link" href="#" target="_blank">
               <img src="{{ section.settings.featured_img | img_url: 'master' }}" alt="" class="w-100 acc_featured_img" loading="lazy">
               </a>
               {% assign accordion_items = section.blocks | where: 'type', 'accordion_item' %}
