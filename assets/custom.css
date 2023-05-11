@@ -110,7 +110,7 @@ h3, .u-h3{
 .main--menu li.child--link a {
     text-transform: capitalize;
     color: #000!important;
-    display: block;
+    padding: 10px 10px 10px 5px;
 }
 
 .main--menu li.child--link a:before {
@@ -149,10 +149,9 @@ h3, .u-h3{
 
 .main--menu .list-menu-dropdown {
     position: absolute;
-    background-color: #fff;
     max-width: 350px;
     width: 350px;
-    padding: 15px 10px 15px 15px;
+    padding: 10px 10px 10px 10px;
     border-radius: 0px 10px 10px 10px;
     background: #FFFFFF;
     border: 2px solid #000000;
