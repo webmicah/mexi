@@ -231,8 +231,8 @@
                   {%- endif -%}
                 {%- when 'text' -%}
                   {%- if block.settings.text != blank -%}
-                    <div class="ProductMeta__Texts" {{ block.shopify_attributes }}>
-                      {{- block.settings.text -}}
+                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                      <h1 class="product--title">{{- block.settings.text -}}</h1>
                     </div>
                   {%- endif -%}
                 {%- when 'share_buttons' -%}
