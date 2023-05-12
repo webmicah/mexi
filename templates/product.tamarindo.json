@@ -17,11 +17,12 @@
         "fd55825f-16fc-4b45-b3c8-d7769fcd6d49": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.title }}"
+            "text": "{{ product.title }}"
           }
         },
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0": {
           "type": "product_meta",
+          "disabled": true,
           "settings": {
             "use_title_img": "shopify:\/\/shop_images\/tamarindo_9d837d5e-1d6e-42ec-97e5-b3d538183885.png",
             "show_price": false,
