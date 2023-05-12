@@ -17,7 +17,7 @@
         "c85b48e7-4341-44c2-b406-9c85f6f9d096": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.title }}"
+            "text": ""
           }
         },
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0": {
