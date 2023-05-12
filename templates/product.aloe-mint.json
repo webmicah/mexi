@@ -14,6 +14,12 @@
     "66db842b-ee7a-4fe4-aa86-68390c7373bd": {
       "type": "product-form",
       "blocks": {
+        "c85b48e7-4341-44c2-b406-9c85f6f9d096": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}"
+          }
+        },
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0": {
           "type": "product_meta",
           "disabled": true,
@@ -83,6 +89,7 @@
         }
       },
       "block_order": [
+        "c85b48e7-4341-44c2-b406-9c85f6f9d096",
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0",
         "3b887f7c-17be-4788-9999-98c30df06d97",
         "0e1966a3-1091-472e-8b22-79035de82923",
