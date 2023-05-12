@@ -286,7 +286,6 @@
           {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
             {%- render 'product-data', product: product -%}
 
-            <h1>{{ product.title }}</h1>
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}
@@ -409,7 +408,7 @@
 
                 {%- when 'liquid' -%}
                   {%- if block.settings.liquid != blank -%}
-                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                    <div class="ProductMeta__Texts" {{ block.shopify_attributes }}>
                       {{ block.settings.liquid }}
                     </div>
                   {%- endif -%}
