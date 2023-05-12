@@ -40,7 +40,7 @@
 </script>
 
 <section class="Product Product--{{ section.settings.image_size }}" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
-  <div class="Product__Wrapper">
+  <div class="Product__Wrapper ss">
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
         <div class="Product__ActionItem hidden-lap-and-up">
@@ -401,14 +401,14 @@
 
                 {%- when 'text' -%}
                   {%- if block.settings.text != blank -%}
-                    <div class="ProductMeta__Texts" {{ block.shopify_attributes }}>
+                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
                     {{- block.settings.text -}}
                     </div>
                   {%- endif -%}
 
                 {%- when 'liquid' -%}
                   {%- if block.settings.liquid != blank -%}
-                    <div class="ProductMeta__Texts" {{ block.shopify_attributes }}>
+                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
                       {{ block.settings.liquid }}
                     </div>
                   {%- endif -%}
