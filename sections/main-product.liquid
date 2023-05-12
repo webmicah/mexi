@@ -40,7 +40,7 @@
 </script>
 
 <section class="Product Product--{{ section.settings.image_size }}" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
-  <div class="Product__Wrapper ss">
+  <div class="Product__Wrapper">
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
         <div class="Product__ActionItem hidden-lap-and-up">
@@ -286,7 +286,6 @@
           {%- form 'product', product, data-productid: product.id, class: 'ProductForm' -%}
             {%- render 'product-data', product: product -%}
 
-
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
@@ -359,7 +358,7 @@
                   </p>
 
                 {%- when 'buy_buttons' -%}	{% comment %} Wait.li Button 1/4 {% endcomment %}{% capture 'wait_li_capture' %}{% render 'wait_li_config' %}{% endcapture %}{%- assign wait_li_capture_results = wait_li_capture | split: '|' -%}{%- assign wait_li_active = wait_li_capture_results[0] | strip -%}{%- assign show_waiting_snippet = wait_li_capture_results[1] | strip -%}{%- assign is_customer = wait_li_capture_results[2] | strip -%}{%- assign customer_status = wait_li_capture_results[3] | strip -%}{% if wait_li_active != 'true' or show_waiting_snippet != 'true' %}{% comment %} Wait.li Button 2/4 {% endcomment %}
-
+	
                   {%- if block.settings.show_payment_button == false or product.selling_plan_groups.size > 0 -%}
                     {%- assign use_primary_button = true -%}
                   {%- else -%}
@@ -393,7 +392,7 @@
                     {%- endif -%}
                   </div>
 
-
+                
 	{% comment %} Wait.li Button 3/4 {% endcomment %}{% endif %}{% comment %} Wait.li End 4/4 {% endcomment %}
 	{%- when 'store_pickup' -%}
                   {%- comment -%}The availability container will be added automatically if there is store pickup available{%- endcomment -%}
@@ -402,7 +401,7 @@
                 {%- when 'text' -%}
                   {%- if block.settings.text != blank -%}
                     <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
-                    {{- block.settings.text -}}
+                      {{- block.settings.text -}}
                     </div>
                   {%- endif -%}
 
