@@ -1675,3 +1675,18 @@ font-size:24px!important;
     margin-left: 80px;
   }
 }
+
+
+/*---------------------Product Page-----------------------*/
+
+h1.product--title {
+    text-align: center;
+    font-family: Ruda;
+    font-weight: 500;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.product--title-div {
+    width: 50%;
+}
