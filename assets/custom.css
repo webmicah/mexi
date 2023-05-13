@@ -1105,6 +1105,28 @@ h3, .u-h3{
   padding-bottom: 35px!important;
 }
 
+
+
+/*---------------------Product Page-----------------------*/
+
+h1.product--title {
+    text-align: center;
+    font-family: Ruda;
+    font-weight: 500;
+    font-size: 45px;
+    text-transform: uppercase;
+}
+
+.product--title-div {
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px 0 10px 0;
+}
+
+
+
 /*------------------------------------------------------------------Breakpoints------------------------------------------------------*/
 
 @media only screen and (max-height: 791px) {
@@ -1679,28 +1701,4 @@ font-size:24px!important;
   .Footer__Inner {
     margin-left: 80px;
   }
-}
-
-
-/*---------------------Product Page-----------------------*/
-
-h1.product--title {
-    text-align: center;
-    font-family: Ruda;
-    font-weight: 500;
-    font-size: 45px;
-    text-transform: uppercase;
-}
-
-.product--title-div {
-    width: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 10px 0 10px 0;
-}
-
-@media (min-width:1200px) {
-
-
 }
