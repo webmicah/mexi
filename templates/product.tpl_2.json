@@ -16,6 +16,7 @@
       "blocks": {
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0": {
           "type": "product_meta",
+          "disabled": true,
           "settings": {
             "use_title_img": "shopify:\/\/shop_images\/rosewater_lemonade.png",
             "show_price": false,
@@ -23,6 +24,12 @@
             "show_sku": false,
             "show_product_rating": false,
             "show_taxes_included": false
+          }
+        },
+        "8d366f13-426e-4054-a406-68f43bfba8d0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.title }}"
           }
         },
         "3b887f7c-17be-4788-9999-98c30df06d97": {
@@ -83,6 +90,7 @@
       },
       "block_order": [
         "template--16643784147188__66db842b-ee7a-4fe4-aa86-68390c7373bd-16698212761eb5ac1a-0",
+        "8d366f13-426e-4054-a406-68f43bfba8d0",
         "3b887f7c-17be-4788-9999-98c30df06d97",
         "0e1966a3-1091-472e-8b22-79035de82923",
         "b5e8271a-e914-45da-b9e7-c5a99566d257",
