@@ -1130,10 +1130,16 @@ h1.product--title {
     padding: 15px 0px;
 }
 
-.rosewater-lemonade-title h1.product--title{
-    font-size: 37px;
-    padding: 12px 0px;
+.product--title-div.rosewater-lemonade-title {
+    width: 60%;
 }
+
+.rosewater-lemonade-title h1.product--title {
+    font-size: 35px;
+    padding: 20px 0;
+}
+
+
 
 /*------------------------------------------------------------------Breakpoints------------------------------------------------------*/
 
