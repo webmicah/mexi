@@ -233,7 +233,7 @@
                   {%- if block.settings.text != blank -%}
                     <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
                       <div class="product--title-div" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
-                        <h1 class="product--title">{{- block.settings.text -}}</h1>
+                        <h1 class="product--title {{ block.settings.text | handle }}">{{- block.settings.text -}}</h1>
                       </div>
                     </div>
                   {%- endif -%}
