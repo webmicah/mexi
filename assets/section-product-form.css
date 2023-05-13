@@ -191,7 +191,7 @@ section[data-section-type="product-form"] label {
     margin-bottom: 15px;
 }
 .ProductDetails__Info,
-.ProductDetails__Info .ProductMeta__Text, .ProductDetails__Info .ProductMeta, .ProductDetails__Info .Heading, 
+.ProductDetails__Info .ProductMeta__Text, .ProductDetails__Info .ProductMeta, .ProductDetails__Info .Heading,
 .ProductDetails__Info .Heading a {
     font-family: 'Ruda';
 }
@@ -501,7 +501,7 @@ section[data-section-type="product-form"] label {
     .ProductDetails {
         align-items: stretch;
         max-width: unset;
-        display: flex;
+        display: block;
         /* align-items: flex-start; */
         justify-content: center;
         /* max-width: 880px; */
