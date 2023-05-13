@@ -232,8 +232,8 @@
                 {%- when 'text' -%}
                   {%- if block.settings.text != blank -%}
                     <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
-                      <div class="product--title-div" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
-                        <h1 class="product--title {{ block.settings.text | handle }}-title">{{- block.settings.text -}}</h1>
+                      <div class="product--title-div {{ block.settings.text | handle }}-title" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
+                        <h1 class="product--title">{{- block.settings.text -}}</h1>
                       </div>
                     </div>
                   {%- endif -%}
@@ -259,13 +259,13 @@
                   {% if size_variants_products != blank %}
                     <label>CHOOSE A SIZE</label>
                     <div class="variant-selector">
-                      <div v-for="(item, index) in current_product.size_variants" :key="'item'+index" :data-product-id="item.id" @click="select_size($event)" 
+                      <div v-for="(item, index) in current_product.size_variants" :key="'item'+index" :data-product-id="item.id" @click="select_size($event)"
                       v-bind:class="{'selected' : index == current_size.idx}"
                       class="variant-selector--swatch" v-text="item.title"></div>
                       {% comment %} {% for p in size_variants_products %}
-                        {% assign title = p.title 
-                          | split: '(' 
-                          | slice: 1 
+                        {% assign title = p.title
+                          | split: '('
+                          | slice: 1
                            %}
                         <div class="variant-selector--swatch" :data-product-id="{{ p.id }}" @click="select_size($event)">
                           {{ title[0] | replace: ')', '' | replace: 'Packs', 'Pack' }}
@@ -291,7 +291,7 @@
                         {% endif %}
                         {% assign bg_color = col_product.metafields.custom.product_primary_color %}
                         {% unless col_product == blank %}
-                          <label class="Product_Selector__Swatch_wrapper{% if product.id == col_product.id %} selected{% endif %}" 
+                          <label class="Product_Selector__Swatch_wrapper{% if product.id == col_product.id %} selected{% endif %}"
                             data-product-url="{{ col_product.url }}" @click="goto_product($event)"
                             for="product_swatch_{{ col_product.id }}" title="{{ col_product.title }}">
                             <div class="bg_color" style="background-color:{{bg_color}};"></div>
@@ -364,7 +364,7 @@
                       </style>
                     {%- endif -%}
 
-                    <button data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.selected_or_first_available_variant.available == false %} disabled="disabled"{% endif %} data-action="open-drawer" data-drawer-id="sidebar-cart" 
+                    <button data-use-primary-button="{% if use_primary_button %}true{% else %}false{% endif %}" class="Button {% if product.selected_or_first_available_variant.available and use_primary_button %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.selected_or_first_available_variant.available == false %} disabled="disabled"{% endif %} data-action="open-drawer" data-drawer-id="sidebar-cart"
                     @click="add_to_cart($event)">
                       {%- if product.selected_or_first_available_variant.available -%}
                         <span>
@@ -460,7 +460,7 @@
                       </div>
                     </div>
                   </div>
-              {%- endcase -%} 
+              {%- endcase -%}
             {%- endfor -%}
 
             {%- unless has_ouputted_variant_selector -%}
@@ -682,12 +682,12 @@
               {% for p in size_variants %}
                 {% liquid
                   assign plan = p.selling_plan_groups[0].selling_plans[0]
-                  assign title = p.title | split: '(' | slice: 1 
+                  assign title = p.title | split: '(' | slice: 1
                   assign title = title[0] | replace: ')', '' | replace: 'Packs', 'Pack'
                   if plan.price_adjustments[0].value_type == 'percentage'
                     assign discount_rate = plan.price_adjustments[0].value | divided_by: 100.00
                     assign discount_amount = p.selected_or_first_available_variant.price | times: discount_rate
-                  else 
+                  else
                     assign discount_amount = plan.price_adjustments[0].value
                   endif
                   assign discounted_price = p.selected_or_first_available_variant.price | minus: discount_amount
@@ -749,15 +749,15 @@
                     ],
                     size_variants: [
                       {% assign size_variants = col_product.metafields.custom.size_variants.value %}
-                      {% for p in size_variants %}                        
+                      {% for p in size_variants %}
                         {% liquid
                           assign plan = p.selling_plan_groups[0].selling_plans[0]
-                          assign title = p.title | split: '(' | slice: 1 
+                          assign title = p.title | split: '(' | slice: 1
                           assign title = title[0] | replace: ')', '' | replace: 'Packs', 'Pack'
                           if plan.price_adjustments[0].value_type == 'percentage'
                             assign discount_rate = plan.price_adjustments[0].value | divided_by: 100.00
                             assign discount_amount = p.selected_or_first_available_variant.price | times: discount_rate
-                          else 
+                          else
                             assign discount_amount = plan.price_adjustments[0].value
                           endif
                           assign discounted_price = p.selected_or_first_available_variant.price | minus: discount_amount
@@ -806,7 +806,7 @@
           $('[data-product-details-carousel]').slick('slickGoTo', 0);
         },
         goto_product(event) {
-          window.location = event.currentTarget.getAttribute('data-product-url');; 
+          window.location = event.currentTarget.getAttribute('data-product-url');;
         },
         select_size(event) {
           document.querySelectorAll('.variant-selector--swatch').forEach(el => {
@@ -892,7 +892,7 @@
         dots: true,
         arrows: true,
         lazyLoad: 'ondemand'
-      }); 
+      });
       if(screen.width < 1007) {
         $('.ProductDetails__BenefitsIcons_mob .icons-slider').slick({
           slidesToShow: 1,
@@ -1231,7 +1231,7 @@
           "type": "color",
           "id": "image_slider_bgcolor",
           "label": "Image Slider Background Color"
-        }, 
+        },
          {
           "type": "select",
           "id": "info_align",
