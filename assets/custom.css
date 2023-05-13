@@ -1128,6 +1128,11 @@ h3, .u-h3{
 /*   .Section--spacingNone .SectionHeader .u-h2 {
     font-size: 90px;
   } */
+
+    .product--title-div {
+        width: 70%;
+        padding: 20px 0;
+    }
 }
 
 
@@ -1693,4 +1698,9 @@ h1.product--title {
     background-repeat: no-repeat;
     background-position: center;
     padding: 10px 0 10px 0;
+}
+
+@media (min-width:1200px) {
+
+
 }
