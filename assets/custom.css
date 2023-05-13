@@ -1139,6 +1139,24 @@ h1.product--title {
     padding: 20px 0;
 }
 
+.product--title-div.prickly-pear-iced-tea-title {
+    width: 65%;
+}
+
+.product--title-div.prickly-pear-iced-tea-title h1.product--title {
+    font-size: 40px;
+    padding: 15px 0px;
+}
+
+.product--title-div.pomegranate-yerba-mate-title {
+    width: 80%;
+}
+
+.product--title-div.pomegranate-yerba-mate-title h1 {
+    font-size: 35px;
+    padding: 25px 0px;
+}
+
 
 
 /*------------------------------------------------------------------Breakpoints------------------------------------------------------*/
