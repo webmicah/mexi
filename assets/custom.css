@@ -1746,6 +1746,13 @@ font-size:24px!important;
 }
 
 
+
+@media (max-width: 768px) {
+  .ProductMeta__Text.desk--title {
+      display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .hurabg-video {
   max-height: 600px !important;
