@@ -501,7 +501,7 @@ section[data-section-type="product-form"] label {
     .ProductDetails {
         align-items: stretch;
         max-width: unset;
-        display: block;
+        display: flex;
         /* align-items: flex-start; */
         justify-content: center;
         /* max-width: 880px; */
