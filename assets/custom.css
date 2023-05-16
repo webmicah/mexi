@@ -1745,11 +1745,19 @@ font-size:24px!important;
   object-fit: contain;
 }
 
+.ProductMeta__Text.mob--title {
+    display: none;
+}
+
 
 
 @media (max-width: 768px) {
   .ProductMeta__Text.desk--title {
       display: none;
+  }
+
+  .ProductMeta__Text.mob--title {
+      display: block;
   }
 
     .product--title-div {
