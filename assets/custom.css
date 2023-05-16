@@ -1751,6 +1751,11 @@ font-size:24px!important;
   .ProductMeta__Text.desk--title {
       display: none;
   }
+
+    .product--title-div {
+        display: table;
+        margin: auto;
+    }
 }
 
 @media (max-width: 480px) {
