@@ -1394,6 +1394,10 @@ h1.product--title {
 
 }
 @media only screen and (max-width: 641px) {
+  .ProductDetails {
+      display: block;
+  }
+
   .FeatureText--imageRight {
       flex-direction: column-reverse;
       display: flex;

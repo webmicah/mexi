@@ -160,7 +160,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="ProductMeta__Description hidden-desk hidden-lap" {{ block.shopify_attributes }}>
-                    <div class="Rte" v-text="current_product.description">
+                    <div class="Rte test" v-text="current_product.description">
                       {{- product.description | replace: 'data-section-type', 'data-section-type-placeholder' -}}
                     </div>
                   </div>
