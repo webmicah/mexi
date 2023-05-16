@@ -157,10 +157,15 @@
                 {% else %}
                   <h1 class="ProductMeta__Title hidden-desk hidden-lap" v-text="current_product.title">{{ 'home_page.onboarding.product_title' | t }}</h1>
                 {% endif %}
+                <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                  <div class="product--title-div {{ block.settings.text | handle }}-title" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
+                    <h1 class="product--title">{{- block.settings.text -}}</h1>
+                  </div>
+                </div>z
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="ProductMeta__Description hidden-desk hidden-lap" {{ block.shopify_attributes }}>
-                    <div class="Rte test" v-text="current_product.description">
+                    <div class="Rte" v-text="current_product.description">
                       {{- product.description | replace: 'data-section-type', 'data-section-type-placeholder' -}}
                     </div>
                   </div>
