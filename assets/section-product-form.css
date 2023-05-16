@@ -561,6 +561,11 @@ section[data-section-type="product-form"] label {
     }
 }
 @media screen and (max-width: 768px) {
+
+  .ProductDetails {
+      display: block;
+  }
+
     .product-images img {
         max-height: 350px;
     }
