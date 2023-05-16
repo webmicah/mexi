@@ -161,7 +161,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
 
-                <div class="ProductMeta__Text" {{ product.title }}>
+                <div class="ProductMeta__Text mob--title" {{ product.title }}>
                   <div class="product--title-div {{ product.title | handle }}-title" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
                     <h1 class="product--title">{{- product.title -}}</h1>
                   </div>
@@ -242,7 +242,7 @@
                   {%- endif -%}
                 {%- when 'text' -%}
                   {%- if block.settings.text != blank -%}
-                    <div class="ProductMeta__Text" {{ block.shopify_attributes }}>
+                    <div class="ProductMeta__Text desk--title" {{ block.shopify_attributes }}>
                       <div class="product--title-div {{ block.settings.text | handle }}-title" style="background-image:url({{ product.metafields.custom.title_image_2.value | image_url }});">
                         <h1 class="product--title">{{- block.settings.text -}}</h1>
                       </div>
