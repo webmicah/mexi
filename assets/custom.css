@@ -1802,3 +1802,8 @@ h2.manual--title {
     line-height: 1;
     font-family: auto;
 }
+
+h2.manual-sub--title {
+    font-family: Ruda;
+    font-size: 24px;
+}
