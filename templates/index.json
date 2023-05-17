@@ -3,8 +3,9 @@
     "2bd02b41-9232-44b7-8e93-6408ee187b8f": {
       "type": "video-banner",
       "settings": {
-        "video_desktop": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/16e4bbb3f52947209d30116301397e74.mp4",
-        "video_mob": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/aadaf7fb634640a49cb65a88e4720dad.mp4",
+        "video_desktop": "",
+        "video_mob": "",
+        "image": "shopify:\/\/shop_images\/hero--banner_1.png",
         "image2": "shopify:\/\/shop_images\/hero--banner_1.png",
         "video_height": 800,
         "video_autoplay": true,
