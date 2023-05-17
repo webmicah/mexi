@@ -13,8 +13,14 @@
 %}
 <div id="section-{{ section.id }}" class="video-banner">
     <div class="video-banner--container">
-        <video class="video-banner--video video-desk{% if section.settings.video_mob != blank %} hidden-phone{% endif %}" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_desktop }}"></video>
-        {% if section.settings.video_mob != blank %}
+
+      {% if section.settings.video_desktop == blank %}
+      <img src="section.settings.image2">
+     {% else %}
+     <video class="video-banner--video video-desk{% if section.settings.video_mob != blank %} hidden-phone{% endif %}" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_desktop }}"></video>
+      {% endif%}
+
+  {% if section.settings.video_mob != blank %}
             <video class="video-banner--video hidden-tablet-and-up video-mob" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height | times: 0.75 | round: 0 }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_mob }}"></video>
         {% endif %}
         <div class="video-banner--text">
