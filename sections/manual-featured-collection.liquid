@@ -20,7 +20,7 @@
 }
 {%- endcapture -%}
 
-<section class="Section Section--spacingNone" id="{{ section.settings.sectionID }}" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
+<section class="Section tests Section--spacingNone" id="{{ section.settings.sectionID }}" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
   <header class="SectionHeader SectionHeader--center">
     <div class="Container">
     {%- if section.settings.title != blank -%}
@@ -65,10 +65,10 @@
 
 <style>
 
-  
+
 {%- for block in section.blocks -%}
-  
-  
+
+
      #block-{{ block.id }}{
         -webkit-transition: background .2s ease-in;
 		transition: background .2s ease-in;
@@ -79,45 +79,45 @@
     #block-{{ block.id }}:hover{
       background-color: {{- block.settings.hover_bg -}}{% if block.settings.low_opacity %}4D{% endif %};
     }
-  
+
   {% if block.settings.product_bg_banner2 and block.settings.temporary_img2 == blank %}
    #block-{{ block.id }}:hover .ProductItem__ImageWrapper{
-     background-image: url('{{- block.settings.product_bg_banner2 | img_url: '600x' -}}'); 
+     background-image: url('{{- block.settings.product_bg_banner2 | img_url: '600x' -}}');
 
      background-repeat: no-repeat;
      background-position: 100% 95%;
    }
   {% endif %}
   {% if block.settings.product_bg_banner %}
-  
+
 /*    #block-{{ block.id }} .ProductItem__Image{
      -webkit-transition: background-image 2s ease-in-out;
 		transition: background-image 2s ease-in-out;
    } */
-  
- 
-  
+
+
+
    #block-{{ block.id }}:hover .ProductItem__Image{
-     background-image: url('{{- block.settings.product_bg_banner | img_url: '600x' -}}'); 
+     background-image: url('{{- block.settings.product_bg_banner | img_url: '600x' -}}');
      background-size: contain;
      background-repeat: no-repeat;
      background-position: 100% 80%;
-       
+
 
    }
   {% endif %}
-  
+
   {% if block.settings.temporary_img %}
   #block-{{ block.id }}:hover .ProductItem__Image, #block-{{ block.id }}:hover .ProductItem__ImageWrapper{
     background-position: center;
   }
   {% endif %}
-  
-  
+
+
   #block-{{ block.id }}:hover .ProductItem__Title{
-   display: none; 
+   display: none;
   }
-  
+
    #block-{{ block.id }} .Button{
      display: none;
      {% if block.settings.hover_bg %}
@@ -133,16 +133,16 @@
      letter-spacing: 0px;
      border: none;
   }
-  
+
   #block-{{ block.id }} .Button:hover {
     color: white;
 	}
-  
+
   #block-{{ block.id }}:hover .Button{
-   display: block; 
+   display: block;
 
   }
-  
+
   #block-{{ block.id }}:hover .Button:before{
     {% if block.settings.button_bg_color != blank %}
       background-color: {{ block.settings.button_bg_color }};
@@ -153,13 +153,13 @@
      {%endif %}
     display: block;
   }
-  
+
    #block-{{ block.id }} .coming-soon-banner {
     position: absolute;
 	}
-  
+
   #block-{{ block.id }}:hover .ProductItem__ImageWrapper .coming-soon-banner{
-   opacity: 0; 
+   opacity: 0;
   }
 {% endfor %}
 </style>
