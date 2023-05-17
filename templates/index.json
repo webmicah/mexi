@@ -280,6 +280,7 @@
     },
     "97e197aa-3020-4ffc-83ac-9f1a3838a6c9": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "template--16665567199476__97e197aa-3020-4ffc-83ac-9f1a3838a6c9-1672707316df8aa68f-0": {
           "type": "heading",
