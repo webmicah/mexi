@@ -10,7 +10,7 @@
 }
 {%- endcapture -%}
 {% style %}{{ section.settings.custom_css }}{% endstyle %}
-<section class="Section FeaturedCollection Section--spacingNone section-{{ section.id }}" id="{{ section.settings.sectionID }}" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
+<section class="Section test FeaturedCollection Section--spacingNone section-{{ section.id }}" id="{{ section.settings.sectionID }}" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
   {% if section.settings.title != blank %}
   <header class="SectionHeader SectionHeader--center">
     <div class="Container">
@@ -32,14 +32,14 @@
           <div class="ProductList ProductList--grid ProductList--removeMargin Grid" data-mobile-count="{{ section.settings.grid_mobile_items_per_row }}" data-desktop-count="{{ section.settings.grid_desktop_items_per_row }}">
             {%- for block in section.blocks limit: section.settings.grid_items_count -%}
               <div class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up" id="block-{{ block.id }}">
-                {%- render 'product-manual-item', product-image: block.settings.product_image, temporary_img: block.settings.temporary_img, 
-                  coming_soon: block.settings.product_image_comingsoon, title: block.settings.title, button_text: block.settings.button_text, 
+                {%- render 'product-manual-item', product-image: block.settings.product_image, temporary_img: block.settings.temporary_img,
+                  coming_soon: block.settings.product_image_comingsoon, title: block.settings.title, button_text: block.settings.button_text,
                   button_link: block.settings.button_link, popup: block.settings.trigger_popup, product_details: block.settings.product_details  -%}
               </div>
             {%- endfor -%}
           </div>
         {%- elsif layout_mode == 'carousel' -%}
-          <div class="ProductList slick-slider-{{ section.id | slice: -1, 12 }}" data-slick='{"slidesToShow": {{ section.settings.slides_to_show_desktop }}, 
+          <div class="ProductList slick-slider-{{ section.id | slice: -1, 12 }}" data-slick='{"slidesToShow": {{ section.settings.slides_to_show_desktop }},
             "slidesToScroll": {{ section.settings.slides_to_scroll_desktop }},
             "infinite": false,
             "lazyLoad": "ondemand",
@@ -119,35 +119,35 @@
       z-index: -1;
     }
   {% endif %}
-{%- for block in section.blocks -%}  
+{%- for block in section.blocks -%}
     #block-{{ block.id }}{
     -webkit-transition: background .2s ease-in;
     transition: background .2s ease-in;
     }
   {% if block.settings.product_bg_banner2 != blank %}
     #block-{{ block.id }}:hover .ProductItem__Wrapper {
-      background-image: url('{{- block.settings.product_bg_banner2 | img_url: '600x' -}}'); 
+      background-image: url('{{- block.settings.product_bg_banner2 | img_url: '600x' -}}');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       border-radius: {{ section.settings.button_border_radius }}px;
     }
   {% endif %}
-  
+
   {% if block.settings.temporary_img %}
   #block-{{ block.id }}:hover .ProductItem__Image, #block-{{ block.id }}:hover .ProductItem__ImageWrapper{
     background-position: center;
   }
   {% endif %}
   #block-{{ block.id }}:hover .ProductItem__Title{
-   display: none; 
-  }  
+   display: none;
+  }
    #block-{{ block.id }} .coming-soon-banner {
     position: absolute;
 	}
-  
+
   #block-{{ block.id }}:hover .ProductItem__ImageWrapper .coming-soon-banner{
-   opacity: 0; 
+   opacity: 0;
   }
 {% endfor %}
 </style>
@@ -315,7 +315,7 @@
       "type": "liquid",
       "id": "custom_css",
       "label": "Custom CSS"
-    } 
+    }
   ],
   "blocks": [
     {
