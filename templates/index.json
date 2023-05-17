@@ -1121,6 +1121,7 @@
     },
     "1787f2b8-e611-4409-94a8-a29a59e4c52c": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "9a259565-5fdb-44d7-8560-9f39b81ba47e": {
           "type": "richtext_heading",
@@ -1303,6 +1304,7 @@
     },
     "bc11d72b-36d2-4278-a785-0d8928d6eb5f": {
       "type": "ig-feed",
+      "disabled": true,
       "blocks": {
         "c756ccb5-2c36-4798-aedc-f30294f5a725": {
           "type": "logo",
