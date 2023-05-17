@@ -15,7 +15,7 @@
     <div class="video-banner--container">
 
       {% if section.settings.video_desktop == blank %}
-      <img src="{{section.settings.image2 | img_url:'original' }}">
+      <img class="img--video" src="{{section.settings.image2 | img_url:'master' }}">
      {% else %}
      <video class="video-banner--video video-desk{% if section.settings.video_mob != blank %} hidden-phone{% endif %}" playsinline loop {% if video_muted %} muted="muted"{% endif %} {% unless video_autoplay %} controls{% endunless %} class="d-block" height="{{ video_height }}" width="100%"><source type="video/mp4" src="{{ section.settings.video_desktop }}"></video>
       {% endif%}
