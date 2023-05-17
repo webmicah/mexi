@@ -9,7 +9,7 @@
 {% liquid
     assign video_height = section.settings.video_height | default: 800
     assign video_autoplay = section.settings.video_autoplay
-    assign video_muted = section.settings.video_muted 
+    assign video_muted = section.settings.video_muted
 %}
 <div id="section-{{ section.id }}" class="video-banner">
     <div class="video-banner--container">
@@ -135,6 +135,12 @@
           "id": "image",
           "label": "Fallback image",
           "info": "A fallback image will be used on mobile devices where autoplay might be disabled."
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Background image",
+          "info": "A background image will be used if no video is set on the settings."
         },
         {
             "type": "number",
