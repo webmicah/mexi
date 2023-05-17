@@ -670,6 +670,7 @@
     },
     "72dfa44b-a54d-4c1d-ba74-d813f9535e0b": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "249d1397-8f1c-4f6a-9058-98674785730c": {
           "type": "richtext_heading",
@@ -695,6 +696,7 @@
     },
     "5566e994-791d-42c0-82bb-e8d2b5b1eebb": {
       "type": "logo-list",
+      "disabled": true,
       "blocks": {
         "c46cdb17-462e-4c86-9e2d-b946c0728c7e": {
           "type": "logo",
