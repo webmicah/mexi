@@ -1807,3 +1807,9 @@ h2.manual-sub--title {
     font-family: Ruda;
     font-size: 24px;
 }
+
+section#flavors-mexi {
+    background-image: url(https://cdn.shopify.com/s/files/1/0628/2549/6820/files/JlSsHG_3__1.png?v=1684353320);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
