@@ -451,7 +451,7 @@
       "settings": {
         "sectionID": "flavors-mexi",
         "title": "TASTE MEXI",
-        "subtitle": "DISCOVER OUR VARIETY OF DELICIOUS FLAVORS OF THE BEST TEQUILASELTZER OUT THERE",
+        "subtitle": "DISCOVER OUR VARIETY OF DELICIOUS FLAVORS OF THE BEST TEQUILA \nSELTZER OUT THERE",
         "layout_mode": "carousel",
         "grid_mobile_items_per_row": "2",
         "grid_desktop_items_per_row": 4,
@@ -670,6 +670,7 @@
     },
     "72dfa44b-a54d-4c1d-ba74-d813f9535e0b": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "249d1397-8f1c-4f6a-9058-98674785730c": {
           "type": "richtext_heading",
@@ -695,6 +696,7 @@
     },
     "5566e994-791d-42c0-82bb-e8d2b5b1eebb": {
       "type": "logo-list",
+      "disabled": true,
       "blocks": {
         "c46cdb17-462e-4c86-9e2d-b946c0728c7e": {
           "type": "logo",
@@ -1119,6 +1121,7 @@
     },
     "1787f2b8-e611-4409-94a8-a29a59e4c52c": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "9a259565-5fdb-44d7-8560-9f39b81ba47e": {
           "type": "richtext_heading",
@@ -1301,6 +1304,7 @@
     },
     "bc11d72b-36d2-4278-a785-0d8928d6eb5f": {
       "type": "ig-feed",
+      "disabled": true,
       "blocks": {
         "c756ccb5-2c36-4798-aedc-f30294f5a725": {
           "type": "logo",
