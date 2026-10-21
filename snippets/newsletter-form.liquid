@@ -9,7 +9,7 @@
         <div class="klaviyo_form_actions">
             <button type="submit" class="klaviyo_submit_button">
                 <span>SIGN UP</span>
-                <span>{% render 'icon': icon:'slanted_arrow' %}</span>
+                <span>{% render 'icon', icon: 'slanted_arrow' %}</span>
             </button>
         </div>
     </div>
@@ -126,4 +126,13 @@ KlaviyoSubscribe.attachToForms('#email_signup', {
         $consent_version: 'Embed default text'
     }
 });
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon': icon:'slanted_arrow' %}"
+  to: "{% render 'icon', icon: 'slanted_arrow' %}"
+  position: 807..849
+{%- endcomment -%}

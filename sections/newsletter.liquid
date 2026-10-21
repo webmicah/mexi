@@ -64,7 +64,7 @@
                   <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'home_page.newsletter.input' | t }}" placeholder="{{ 'home_page.newsletter.input' | t }}" required>
                   <button type="submit" class="Form__Submit Button Button--primary">
                     <span>{{ 'home_page.newsletter.submit' | t }}</span>
-                    <span>{% render 'icon': icon:'slanted_arrow' %}</span>
+                    <span>{% render 'icon', icon: 'slanted_arrow' %}</span>
                   </button>
                 </div>
               {%- endif -%}
@@ -166,4 +166,13 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon': icon:'slanted_arrow' %}"
+  to: "{% render 'icon', icon: 'slanted_arrow' %}"
+  position: 3515..3557
+{%- endcomment -%}
